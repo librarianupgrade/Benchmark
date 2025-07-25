@@ -1,0 +1,105 @@
+<configuration>
+    <!--为了防止进程退出时，内存中的数据丢失，请加上此选项-->
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+    <appender name="loghubAppender1" class="com.aliyun.openservices.log.logback.LoghubAppender">
+        <!--必选项-->
+        <!-- 账号及网络配置 -->
+        <endpoint></endpoint>
+        <accessKeyId></accessKeyId>
+        <accessKeySecret></accessKeySecret>
+
+        <!-- sls 项目配置 -->
+        <project>test-proj</project>
+        <logStore>store1</logStore>
+        <!--必选项 (end)-->
+
+        <!-- 可选项 -->
+        <topic>topic1</topic>
+        <source>source1</source>
+
+        <!-- 可选项 详见 '参数说明'-->
+        <totalSizeInBytes>104857600</totalSizeInBytes>
+        <maxBlockMs>60000</maxBlockMs>
+        <ioThreadCount>8</ioThreadCount>
+        <batchSizeThresholdInBytes>524288</batchSizeThresholdInBytes>
+        <batchCountThreshold>4096</batchCountThreshold>
+        <lingerMs>2000</lingerMs>
+        <retries>10</retries>
+        <baseRetryBackoffMs>100</baseRetryBackoffMs>
+        <maxRetryBackoffMs>100</maxRetryBackoffMs>
+
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter"><!-- 打印WARN,ERROR级别的日志 -->
+            <level>WARN</level>
+        </filter>
+
+        <mdcFields>THREAD_ID,MDC_KEY</mdcFields>
+    </appender>
+
+    <appender name="loghubAppender2" class="com.aliyun.openservices.log.logback.LoghubAppender">
+        <!--必选项-->
+        <!-- 账号及网络配置 -->
+        <endpoint></endpoint>
+        <accessKeyId></accessKeyId>
+        <accessKeySecret></accessKeySecret>
+
+        <!-- sls 项目配置 -->
+        <project>test-proj</project>
+        <logStore>store2</logStore>
+        <!--必选项 (end)-->
+
+        <!-- 可选项 -->
+        <topic>topic2</topic>
+        <source>source2</source>
+
+        <!-- 可选项 详见 '参数说明'-->
+        <totalSizeInBytes>104857600</totalSizeInBytes>
+        <maxBlockMs>60000</maxBlockMs>
+        <ioThreadCount>8</ioThreadCount>
+        <batchSizeThresholdInBytes>524288</batchSizeThresholdInBytes>
+        <batchCountThreshold>4096</batchCountThreshold>
+        <lingerMs>2000</lingerMs>
+        <retries>10</retries>
+        <baseRetryBackoffMs>100</baseRetryBackoffMs>
+        <maxRetryBackoffMs>100</maxRetryBackoffMs>
+
+        <!-- 可选项 通过配置 encoder 的 pattern 自定义 log 的格式 -->
+        <encoder>
+            <pattern>%d %-5level [%thread] %logger{0}: %msg</pattern>
+        </encoder>
+
+        <!-- 可选项 设置时间格式 -->
+        <timeFormat>yyyy-MM-dd'T'HH:mmZ</timeFormat>
+        <!-- 可选项 设置时区 -->
+        <timeZone>Asia/Shanghai</timeZone>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印INFO级别的日志 -->
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <mdcFields>THREAD_ID,MDC_KEY</mdcFields>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder
+            by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg %X{THREAD_ID} %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 可用来获取StatusManager中的状态 -->
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+
+    <!-- 解决debug模式下循环发送的问题 -->
+    <logger name="org.apache.http.impl.conn.Wire" level="WARN" />
+
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="loghubAppender1"/>
+        <appender-ref ref="loghubAppender2"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

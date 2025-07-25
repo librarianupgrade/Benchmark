@@ -1,0 +1,15 @@
+{
+    "id": "OpenGamma__GT__Strata__1",
+    "client_project_name": "OpenGamma/Strata",
+    "github_url": "git@github.com:OpenGamma/Strata.git",
+    "before_upgrade_commit": "368f0ec6cc148ca23515b3055d754aae00985dd3",
+    "after_upgrade_commit": "cc365cf7522b87331bc4232c4caac564e27084a5",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/OpenGamma/Strata/commit/cc365cf7522b87331bc4232c4caac564e27084a5",
+    "fix_type": 0
+}

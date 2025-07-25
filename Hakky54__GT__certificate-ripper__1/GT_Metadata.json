@@ -1,0 +1,15 @@
+{
+    "id": "Hakky54__GT__certificate-ripper__1",
+    "client_project_name": "Hakky54/certificate-ripper",
+    "github_url": "git@github.com:Hakky54/certificate-ripper.git",
+    "before_upgrade_commit": "390fb7f4875180fe89668bce34801062f088d3d6",
+    "after_upgrade_commit": "6d6123ba652b9ec9fd64f2e2d9250a7bff2a7123",
+    "incompatibility_category": "Classpath  Modification",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Hakky54/certificate-ripper/commit/6d6123ba652b9ec9fd64f2e2d9250a7bff2a7123",
+    "fix_type": 0
+}

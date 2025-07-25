@@ -1,0 +1,10 @@
+broker:
+  port: 1883
+  maxInflight: 8
+plugins:
+  - websocket:
+      port: 1884
+  - kafka-bridge:
+  - mqtt-bridge:
+
+  - redis-bridge:

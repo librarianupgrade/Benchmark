@@ -1,0 +1,26 @@
+# Maven
+target/
+
+# Eclipse
+.project
+.settings/
+.classpath
+.metadata
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# MAC
+.DS_Store
+
+# Gradle properties
+gradle.properties
+*.gpg
+build
+.gradle
+
+# Temporary execution files
+*.BC.cfg
+*.Config.cfg

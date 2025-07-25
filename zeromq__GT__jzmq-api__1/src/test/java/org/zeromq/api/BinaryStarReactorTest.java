@@ -1,0 +1,167 @@
+package org.zeromq.api;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.zeromq.jzmq.ManagedContext;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class BinaryStarReactorTest {
+	private Context context;
+	private Socket socket;
+
+	private Context context1;
+	private BinaryStarReactor primary;
+	private Context context2;
+	private BinaryStarReactor backup;
+
+	private AtomicInteger primaryVoter = new AtomicInteger();
+	private AtomicInteger primaryActive = new AtomicInteger();
+	private AtomicInteger primaryPassive = new AtomicInteger();
+	private AtomicInteger backupVoter = new AtomicInteger();
+	private AtomicInteger backupActive = new AtomicInteger();
+	private AtomicInteger backupPassive = new AtomicInteger();
+
+	@Before
+	public void setUp() throws Exception {
+		context = new ManagedContext();
+		socket = context.buildBinaryStarSocket().withHeartbeatInterval(250).connect("tcp://localhost:9997",
+				"tcp://localhost:9998");
+
+		startPrimary();
+		startBackup();
+		Thread.sleep(100);
+	}
+
+	@After
+	public void tearDown() {
+		if (context1 != null) {
+			primary.stop();
+			context1.close();
+		}
+		if (context2 != null) {
+			backup.stop();
+			context2.close();
+		}
+
+		context.terminate();
+		context.close();
+	}
+
+	private void startPrimary() {
+		context1 = new ManagedContext();
+		primary = context1.buildBinaryStarReactor().withMode(BinaryStarReactor.Mode.PRIMARY)
+				.withLocalUrl("tcp://*:9995").withRemoteUrl("tcp://localhost:9996").withHeartbeatInterval(250)
+				.withVoterSocket("tcp://*:9997").withVoterHandler(new LoopHandler() {
+					@Override
+					public void execute(Reactor reactor, Pollable pollable) {
+						primaryVoter.incrementAndGet();
+						pollable.getSocket().send(pollable.getSocket().receiveMessage());
+					}
+				}).withActiveHandler(new LoopHandler() {
+					@Override
+					public void execute(Reactor reactor, Pollable pollable) {
+						primaryActive.incrementAndGet();
+					}
+				}).withPassiveHandler(new LoopHandler() {
+					@Override
+					public void execute(Reactor reactor, Pollable pollable) {
+						primaryPassive.incrementAndGet();
+					}
+				}).start();
+	}
+
+	private void startBackup() {
+		context2 = new ManagedContext();
+		backup = context2.buildBinaryStarReactor().withMode(BinaryStarReactor.Mode.BACKUP).withLocalUrl("tcp://*:9996")
+				.withRemoteUrl("tcp://localhost:9995").withHeartbeatInterval(250).withVoterSocket("tcp://*:9998")
+				.withVoterHandler(new LoopHandler() {
+					@Override
+					public void execute(Reactor reactor, Pollable pollable) {
+						backupVoter.incrementAndGet();
+						pollable.getSocket().send(pollable.getSocket().receiveMessage());
+					}
+				}).withActiveHandler(new LoopHandler() {
+					@Override
+					public void execute(Reactor reactor, Pollable pollable) {
+						backupActive.incrementAndGet();
+					}
+				}).withPassiveHandler(new LoopHandler() {
+					@Override
+					public void execute(Reactor reactor, Pollable pollable) {
+						backupPassive.incrementAndGet();
+					}
+				}).start();
+	}
+
+	private void stopPrimary() {
+		context1.terminate();
+		context1.close();
+		primary = null;
+		context1 = null;
+	}
+
+	@Test
+	public void testHeartBeat() throws Exception {
+		Thread.sleep(550);
+		assertEquals(1, primaryActive.get());
+		assertEquals(0, primaryPassive.get());
+		assertEquals(1, backupPassive.get());
+		assertEquals(0, backupActive.get());
+	}
+
+	@Test
+	public void testFailover() throws Exception {
+		Thread.sleep(550);
+		stopPrimary();
+
+		Thread.sleep(25);
+		startPrimary();
+
+		Thread.sleep(350);
+		assertEquals(1, primaryActive.get());
+		assertEquals(1, primaryPassive.get());
+		assertEquals(1, backupPassive.get());
+		assertEquals(1, backupActive.get());
+	}
+
+	@Test
+	public void testVoter() throws Exception {
+		Thread.sleep(550);
+
+		for (int i = 0; i < 10; i++) {
+			socket.send(new Message(i));
+			socket.receive();
+		}
+
+		assertEquals(10, primaryVoter.get());
+		assertEquals(0, backupVoter.get());
+		assertEquals(1, primaryActive.get());
+		assertEquals(0, primaryPassive.get());
+		assertEquals(1, backupPassive.get());
+		assertEquals(0, backupActive.get());
+	}
+
+	@Test
+	public void testVoterFailover() throws Exception {
+		Thread.sleep(550);
+
+		socket.send(new Message(1));
+		socket.receiveMessage();
+
+		stopPrimary();
+
+		socket.send(new Message(1));
+		socket.receiveMessage();
+
+		assertEquals(1, primaryVoter.get());
+		assertEquals(1, backupVoter.get());
+		assertEquals(1, primaryActive.get());
+		assertEquals(0, primaryPassive.get());
+		assertEquals(1, backupPassive.get());
+		assertEquals(1, backupActive.get());
+	}
+}

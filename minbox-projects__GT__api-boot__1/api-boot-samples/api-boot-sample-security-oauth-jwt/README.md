@@ -1,0 +1,5 @@
+## 使用文档
+文档请访问`ApiBoot`官网，地址：
+<a href="http://apiboot.minbox.io/zh-cn/docs/api-boot-security.html" target="_blank">ApiBoot Security使用文档</a>
+、
+<a href="http://apiboot.minbox.io/zh-cn/docs/api-boot-oauth.html" target="_blank">ApiBoot OAuth2使用文档</a>

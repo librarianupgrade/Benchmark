@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__maven-scm__1",
+    "client_project_name": "apache/maven-scm",
+    "github_url": "git@github.com:apache/maven-scm.git",
+    "before_upgrade_commit": "c3e1baabf8e5b8c21217c798b1e9176dc837bea3",
+    "after_upgrade_commit": "fe770e4d5c5cf17d9daed31cb84a3060eb3b77f6",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/apache/maven-scm/commit/fe770e4d5c5cf17d9daed31cb84a3060eb3b77f6",
+    "fix_type": 0
+}

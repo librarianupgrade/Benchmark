@@ -1,0 +1,15 @@
+{
+    "id": "w3c__GT__epubcheck__3",
+    "client_project_name": "w3c/epubcheck",
+    "github_url": "git@github.com:w3c/epubcheck.git",
+    "before_upgrade_commit": "8db82b88cc569ac08ee895f656450c5e5f29536d",
+    "after_upgrade_commit": "8f56c018128923d123a30ab25f38bc7907124c43",
+    "incompatibility_category": "Class Removal, Method Parameter Type Change, Abstracted Method Return Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/w3c/epubcheck/commit/8f56c018128923d123a30ab25f38bc7907124c43",
+    "fix_type": 0
+}

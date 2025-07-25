@@ -1,0 +1,15 @@
+{
+    "id": "zeebe-io__GT__zeebe-simple-monitor__1",
+    "client_project_name": "zeebe-io/zeebe-simple-monitor",
+    "github_url": "git@github.com:zeebe-io/zeebe-simple-monitor.git",
+    "before_upgrade_commit": "9db894e1254a99267d177d96766aa7d2bf1cc112",
+    "after_upgrade_commit": "49192748c3a5b077fde0b28c242fdc23a4a89332",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zeebe-io/zeebe-simple-monitor/commit/49192748c3a5b077fde0b28c242fdc23a4a89332",
+    "fix_type": 0
+}

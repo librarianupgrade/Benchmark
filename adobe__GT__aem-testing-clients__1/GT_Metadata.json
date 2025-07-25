@@ -1,0 +1,15 @@
+{
+    "id": "adobe__GT__aem-testing-clients__1",
+    "client_project_name": "adobe/aem-testing-clients",
+    "github_url": "git@github.com:adobe/aem-testing-clients.git",
+    "before_upgrade_commit": "5c4ff64d0779fb016b8fcc9ca6e18e4436a39e26",
+    "after_upgrade_commit": "32720e4cc84f00c4a48bd1591351d5d5c3d15330",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/adobe/aem-testing-clients/commit/32720e4cc84f00c4a48bd1591351d5d5c3d15330",
+    "fix_type": 0
+}

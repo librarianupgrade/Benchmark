@@ -1,0 +1,15 @@
+{
+    "id": "jborgers__GT__sonar-pmd__1",
+    "client_project_name": "jborgers/sonar-pmd",
+    "github_url": "git@github.com:jborgers/sonar-pmd.git",
+    "before_upgrade_commit": "1679965802724276c7aa4f7d5908a7001b08687e",
+    "after_upgrade_commit": "cb88e6129cb1cd41a0cc1d984b71cd3618b04a76",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/jborgers/sonar-pmd/commit/cb88e6129cb1cd41a0cc1d984b71cd3618b04a76",
+    "fix_type": 2
+}

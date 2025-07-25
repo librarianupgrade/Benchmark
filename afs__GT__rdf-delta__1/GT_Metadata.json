@@ -1,0 +1,15 @@
+{
+    "id": "afs__GT__rdf-delta__1",
+    "client_project_name": "afs/rdf-delta",
+    "github_url": "git@github.com:afs/rdf-delta.git",
+    "before_upgrade_commit": "cee0436a67c64e20825ba03e2f036eb942e26b03",
+    "after_upgrade_commit": "552bd91061179b747ed56f1e29a69dbdecfe4a51",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/afs/rdf-delta/commit/552bd91061179b747ed56f1e29a69dbdecfe4a51",
+    "fix_type": 0
+}

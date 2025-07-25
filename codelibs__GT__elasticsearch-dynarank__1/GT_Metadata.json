@@ -1,0 +1,15 @@
+{
+    "id": "codelibs__GT__elasticsearch-dynarank__1",
+    "client_project_name": "codelibs/elasticsearch-dynarank",
+    "github_url": "git@github.com:codelibs/elasticsearch-dynarank.git",
+    "before_upgrade_commit": "a38556d38f2a91f4ede64c9f7784a5572ee02d9d",
+    "after_upgrade_commit": "fc22707ce29ac7db8eb2ef76536eebd7f1bbce03",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/codelibs/elasticsearch-dynarank/commit/fc22707ce29ac7db8eb2ef76536eebd7f1bbce03",
+    "fix_type": 0
+}

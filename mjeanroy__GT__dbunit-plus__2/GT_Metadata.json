@@ -1,0 +1,15 @@
+{
+    "id": "mjeanroy__GT__dbunit-plus__2",
+    "client_project_name": "mjeanroy/dbunit-plus",
+    "github_url": "git@github.com:mjeanroy/dbunit-plus.git",
+    "before_upgrade_commit": "fb6cdde77fc07dcb568949365be6ccdbd32902ee",
+    "after_upgrade_commit": "fb162609fa10280677f2bbde9d296a3c85813acd",
+    "incompatibility_category": "Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/mjeanroy/dbunit-plus/commit/fb162609fa10280677f2bbde9d296a3c85813acd",
+    "fix_type": 0
+}

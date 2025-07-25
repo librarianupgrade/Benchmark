@@ -1,0 +1,13 @@
+src/main/resources/markdowns/*
+!src/main/resources/markdowns/README.md
+src/main/resources/dist/
+solo_h2_test/
+target/
+node_modules/
+**/.DS_store
+.idea/
+solo.iml
+*.log
+/.settings/
+/.classpath
+/.project

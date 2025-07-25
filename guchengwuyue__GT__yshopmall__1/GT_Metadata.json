@@ -1,0 +1,15 @@
+{
+    "id": "guchengwuyue__GT__yshopmall__1",
+    "client_project_name": "guchengwuyue/yshopmall",
+    "github_url": "git@github.com:guchengwuyue/yshopmall.git",
+    "before_upgrade_commit": "0a7faa599c5d640a71dba0a6b95a11788f43e549",
+    "after_upgrade_commit": "aee21cc1f4cdff81471a86a8969483ead0eeb809",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "yshop-weixin",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/guchengwuyue/yshopmall/commit/aee21cc1f4cdff81471a86a8969483ead0eeb809",
+    "fix_type": 0
+}

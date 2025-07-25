@@ -1,0 +1,15 @@
+{
+    "id": "davidmoten__GT__rxjava-extras__1",
+    "client_project_name": "davidmoten/rxjava-extras",
+    "github_url": "git@github.com:davidmoten/rxjava-extras.git",
+    "before_upgrade_commit": "4034c484cac0c44ef8782d71c631577d6e5826e9",
+    "after_upgrade_commit": "d3a771a90e410dd6db9e875bb26692889d4c4909",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/davidmoten/rxjava-extras/commit/d3a771a90e410dd6db9e875bb26692889d4c4909",
+    "fix_type": 0
+}

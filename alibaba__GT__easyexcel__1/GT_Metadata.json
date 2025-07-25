@@ -1,0 +1,15 @@
+{
+    "id": "alibaba__GT__easyexcel__2",
+    "client_project_name": "alibaba/easyexcel",
+    "github_url": "git@github.com:alibaba/easyexcel.git",
+    "before_upgrade_commit": "62855db969a6347c2411b103adf6291317345c57",
+    "after_upgrade_commit": "c5b90d31c37eb80e0177884f5590ce64189dcb0e",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/alibaba/easyexcel/commit/c5b90d31c37eb80e0177884f5590ce64189dcb0e",
+    "fix_type": 0
+}

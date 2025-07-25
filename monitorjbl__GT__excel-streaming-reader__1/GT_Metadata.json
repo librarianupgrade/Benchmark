@@ -1,0 +1,15 @@
+{
+    "id": "monitorjbl__GT__excel-streaming-reader__1",
+    "client_project_name": "monitorjbl/excel-streaming-reader",
+    "github_url": "git@github.com:monitorjbl/excel-streaming-reader.git",
+    "before_upgrade_commit": "307d7d550dd398248204a1caf0b6094c8e5e226a",
+    "after_upgrade_commit": "6a28f559f770d7a114c53a9c0503a658b7c7ec6e",
+    "incompatibility_category": "Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/monitorjbl/excel-streaming-reader/commit/6a28f559f770d7a114c53a9c0503a658b7c7ec6e",
+    "fix_type": 0
+}

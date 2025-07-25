@@ -1,0 +1,267 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.jmolecules.integrations</groupId>
+	<artifactId>jmolecules-integrations</artifactId>
+	<version>0.13.0-SNAPSHOT</version>
+
+	<name>jMolecules - Technology integrations</name>
+	<description>Modules to integrate jMolecules abstractions with implementation technologies</description>
+	<url>https://github.com/xmolecules/jmolecules-integrations</url>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>jmolecules-archunit</module>
+		<module>jmolecules-bytebuddy</module>
+		<module>jmolecules-bytebuddy-nodep</module>
+		<module>jmolecules-jpa</module>
+		<module>jmolecules-jackson</module>
+		<module>jmolecules-spring</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<archunit.version>1.0.0</archunit.version>
+		<bytebuddy.version>1.12.16</bytebuddy.version>
+		<hibernate.version>6.1.3.Final</hibernate.version>
+		<jmolecules.version>1.6.0</jmolecules.version>
+		<spring-boot.version>2.6.11</spring-boot.version>
+		<axon.version>4.5.17</axon.version>
+	</properties>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>odrotbohm</id>
+			<name>Oliver Drotbohm</name>
+			<email>odrotbohm@vmware.com</email>
+			<organization>VMware Inc.</organization>
+			<organizationUrl>https://vmware.com</organizationUrl>
+		</developer>
+		<developer>
+			<id>zambrovski</id>
+			<name>Simon Zambrovski</name>
+			<email>simon.zambrovski@holisticon.de</email>
+			<organization>Holisticon AG</organization>
+			<organizationUrl>https://holisticon.de</organizationUrl>
+		</developer>
+	</developers>
+
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>jmolecules-bytebuddy-empty</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>sonatype</id>
+			<properties>
+				<skipTests>true</skipTests>
+			</properties>
+			<build>
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>3.4.0</version>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<additionalOptions>
+								<additionalOption>-Xdoclint:none</additionalOption>
+							</additionalOptions>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<distributionManagement>
+				<repository>
+					<id>sonatype-new</id>
+					<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<!-- Axon Framework -->
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-bom</artifactId>
+				<version>${axon.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+
+		<defaultGoal>verify</defaultGoal>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireJavaVersion>
+									<version>[15,)</version>
+								</requireJavaVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>1.2.7</version>
+				<executions>
+					<execution>
+						<id>flatten</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+						<configuration>
+							<updatePomFile>true</updatePomFile>
+							<flattenMode>oss</flattenMode>
+							<pomElements>
+								<distributionManagement>remove</distributionManagement>
+								<properties>remove</properties>
+								<repositories>remove</repositories>
+								<profiles>remove</profiles>
+							</pomElements>
+						</configuration>
+					</execution>
+					<execution>
+						<id>flatten-clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+					<releaseProfiles>sonatype</releaseProfiles>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<pushChanges>false</pushChanges>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+					<localCheckout>true</localCheckout>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+	<scm>
+		<url>https://github.com/xmolecules/jmolecules-integrations</url>
+		<connection>scm:git:https://github.com/xmolecules/jmolecules-integrations</connection>
+		<developerConnection>scm:git:ssh://git@github.com/xmolecules/jmolecules-integrations.git</developerConnection>
+		<tag>0.10.0</tag>
+	</scm>
+
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<url>https://repo.spring.io/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+</project>

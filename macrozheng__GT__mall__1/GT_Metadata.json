@@ -1,0 +1,15 @@
+{
+    "id": "macrozheng__GT__mall__1",
+    "client_project_name": "macrozheng/mall",
+    "github_url": "git@github.com:ZZMarquis/gmhelper.git",
+    "before_upgrade_commit": "3af3b81f1b6160e2218caa83c9d4c2f2674d2127",
+    "after_upgrade_commit": "f6652cf46f940b97a94d3cbbdeee278eaf793015",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/macrozheng/mall/commit/f6652cf46f940b97a94d3cbbdeee278eaf793015",
+    "fix_type": 2
+}

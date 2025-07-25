@@ -1,0 +1,15 @@
+{
+    "id": "checkstyle__GT__contribution__1",
+    "client_project_name": "checkstyle/contribution",
+    "github_url": "git@github.com:checkstyle/contribution.git",
+    "before_upgrade_commit": "a7e35257a25e02e9b482fdeac22b0fffbe79b4cf",
+    "after_upgrade_commit": "2707be87f3b37c70b80134a24a0f9a3e6175a698",
+    "incompatibility_category": "",
+    "root_path": "releasenotes-builder",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/checkstyle/contribution/commit/2707be87f3b37c70b80134a24a0f9a3e6175a698",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "alibaba__GT__nacos__1",
+    "client_project_name": "alibaba/nacos",
+    "github_url": "git@github.com:alibaba/nacos.git",
+    "before_upgrade_commit": "34a29e71dd584518ab1839b00227f995a9201716",
+    "after_upgrade_commit": "81dda26709b0627e0198adb224dde6e89cf88cdb",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/alibaba/nacos/commit/81dda26709b0627e0198adb224dde6e89cf88cdb",
+    "fix_type": 0
+}

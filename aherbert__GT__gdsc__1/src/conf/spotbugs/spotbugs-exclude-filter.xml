@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!--
+  #%L
+  Genome Damage and Stability Centre ImageJ Plugins
+
+  Software for microscopy image analysis
+  %%
+  Copyright (C) 2011 - 2022 Alex Herbert
+  %%
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public
+  License along with this program.  If not, see
+  <http://www.gnu.org/licenses/gpl-3.0.html>.
+  #L%
+  -->
+
+<!-- This file contains some false positive bugs detected by spotbugs. Their false positive nature has been analyzed individually
+  and they have been put here to instruct spotbugs it must ignore them. -->
+<FindBugsFilter
+    xmlns="https://github.com/spotbugs/filter/3.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
+
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.colocalisation.cda.Cda_PlugIn" />
+    <!-- NP: Unshifted result cannot be null. -->
+    <Method name="runCda" />
+    <Bug code="NP" />
+  </Match>
+
+  <Match>
+    <Or>
+      <Class name="uk.ac.sussex.gdsc.ij.foci.FindFociBaseProcessor$ResultComparator" />
+      <Class name="uk.ac.sussex.gdsc.ij.foci.FindFociBaseProcessor$ResultAscComparator" />
+      <Class name="uk.ac.sussex.gdsc.ij.foci.FindFociBaseProcessor$ResultDescComparator" />
+      <Class name="uk.ac.sussex.gdsc.ij.foci.FindFociOptimiser_PlugIn$ResultComparator" />
+      <Class name="uk.ac.sussex.gdsc.ij.foci.FindFociSaddle" />
+    </Or>
+    <!-- Allow incorrect float comparison. This will allow -0,0 to be sorted incorrectly if present. NaNs are still detected. -->
+    <Method name="compare" />
+    <Bug pattern="CO_COMPARETO_INCORRECT_FLOATING" />
+  </Match>
+
+  <Match>
+    <Or>
+      <Class name="uk.ac.sussex.gdsc.ij.foci.ObjectAnalyzer" />
+      <Class name="uk.ac.sussex.gdsc.ij.foci.ObjectAnalyzer3D" />
+    </Or>
+    <!-- This is documented as returning a reference -->
+    <Method name="getObjectMask" />
+    <Bug pattern="EI_EXPOSE_REP" />
+  </Match>
+
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.foci.ObjectAnalyzer3D" />
+    <!-- The constructor deliberately wraps the array. -->
+    <Method name="&lt;init&gt;" />
+    <Bug pattern="EI_EXPOSE_REP2" />
+  </Match>
+
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.utils.CellOutliner_PlugIn" />
+    <!-- It is intended to divide the kernel width by 2 using integer division -->
+    <Method name="getCellRange" />
+    <Bug pattern="ICAST_IDIV_CAST_TO_DOUBLE" />
+  </Match>
+
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.foci.FindFociBaseProcessor" />
+    <!-- Unused method left for debugging -->
+    <Method name="findHighestSaddle" />
+    <Bug pattern="UPM_UNCALLED_PRIVATE_METHOD" />
+  </Match>
+
+  <!-- These all intend to compare floating point numbers using == -->
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.colocalisation.ColocalisationThreshold" />
+    <Method name="correlate" />
+    <Bug pattern="FE_FLOATING_POINT_EQUALITY" />
+  </Match>
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.ij.plugin.filter.ParticleAnalyzerCopy" />
+    <Or>
+      <Method name="showDialog" />
+      <Method name="eraseOutsideRoi" />
+    </Or>
+    <Bug pattern="FE_FLOATING_POINT_EQUALITY" />
+  </Match>
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.threshold.MultiOtsuThreshold_PlugIn" />
+    <Method name="findMaxSigma" />
+    <Bug pattern="FE_FLOATING_POINT_EQUALITY" />
+  </Match>
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.utils.AlignImages_PlugIn" />
+    <Or>
+      <Method name="alignImages" />
+      <Method name="calculateScore" />
+    </Or>
+    <Bug pattern="FE_FLOATING_POINT_EQUALITY" />
+  </Match>
+
+  <!-- A copy of an ImageJ class that has not been fixed for thread safety. -->
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.ij.plugin.filter.ParticleAnalyzerCopy" />
+    <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" />
+  </Match>
+
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.foci.FindFociOptimiser_PlugIn" />
+    <Method name="runOptimiser" />
+    <Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" />
+  </Match>
+  <Match>
+    <Class name="uk.ac.sussex.gdsc.ij.foci.controller.FindFociRunner" />
+    <Method name="runFindFoci" />
+    <Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" />
+  </Match>
+
+  <Match>
+    <Class name="~uk.ac.sussex.gdsc.foci.FindFoci.*Results" />
+    <!-- Allow direct storage of mutable results. -->
+    <Bug pattern="EI_EXPOSE_REP2" />
+  </Match>
+
+</FindBugsFilter>

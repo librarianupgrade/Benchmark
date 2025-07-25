@@ -1,0 +1,15 @@
+{
+    "id": "akamai__GT__AkamaiOPEN-edgegrid-java__1",
+    "client_project_name": "akamai/AkamaiOPEN-edgegrid-java",
+    "github_url": "git@github.com:akamai/AkamaiOPEN-edgegrid-java.git",
+    "before_upgrade_commit": "26c8006c62a4ec0ee26fda25a92bab7e44d05f86",
+    "after_upgrade_commit": "2563e0ab2fceb249e38df7ec1defcc98a6b8f190",
+    "incompatibility_category": "Class Removal, Method Accessibility Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "11",
+    "fixed_commit_url": "https://github.com/akamai/AkamaiOPEN-edgegrid-java/commit/2563e0ab2fceb249e38df7ec1defcc98a6b8f190",
+    "fix_type": 0
+}

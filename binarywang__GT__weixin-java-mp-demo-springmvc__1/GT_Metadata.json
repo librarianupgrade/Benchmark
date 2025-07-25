@@ -1,0 +1,15 @@
+{
+    "id": "binarywang__GT__weixin-java-mp-demo-springmvc__1",
+    "client_project_name": "binarywang/weixin-java-mp-demo-springmvc",
+    "github_url": "git@github.com:binarywang/weixin-java-mp-demo-springmvc.git",
+    "before_upgrade_commit": "8df3e3f61258d1f4cd83b0beb8e9a9978b11e005",
+    "after_upgrade_commit": "7a4a4e3c42e2ad9bf8181db12b54aa6c171083eb",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/binarywang/weixin-java-mp-demo-springmvc/commit/7a4a4e3c42e2ad9bf8181db12b54aa6c171083eb",
+    "fix_type": 0
+}

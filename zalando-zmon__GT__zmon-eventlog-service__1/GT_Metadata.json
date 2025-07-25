@@ -1,0 +1,15 @@
+{
+    "id": "zalando-zmon__GT__zmon-eventlog-service__1",
+    "client_project_name": "zalando-zmon/zmon-eventlog-service",
+    "github_url": "git@github.com:zalando-zmon/zmon-eventlog-service.git",
+    "before_upgrade_commit": "14f55fe53ffef13f0612c88c9e3bd1551bcf2338",
+    "after_upgrade_commit": "408b4a529079a00f9339208050868205b255a5a8",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zalando-zmon/zmon-eventlog-service/commit/408b4a529079a00f9339208050868205b255a5a8",
+    "fix_type": 0
+}

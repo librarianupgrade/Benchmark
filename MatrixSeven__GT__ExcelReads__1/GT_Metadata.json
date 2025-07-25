@@ -1,0 +1,15 @@
+{
+    "id": "MatrixSeven__GT__ExcelReads__1",
+    "client_project_name": "MatrixSeven/ExcelReads",
+    "github_url": "git@github.com:MatrixSeven/ExcelReads.git",
+    "before_upgrade_commit": "743061129b46fb54cd6fec69019ff0ced76b3936",
+    "after_upgrade_commit": "08abea54ab30ed6616d52341afdef2adcbb44eda",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/MatrixSeven/ExcelReads/commit/08abea54ab30ed6616d52341afdef2adcbb44eda",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "webfx-project__GT__webfx__2",
+    "client_project_name": "webfx-project/webfx",
+    "github_url": "git@github.com:webfx-project/webfx.git",
+    "before_upgrade_commit": "86007e8e043520feb3601620056792d638281b42",
+    "after_upgrade_commit": "2e45b2c888e3bb5274c0d7ecee344435ce0dc406",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "11",
+    "fixed_commit_url": "https://github.com/webfx-project/webfx/commit/2e45b2c888e3bb5274c0d7ecee344435ce0dc406",
+    "fix_type": 0
+}

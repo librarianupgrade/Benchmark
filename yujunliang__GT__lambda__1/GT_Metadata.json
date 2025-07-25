@@ -1,0 +1,15 @@
+{
+    "id": "yujunliang__GT__lambda__1",
+    "client_project_name": "yujunliang/lambda",
+    "github_url": "git@github.com:yujunliang/lambda.git",
+    "before_upgrade_commit": "df95b45ad6e32e21ff4c20916cb65a5e5758d600",
+    "after_upgrade_commit": "28fa09799df15db4f1079c353507b6f6fc63e9cf",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yujunliang/lambda/commit/28fa09799df15db4f1079c353507b6f6fc63e9cf",
+    "fix_type": 0
+}

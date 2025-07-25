@@ -1,0 +1,117 @@
+## ---------------------------------------------------------------------------
+## Licensed to the Apache Software Foundation (ASF) under one or more
+## contributor license agreements.  See the NOTICE file distributed with
+## this work for additional information regarding copyright ownership.
+## The ASF licenses this file to You under the Apache License, Version 2.0
+## (the "License"); you may not use this file except in compliance with
+## the License.  You may obtain a copy of the License at
+##
+##      http://www.apache.org/licenses/LICENSE-2.0
+##
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License.
+## ---------------------------------------------------------------------------
+
+---
+openapi: 3.0.1
+info:
+  title: swagger definition for org.apache.servicecomb.swagger.generator.springdata.TestPageResponseTypeProcessor$PageSchema
+  version: 1.0.0
+servers:
+- url: /PageSchema
+paths:
+  /test:
+    post:
+      operationId: test
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PageString"
+          application/protobuf:
+            schema:
+              $ref: "#/components/schemas/PageString"
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/PageString"
+        x-name: page
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PageString"
+            application/protobuf:
+              schema:
+                $ref: "#/components/schemas/PageString"
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/PageString"
+components:
+  schemas:
+    PageString:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            type: string
+        empty:
+          type: boolean
+        first:
+          type: boolean
+        last:
+          type: boolean
+        number:
+          type: integer
+          format: int32
+        numberOfElements:
+          type: integer
+          format: int32
+        pageable:
+          $ref: "#/components/schemas/Pageable"
+        size:
+          type: integer
+          format: int32
+        sort:
+          $ref: "#/components/schemas/Sort"
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int32
+      x-java-class: org.springframework.data.domain.Page<java.lang.String>
+    Pageable:
+      type: object
+      properties:
+        offset:
+          type: integer
+          format: int64
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        paged:
+          type: boolean
+        sort:
+          $ref: "#/components/schemas/Sort"
+        unpaged:
+          type: boolean
+      x-java-class: org.springframework.data.domain.Pageable
+    Sort:
+      type: object
+      properties:
+        empty:
+          type: boolean
+        sorted:
+          type: boolean
+        unsorted:
+          type: boolean
+      x-java-class: org.springframework.data.domain.Sort

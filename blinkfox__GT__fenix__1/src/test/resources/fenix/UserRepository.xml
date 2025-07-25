@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 这是用来测试 XML 模版或标签生成的 SQL语句或参数的 Fenix XML 文件. -->
+<fenixs namespace="com.blinkfox.fenix.repository.UserRepository">
+
+    <fenix id="UserHeader">
+        SELECT u FROM User AS u
+        WHERE
+    </fenix>
+
+    <!-- 根据多个 ID 来查询用户信息. -->
+    <fenix id="queryUserByIds">
+        <import fenixId="UserHeader"/>
+        <in field="u.id" value="userMap.ids"/>
+    </fenix>
+
+    <!-- 根据多个 ID 来查询用户的总记录数. -->
+    <fenix id="queryAllUsersCount">
+        SELECT count(*) FROM User AS u
+    </fenix>
+
+    <!-- 根据自定义的 userIdEmail 标签来查询用户信息. -->
+    <fenix id="queryUserWithIdEmail">
+        SELECT
+            u
+        FROM
+            User AS u
+        WHERE
+        <userIdEmail idField="u.id" emailField="u.email"
+                     idValue="userId" emailValue="userEmail" match="(?userId != empty) || (?userEmail != empty)"/>
+    </fenix>
+
+    <!-- 多条件模糊查询用户信息，测试 id 和 执行的方法名一样的情况. -->
+    <fenix id="queryUsersWithSameName">
+        <import fenixId="queryUserByIds"/>
+        <andLike field="u.name" value="user.name" match="user.name != empty"/>
+    </fenix>
+
+</fenixs>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcz.qmplatform.module.other.mapper.BillMapper">
+
+    <select id="getList" resultType="com.qcz.qmplatform.module.other.vo.BillVO">
+        <![CDATA[
+            select
+                tb.id,
+                tb.type_id,
+                tbt.name as typeName,
+                tb.amount,
+                tb.consumer,
+                tb.remark,
+                tb.consume_time,
+                tb.create_time,
+                tb.create_user_id
+            from
+                tbl_bill tb
+            left join tbl_bill_type tbt on tbt.id = tb.type_id
+            where 1=1
+            [[ and tb.remark like '%' || #remark# || '%' ]]
+            [[ and tb.consumer like '%' || #consumer# || '%' ]]
+            [[ and tb.type_id = #typeId# ]]
+            [[ and tb.consume_time >= #consumeTimeStart# ]]
+            [[ and tb.consume_time <= #consumeTimeEnd# ]]
+        ]]>
+    </select>
+
+    <select id="selectAmountGroupByType" resultType="map">
+        <![CDATA[
+            select
+                tmp.type_name as name,
+                sum(tmp.amount) as value
+            from (
+                select
+                    case when vbt.parent_name <> '' then vbt.parent_name else vbt.name end as type_name,
+                    tb.amount
+                from tbl_bill tb
+                left join v_bill_type vbt on tb.type_id = vbt.id
+                where 1=1
+                [[ and tb.remark like '%' || #remark# || '%' ]]
+                [[ and tb.consumer like '%' || #consumer# || '%' ]]
+                [[ and tb.type_id = #typeId# ]]
+                [[ and tb.consume_time >= #consumeTimeStart# ]]
+                [[ and tb.consume_time <= #consumeTimeEnd# ]]
+            ) as tmp
+            group by tmp.type_name
+        ]]>
+    </select>
+
+    <select id="selectAmountGroupByDate" resultType="map">
+        <![CDATA[
+            select
+                consume_time as name,
+                sum(amount) as value
+            from tbl_bill
+            where 1=1
+            [[ and remark like '%' || #remark# || '%' ]]
+            [[ and consumer like '%' || #consumer# || '%' ]]
+            [[ and type_id = #typeId# ]]
+            [[ and consume_time >= #consumeTimeStart# ]]
+            [[ and consume_time <= #consumeTimeEnd# ]]
+            group by
+                consume_time
+            order by
+                consume_time
+        ]]>
+    </select>
+
+    <select id="selectTest" resultType="com.qcz.qmplatform.module.other.vo.BillVO">
+        select * from tbl_bill where 1=1
+        [[ and tb.type_id = #typeId# ]]
+    </select>
+</mapper>

@@ -1,0 +1,655 @@
+[[customising-queues]]
+== Customising queues
+
+PerfTest can create queues using provided https://rabbitmq.com/queues.html#optional-arguments[queue arguments]:
+
+ java -jar perf-test.jar --queue-args x-max-length=10
+
+The previous command will create a https://www.rabbitmq.com/maxlength.html[queue with a length limit]
+of 10. You can also provide several queue arguments by separating the
+key/value pairs with commas:
+
+ java -jar perf-test.jar \
+   --queue-args x-max-length=10,x-dead-letter-exchange=some.exchange.name
+
+Some commonly supported queue arguments are available thanks to dedicated flags:
+
+* `--max-length-bytes`: https://rabbitmq.com/maxlength.html[maximum size] of created queues
+* `--leader-locator`: leader location strategy for https://www.rabbitmq.com/quorum-queues.html#leader-placement[quorum queues] and https://www.rabbitmq.com/streams.html#leader-election[streams], supported values are `client-local` and `balanced`
+
+=== Quorum Queue Support
+
+It is possible to use several arguments to create https://rabbitmq.com/quorum-queues.html[quorum queues], but PerfTest provides a `--quorum-queue` flag to do that:
+
+ java -jar perf-test.jar \
+   --quorum-queue --queue qq
+
+`--quorum-queue` is a shortcut for `--flag persistent --queue-args x-queue-type=quorum --auto-delete false`.
+Note a quorum queue cannot have a server-generated name, so the `--queue` argument must be used to specify the name of the queue(s).
+
+[[stream-support]]
+=== Stream Support
+
+PerfTest provides flags and options to configure https://rabbitmq.com/streams.html[streams] and use them on top of the AMQP 0.9.1 protocol.
+Use the `--stream-queue` flag to create streams instead of classic queues:
+
+ java -jar perf-test.jar \
+   --stream-queue --queue sq
+
+Note a stream cannot have a server-generated name, so the `--queue` argument must be used to specify the name of the stream(s).
+
+`--stream-queue` automatically sets the `--qos` flag to 200.
+
+The following stream-related flags are also available, the defaults applied by `--stream-queue` are mentioned in parentheses (if any):
+
+* `--max-length-bytes`: https://rabbitmq.com/streams.html#retention[maximum size] of created streams, use 0 for no limit (`20gb`)
+* `--stream-max-segment-size-bytes`: https://rabbitmq.com/streams.html#retention[maximum size] of stream segments (`500mb`)
+* `--max-age`: https://rabbitmq.com/streams.html#retention[maximum age] of stream segments using the https://en.wikipedia.org/wiki/ISO_8601#Durations[ISO 8601 duration format], e.g. PT10M30S for 10 minutes 30 seconds, P5DT8H for 5 days 8 hours
+
+See the <<usage-advanced.adoc#consuming-from-streams, stream consumer section>> for details on how to consume from a stream.
+
+NOTE: PerfTest uses the AMQP 0.9.1 protocol.
+Use https://rabbitmq.github.io/rabbitmq-stream-java-client/stable/htmlsingle/#the-performance-tool[Stream PerfTest] if you want to test https://rabbitmq.com/streams.html[RabbitMQ Streams] with the https://github.com/rabbitmq/rabbitmq-server/blob/main/deps/rabbitmq_stream/docs/PROTOCOL.adoc[stream protocol].
+
+== Customising messages
+
+It is possible to customise messages that PerfTest publishes. This allows
+getting as close as possible to the target traffic or to populate queues
+with messages that real consumers will process.
+
+=== Message Properties
+
+You can specify message properties with key/value pairs separated by commas:
+
+ java -jar perf-test.jar \
+   --message-properties priority=5,timestamp=2007-12-03T10:15:30+01:00
+
+The supported property keys are: `contentType`, `contentEncoding`,
+`deliveryMode`, `priority`, `correlationId`, `replyTo`, `expiration`, `messageId`,
+`timestamp`, `type`, `userId`, `appId`, `clusterId`. If some provided
+keys do not belong to the previous list, the pairs will be considered
+as headers (arbitrary key/value pairs):
+
+ java -jar perf-test.jar \
+   --message-properties priority=10,header1=value1,header2=value2
+
+=== Message Payload from Files
+
+You can mimic real messages by specifying their content and
+content type. This can be useful when plugging real application
+consumers downstream. The content can come from one or several files and
+the content-type can be specified:
+
+  java -jar perf-test.jar --consumers 0 \
+    --body content1.json,content2.json --body-content-type application/json
+
+NOTE: Make sure to also set `--body` in a consumer-only PerfTest instance if it consumes messages published with it.
+This is to tell PerfTest how to extract the message timestamp to calculate latency.
+
+=== Random JSON Payload
+
+PerfTest can generate random JSON payload for messages. This is useful to
+experiment with traffic that (almost) always changes. To generate random JSON
+payloads, use the `--json-body` flag and the `--size` argument to specify
+the size in bytes:
+
+ java -jar perf-test.jar --json-body --size 16000
+
+Generate random values is costly, so PerfTest generates a pool of payloads upfront
+and uses them randomly in published messages. This way the generation of payloads
+does not impede publishing rate. There are 2 options to change the pre-generation of
+random JSON payload:
+
+ * `--body-count`: the size of the pool of payloads PerfTest will generate and use in
+ published messages. The default size is 100. Increase this value if you want more
+ randomness in published messages.
+ * `--body-field-count`: the size of the pool of random strings used for field names and
+ values in the JSON document. Before generating JSON payloads, PerfTest generates random
+ strings and will use them randomly for field names and values in the JSON documents.
+ The default value is 1,000. Increasing this value can be useful for "large"
+ payloads (a few hundreds of kilobytes or more), which can "exhaust" the pool of random strings
+ and then end up with duplicated field names. Duplicated field names are fine if
+ the random JSON payloads are used to simulate traffic, but can be problematic if real
+ consumers are plugged in and try to parse the JSON documents
+ (JSON parsers do not always tolerate duplicated fields).
+
+The defaults for `--body-count` and `--body-field-count` are usually fine, but can be increased
+for more randomness, at the cost of slower startup time and higher memory consumption.
+
+Bear in mind that a large cache of generated payloads combined with a moderately large size
+can easily take up a significant amount of memory. As an example, `--json-body --body-count 50000 --size 100000`
+(50,000 payloads of 100 kB) will use about 5 GB of memory.
+
+NOTE: Make sure to also set `--json-body` in a consumer-only PerfTest instance if it consumes messages published with it.
+This is to tell PerfTest how to extract the message timestamp to calculate latency.
+
+
+== Limiting and varying publishing rate
+
+By default, PerfTest publishes as fast as possible.
+The publishing rate per producer can be limited with the `--rate` option (`-r`). E.g. to
+publishing at most 100 messages per second for the whole run:
+
+  java -jar perf-test.jar --rate 100
+
+The `--variable-rate` (`-vr`) option can be used several times to specify a publishing rate
+for a duration, e.g.:
+
+  java -jar perf-test.jar \
+    --variable-rate 100:60 --variable-rate 1000:10 --variable-rate 500:15
+
+The variable rate option uses the `[RATE]:[DURATION]` syntax, where `RATE` is in messages per second
+and `DURATION` is in seconds. In the previous example, the publishing rate
+will be 100 messages per second for 60 seconds, then 1000 messages per second
+for 10 seconds, then 500 messages per second for 15 seconds, then back to 100 messages per second
+for 60 seconds, and so on.
+
+The `--variable-rate` option is useful to simulate steady rates and burst of messages for short periods.
+
+== Setting and varying the message size
+
+The default size of the messages that PerfTest publishes is 12 bytes (PerfTest stores
+some data in the message to calculate latency on the consumer side).
+
+It is possible to make messages bigger with the `--size` (`-s`) option, e.g. to publish
+4 kB messages:
+
+  java -jar perf-test.jar --size 4000
+
+The `--variable-size` (`-vs`) option allows to specify different message sizes
+for periods of time, e.g.:
+
+  java -jar perf-test.jar \
+    --variable-size 1000:30 --variable-size 10000:20 --variable-size 5000:45
+
+The variable rate option uses the `[SIZE]:[DURATION]` syntax, where `SIZE` is in bytes
+and `DURATION` is in seconds. In the previous example, the size of published messages
+will be 1 kB for 30 seconds, then 10 kB for 20 seconds, then 5 kB for 45 seconds,
+then back to 1 kB for 30 seconds, and so on.
+
+== Setting and varying consumer latency
+
+You can simulate processing time per message with either a fixed or a variable latency value in microseconds.
+
+The `--consumer-latency` (`-L`) option sets a fixed consumer latency in microseconds. In the example
+below a 1 ms latency is set:
+
+  java -jar perf-test.jar --consumer-latency 1000
+
+The `--variable-latency` (`-vl`) option sets a variable consumer latency. In the example below it is
+set to 1 ms for 60 seconds then 1 second for 30 seconds:
+
+  java -jar perf-test.jar --variable-latency 1000:60 --variable-latency 1000000:30
+
+[[working-with-many-queues]]
+== Working With Many Queues
+   
+PertTest supports balancing the publishing and the consumption
+across a sequence of queues, e.g.:
+
+.Using a sequence of queues
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+  --queue-pattern-from 1 --queue-pattern-to 10 \
+  --producers 100 --consumers 100
+--------
+
+The previous command would create the `perf-test-1`, `perf-test-2`, ...,
+`perf-test-10` queues and spreads the producers and consumers across them.
+This way each queue will have 10 consumers and 10 producers sending messages to it.
+
+Load is balanced in a round-robin fashion:
+
+ java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+   --queue-pattern-from 1 --queue-pattern-to 10 \
+   --producers 15 --consumers 30
+
+With the previous command, queues from `perf-test-1` to `perf-test-5`
+will have 2 producers, and queues from `perf-test-6` to `perf-test-10`
+will have only 1 producer. Each queue will have 3 consumers.
+
+Note the `--queue-pattern` value is a
+https://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html[Java printf-style format string].
+The queue index is the only argument passed in. The formatting is very close to C's `printf`.
+`--queue-pattern 'perf-test-%03d' --queue-pattern-from 1 --queue-pattern-to 500` would for
+instance create queues from `perf-test-001` to `perf-test-500`.
+
+== Simulating High Loads
+   
+PerfTest can easily run hundreds of connections on a simple desktop machine.
+Each producer and consumer use a Java thread and a TCP connection though,
+so a PerfTest process can quickly run out of file descriptors, depending
+on the OS settings. A simple solution is to use several PerfTest processes,
+on the same machine or not. This is especially handy when combined
+with the link:#working-with-many-queues[queue sequence] feature.
+
+The following command line launches a first PerfTest process that
+creates 500 queues (from `perf-test-1` to `perf-test-500`).
+Each queue will have 3 consumers and 1 producer sending messages to it:
+
+.Creating a first set of 500 queues
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+  --queue-pattern-from 1 --queue-pattern-to 500 \
+  --producers 500 --consumers 1500
+--------
+
+Then the following command line launches a second PerfTest process
+that creates 500 queues (from `perf-test-501` to `perf-test-1000`).
+Each queue will have 3 consumers and 1 producer sending messages to it:
+
+.Creating a second set of 500 queues
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+ --queue-pattern-from 501 --queue-pattern-to 1000 \
+ --producers 500 --consumers 1500
+--------
+
+Those 2 processes will simulate 1000 producers and 3000 consumers spread
+across 1000 queues.
+
+A PerfTest process can exhaust its file descriptors limit and throw
+`java.lang.OutOfMemoryError: unable to create new native thread`
+exceptions. A first way to avoid this is to reduce the number of Java threads
+PerfTest uses with the `--heartbeat-sender-threads` option:
+
+.Using `--heartbeat-sender-threads` to reduce the number of threads
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+  --queue-pattern-from 1 --queue-pattern-to 1000 \
+  --producers 1000 --consumers 3000 --heartbeat-sender-threads 10
+--------
+
+By default, each producer and consumer connection uses a dedicated thread
+to send heartbeats to the broker, so this is 4000 threads for heartbeats
+in the previous sample. Considering producers and consumers always communicate
+with the broker by publishing messages or sending acknowledgments, connections
+are never idle, so using 10 threads for heartbeats for the 4000 connections
+should be enough. Don't hesitate to experiment to come up with the appropriate
+`--heartbeat-sender-threads` value for your use case.
+
+Another way to avoid `java.lang.OutOfMemoryError: unable to create new native thread`
+exceptions is to tune the number of file descriptors allowed per process
+at the OS level, as some distributions use very low limits.
+Here the recommendations are the same as for the broker, so you
+can refer to our https://www.rabbitmq.com/networking.html#os-tuning[networking guide].
+
+[[workloads-with-a-large-number-of-clients]]
+== Workloads With a Large Number of Clients
+
+A typical connected device workload (a.k.a "IoT workload") involves
+many producers and consumers (dozens or hundreds of thousands)
+that exchange messages at a low and mostly constant rate, usually a message every few seconds or minutes.
+Simulating such workloads requires a different set of settings compared to
+the workloads that have higher throughput and a small number of clients. With the appropriate set of flags,
+PerfTest can simulate IoT workloads without requiring too many resources, especially threads.
+Let's explore these flags.
+
+With an IoT workload, publishers usually don't publish many messages per second,
+but rather a message every fixed period of time. This can be achieved by using the `--publishing-interval`
+flag instead of the `--rate` one. For example:
+
+.Using `--publishing-interval` for low-throughput workloads
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --publishing-interval 5
+--------
+
+The command above makes the publisher publish a message every 5 seconds.
+To simulate a group of consumers, use the `--queue-pattern` flag to simulate many consumers across
+many queues:
+
+.Simulating 2000 clients on 1000 queues
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+  --queue-pattern-from 1 --queue-pattern-to 1000 \
+  --producers 1000 --consumers 1000 \
+  --heartbeat-sender-threads 10 \
+  --publishing-interval 5
+--------
+
+[IMPORTANT]
+.Mind the sampling interval with slow publishers!
+====
+The `--interval` option (`-i`) sets the sampling interval for statistics and defaults to 1 second.
+Keeping this value with slow publishers (1 message per second or less with `--publishing-interval`) can cause dips for some metrics, as they may not get any value for a while.
+Note this affects only metrics and not the way PerfTest or the broker behave.
+To avoid the metrics dips, you can increase the value of the sampling interval – twice the value of the publishing interval is a reasonable rule of thumb – or use the `--producer-random-start-delay` option to ramp up the start of publishers (see below).
+====
+
+To prevent publishers from publishing at roughly the same time and
+distribute the rate more evenly, use
+the `--producer-random-start-delay` option to add a random
+delay before the first published message:
+
+.Using `--producer-random-start-delay` to spread publishing in a random way
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+  --queue-pattern-from 1 --queue-pattern-to 1000 \
+  --producers 1000 --consumers 1000 \
+  --heartbeat-sender-threads 10 \
+  --publishing-interval 5 --producer-random-start-delay 120
+--------
+
+With the command above, each publisher will start with a random delay
+between 1 and 120 seconds.
+
+When using `--publishing-interval`, PerfTest will use one thread for 100 operations per second.
+So 1,000 producers publishing at 1 message / second should keep 10 threads busy for
+the publishing scheduling.
+It is possible to set the number of threads used with the `--producer-scheduler-threads` options.
+Set your own value if the default value is not appropriate for some reasons:
+
+.Using `--producer-scheduler-threads` to set the number of publishing threads
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+  --queue-pattern-from 1 --queue-pattern-to 1000 \
+  --producers 1000 --consumers 1000 \
+  --heartbeat-sender-threads 10 \
+  --publishing-interval 60 --producer-random-start-delay 1800 \
+  --producer-scheduler-threads 5
+--------
+
+In the example above, 1000 publishers will publish every 60 seconds
+with a random start-up delay between 1 second and 30 minutes (1800 seconds). They
+will be scheduled by only 5 threads. Such delay
+values are suitable for long running tests.
+
+Another option can be useful when simulating many consumers with a moderate message rate:
+`--consumers-thread-pools`. It allows to use a given number of thread pools for all the consumers,
+instead of one thread pool for each consumer by default. In the previous example, each consumer
+would use a 1-thread thread pool, which is overkill considering consumers processing
+is fast and producers publish one message every second. We can set the number of thread pools
+to use with `--consumers-thread-pools` and they will be shared by the consumers:
+
+.Using `--consumers-thread-pools` to reduce the number of consumer threads
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+  --queue-pattern-from 1 --queue-pattern-to 1000 \
+  --producers 1000 --consumers 1000 \
+  --heartbeat-sender-threads 10 \
+  --publishing-interval 60 --producer-random-start-delay 1800 \
+  --producer-scheduler-threads 10 \
+  --consumers-thread-pools 10
+--------
+
+The previous example uses only 10 thread pools for all consumers instead of 1000 by default.
+These are 1-thread thread pools in this case, so this is 10 threads overall instead of 1000, another
+huge resource saving to simulate more clients with a single PerfTest instance for large IoT workloads.
+
+By default, PerfTest uses blocking network socket I/O to communicate with
+the broker. This mode works fine for clients in many cases but the RabbitMQ Java client
+also supports an https://www.rabbitmq.com/api-guide.html#java-nio[asynchronous I/O mode],
+where resources like threads can be easily tuned. The goal here is to use as few
+resources as possible to simulate as much load as possible with a single PerfTest instance.
+In the slow publisher example above, a handful of threads should be enough
+to handle the I/O. That's what the
+`--nio-threads` flag is for:
+
+.Reducing the number of IO threads by enabling the NIO mode with `--nio-threads`
+[source,bash,indent=0]
+--------
+java -jar perf-test.jar --queue-pattern 'perf-test-%d' \
+  --queue-pattern-from 1 --queue-pattern-to 1000 \
+  --producers 1000 --consumers 1000 \
+  --heartbeat-sender-threads 10 \
+  --publishing-interval 60 --producer-random-start-delay 1800 \
+  --producer-scheduler-threads 10 \
+  --nio-threads 10
+--------
+
+This way PerfTest will use  12 threads for I/O over all the connections.
+With the default blocking I/O mode, each producer (or consumer)
+uses a thread for the I/O loop, that is 2000 threads to simulate 1000 producers and
+1000 consumers. Using NIO in PerfTest can dramatically reduce the resources used
+to simulate workloads with a large number of connections with appropriate tuning.
+
+Note that in NIO mode the number of threads used can increase temporarily when connections close
+unexpectedly and connection recovery kicks in. This is due to the NIO mode dispatching
+connection closing to non-I/O threads to avoid deadlocks. Connection recovery can be disabled
+with the `--disable-connection-recovery` flag.
+
+
+== Running Producers and Consumers on Different Machines
+
+If you run producers and consumers on different machines or even
+in different processes, and you want PerfTest to calculate latency,
+you need to use the `--use-millis` flag. E.g. for sending messages
+from one host:
+
+ java -jar perf-test.jar --producers 1 --consumers 0 \
+   --predeclared --routing-key rk --queue q --use-millis
+
+And for consuming messages from another host:
+
+ java -jar perf-test.jar --producers 0 --consumers 1 \
+   --predeclared --routing-key rk --queue q --use-millis
+
+Note that as soon as you use `--use-millis`, latency is calculated in
+milliseconds instead of microseconds. Note also the different machines should have
+their clock synchronised, e.g. by NTP.
+If you don't run producers and consumers on different machines or if you don't
+want PerfTest to calculate latency, you don't need the `--use-millis` flag.
+
+Why does one need to care about the `--use-millis` flag? PerfTest uses
+by default `System.nanoTime()` in messages to calculate latency
+between producers and senders. `System.nanoTime()` provides nanosecond precision
+but must be used only in the same Java process. So PerfTest can fall back to `System.currentTimeMillis()`,
+which provides only milliseconds precision, but is reliable between different machines
+as long as their clocks are synchronised.
+
+== Asynchronous Consumers vs Synchronous Consumers
+
+Consumers are asynchronous by default in PerfTest. This means they are registered with the AMQP `basic.consume`
+method and the broker pushes messages to them. This is the optimal way to consume messages. PerfTest
+also provides the `--polling` and `--polling-interval` options to consume messages by polling the broker
+with the AMQP `basic.get` method. These options are available to evaluate the performance and the effects
+of `basic.get`, but real applications should avoid using `basic.get` as much as possible because
+it has several drawbacks compared to asynchronous consumers: it needs a network round trip for each message,
+it typically keeps a thread busy for polling in the application, and it intrinsically increases latency.
+
+[[consuming-from-streams]]
+== Consuming From Streams
+
+RabbitMQ streams model an append-only log with non-destructive consumer semantics.
+PerfTest uses the AMQP 0.9.1 protocol to interact with streams.
+The <<usage-advanced.adoc#stream-support, queue customisation section>> covers how to declare streams with PerfTest.
+
+Acknowledgments and https://www.rabbitmq.com/confirms.html#channel-qos-prefetch[consumer prefetch] are mandatory when consuming from a stream, so the `--qos` flag must be specified.
+The following example sets up a consume-only run from the already-existing `invoices` stream with consumer prefetch so to 200:
+
+ java -jar perf-test.jar -x 0 -y 1 --predeclared \
+    --queue invoices --qos 200
+
+Note a consumer attaches to the end of a stream by default (`next` https://rabbitmq.com/streams.html#consuming[offset]).
+This means the consumer does not get any messages if no publishers add messages to the stream at that time.
+Use the `--stream-consumer-offset` flag to change the default, for example `first` to start at the beginning of the stream:
+
+ java -jar perf-test.jar -x 0 -y 1 --predeclared \
+    --queue invoices --qos 200 --stream-consumer-offset first
+
+Valid values for `--stream-consumer-offset` are `first`, `last`, `next`, an unsigned long for the absolute offset in the stream, or an https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations[ISO 8601 formatted timestamp] (eg. `2022-06-03T07:45:54Z`) to attach to a point in time.
+
+NOTE: PerfTest uses the AMQP 0.9.1 protocol.
+Use https://rabbitmq.github.io/rabbitmq-stream-java-client/stable/htmlsingle/#the-performance-tool[Stream PerfTest] if you want to test https://rabbitmq.com/streams.html[RabbitMQ Streams] with the https://github.com/rabbitmq/rabbitmq-server/blob/main/deps/rabbitmq_stream/docs/PROTOCOL.adoc[stream protocol].
+
+[[instance-synchronization]]
+== Synchronizing Several Instances
+
+NOTE: This feature is available only on Java 11 or more.
+
+PerfTest instances can synchronize to start at the same time.
+This can prove useful when you apply different workloads and want to compare them on the same monitoring graphics.
+The `--id` flag identifies the group of instances that need to synchronize and the `--expected-instances` flag sets the size of the group.
+
+Let's take a somewhat artificial example to keep flags as simple as possible and compare the behavior of an auto-delete queue to a quorum queue.
+We start the first PerfTest instance:
+
+ java -jar perf-test.jar --id auto-delete-vs-qq --expected-instances 2
+
+The instance will wait until the second one is ready:
+
+ java -jar perf-test.jar --id auto-delete-vs-qq --expected-instances 2 \
+   --quorum-queue --queue qq
+
+Both instances _must_ share the same `--id` if they want to communicate to synchronize.
+Note synchronized instances creates connections before starting the synchronization process.
+They are then ready to start their respective workload (publishing and/or consuming) when all the expected instances have joined the group.
+
+NOTE: Instance synchronization is compatible with https://rabbitmq.github.io/rabbitmq-stream-java-client/snapshot/htmlsingle/#performant-tool-instance-synchronization[StreamPerfTest], the performance tool for RabbitMQ streams: instances of both tools can synchronize with each other.
+The 2 tools use the same flags for this feature.
+
+The default synchronization timeout is 10 minutes.
+This can be changed with the `--instance-sync-timeout` flag, using a value in seconds.
+
+PerfTest instance synchronization requires https://en.wikipedia.org/wiki/IP_multicast[IP multicast] to be available.
+IP multicast is not necessary when PerfTest runs on Kubernetes pods.
+In this case, PerfTest asks Kubernetes for a list of pod IPs.
+The PerfTest instances are expected to run in the same namespace, and the namespace must be available in the `MY_POD_NAMESPACE` environment variable or provided with the `--instance-sync-namespace` flag.
+As soon as the namespace information is available, PerfTest will prefer listing pod IPs over using IP multicast.
+Here is an example of using instance synchronization on Kubernetes by providing the namespace explicitly:
+
+ java -jar perf-test.jar --id workload-1 --expected-instances 2 \
+   --instance-sync-namespace qa
+
+NOTE: PerfTest needs permission to ask Kubernetes for a list of pod IPs.
+This is done by creating various policies e.g. with YAML.
+See the https://github.com/jgroups-extras/jgroups-kubernetes[Kubernetes discovery protocol for JGroups page] for more information.
+
+== TLS Support
+
+PerfTest can use TLS to connect to a node that is https://www.rabbitmq.com/ssl.html[configured to accept TLS connections].
+To enable TLS, simply specify a URI that uses the `amqps` schema:
+
+ java -jar perf-test.jar -h amqps://localhost:5671
+
+By default, PerfTest automatically trusts the server and doesn't present any client certificate (a warning
+shows up in the console).
+In many benchmarking or load testing scenarios this may be sufficient.
+If peer verification is necessary, it is possible to use the https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html#InstallationAndCustomization[appropriate
+JVM properties] on the command line to override the default `SSLContext`.
+For example, to trust a given server:
+
+  java -Djavax.net.ssl.trustStore=/path/to/server_key.p12 \
+       -Djavax.net.ssl.trustStorePassword=bunnies \
+       -Djavax.net.ssl.trustStoreType=PKCS12 \
+       -jar perf-test.jar -h amqps://localhost:5671
+
+The previous snippet defines appropriate system properties to locate the trust store to use.
+Please refer to the https://www.rabbitmq.com/ssl.html[TLS guide] to learn about how to set up RabbitMQ with TLS.
+A convenient way to generate a CA and some self-signed certificate/key pairs for development and QA environments is with https://github.com/rabbitmq/tls-gen[`tls-gen`].
+`tls-gen` basic profile is a good starting point.
+Once the TLS artifacts generated by `tls-gen`, you have to generate a trust store file with the server or CA certificate in it.
+`keytool` can do this:
+
+ keytool -import -file server_certificate.pem \
+   -keystore server_certificate.p12 -storepass bunnies -storetype PKCS12 \
+   -noprompt
+
+And here is how to run PerfTest with a certificate/key pair generated by `tls-gen` basic profile and the trust store:
+
+  java -Djavax.net.ssl.trustStore=/path/to/server_certificate.p12 \
+       -Djavax.net.ssl.trustStorePassword=bunnies \
+       -Djavax.net.ssl.trustStoreType=PKCS12 \
+       -Djavax.net.ssl.keyStore=/path/to/client_key.p12 \
+       -Djavax.net.ssl.keyStorePassword=bunnies \
+       -Djavax.net.ssl.keyStoreType=PKCS12 \
+       -jar perf-test.jar -h amqps://localhost:5671
+
+== OAuth2 authentication/authorization
+
+It's possible to connect to a RabbitMQ instance configured to use
+https://www.rabbitmq.com/oauth2.html[OAuth 2.0 Authentication
+Backend]. In this case it is not necessary to provide a username and a
+password in the AMQP URI: a token endpoint URI, client id and
+client secret should be provided as separate command line options instead.
+All 3 should be specified at once.
+
+Here is an example:
+
+  java -jar perf-test.jar \
+    --uri amqps://some-uri-without-user-and-password:5671 \
+    --oauth2-token-endpoint https://example.com/api/auth/token \
+    --oauth2-client-id 12345 \
+    --oauth2-client-secret qwerty \
+    --oauth2-grant-type client_credentials \
+    --oauth2-parameters orgId=1212 \
+    --oauth2-parameters subject_token_type=urn:ietf:params:oauth:token-type:access_token
+
+`--oauth2-grant-type` is optional and defaults to `client_credential`.
+
+Any number of optional parameters can be passed to the token endpoint via
+the `--oauth2-parameters` option.
+
+== Using Environment Variables as Options
+
+Environment variables can sometimes be easier to work with than command line options, for example
+when using a manifest file to configure PerfTest (with Docker Compose or Kubernetes), especially when
+the number of options used grows.
+
+PerfTest will automatically use environment variables that match the snake case version of the long version of its options
+(e.g. PerfTest will automatically pick up the value of the `CONFIRM_TIMEOUT` environment variable
+for the `--confirm-timeout` option, but only if the environment variable is defined).
+
+You can list the environment variables that PerfTest will pick up with the following command:
+
+  java -jar perf-test.jar --env
+
+Note that some options can be used several times to define several values, e.g.:
+
+  java -jar perf-test.jar \
+    --variable-rate 100:60 --variable-rate 1000:10 --variable-rate 500:15
+
+Declaring an environment variable several times just overrides the previous value, so to
+define several values for an environment variable, just separate the values with a comma:
+
+  VARIABLE_RATE="100:60,1000:10,500:15"
+
+To avoid collisions with environment variables that already exist, it is possible to specify
+a prefix for the environment variables that PerfTest will look up. This prefix is defined
+with the `RABBITMQ_PERF_TEST_ENV_PREFIX` environment variable, e.g.:
+
+  RABBITMQ_PERF_TEST_ENV_PREFIX="PERF_TEST_"
+
+With `RABBITMQ_PERF_TEST_ENV_PREFIX="PERF_TEST_"` defined, PerfTest will for example look for
+the `PERF_TEST_CONFIRM_TIMEOUT` environment variable, not only `CONFIRM_TIMEOUT`.
+
+== Result Reporting in HTML
+
+The `PerfTest HTML extension` are a set of tools
+that can help you run automated benchmarks by wrapping around PerfTest. You can provide
+benchmark specs, and the tool will take care of running the benchmark,
+collecting results and displaying them in an HTML page. Learn more
+https://github.com/rabbitmq/rabbitmq-perf-test/blob/main/html/README.md[here].
+
+== Console Output Format
+
+PerfTest default console output format is explicit as each line contains a label for each value:
+
+.The `default` output format
+[source,bash,indent=0]
+--------
+id: test-101517-299, time 1.000 s, sent: 188898 msg/s, received: 85309 msg/s, min/median/75th/95th/99th consumer latency: 24/234/364/462/474 ms
+id: test-101517-299, time 2.000 s, sent: 101939 msg/s, received: 117152 msg/s, min/median/75th/95th/99th consumer latency: 483/759/830/896/907 ms
+id: test-101517-299, time 3.000 s, sent: 137450 msg/s, received: 118324 msg/s, min/median/75th/95th/99th consumer latency: 691/816/854/893/909 ms
+--------
+
+Advanced users who prefer a more compact format can use the `--metrics-format compact` option (`-mf compact` for short).
+The output looks like the following then:
+
+.The `compact` output format
+[source,bash,indent=0]
+--------
+time               sent     received       consumer latency
+1.000s     173920 msg/s  84405 msg/s    1/25/189/312/331 ms
+2.000s     133044 msg/s 117703 msg/s 329/728/814/887/897 ms
+3.000s     103736 msg/s 117134 msg/s 705/804/846/892/920 ms
+--------

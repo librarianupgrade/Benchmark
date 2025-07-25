@@ -1,0 +1,15 @@
+{
+    "id": "hyperledger__GT__fabric-sdk-java__1",
+    "client_project_name": "hyperledger/fabric-sdk-java",
+    "github_url": "git@github.com:hyperledger/fabric-sdk-java.git",
+    "before_upgrade_commit": "4b8425d88497a155640a319401f3b83a9d8ee2fb",
+    "after_upgrade_commit": "02a3c70c4af0e172a02cdb1abc4876e623f2e445",
+    "incompatibility_category": "Method Parameter Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/hyperledger/fabric-sdk-java/commit/02a3c70c4af0e172a02cdb1abc4876e623f2e445",
+    "fix_type": 0
+}

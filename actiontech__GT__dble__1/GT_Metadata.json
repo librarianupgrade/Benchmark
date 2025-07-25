@@ -1,0 +1,15 @@
+{
+    "id": "actiontech__GT__dble__1",
+    "client_project_name": "actiontech/dble",
+    "github_url": "git@github.com:actiontech/dble.git",
+    "before_upgrade_commit": "409823fd611cc6d426f0f0386cef264b78e48ee4",
+    "after_upgrade_commit": "41e2f8ffa0e9a5254e272cb0390dfa6dde75d3ff",
+    "incompatibility_category": "Method Parameter Length Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/actiontech/dble/commit/41e2f8ffa0e9a5254e272cb0390dfa6dde75d3ff",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "adamkewley__GT__jobson__1",
+    "client_project_name": "adamkewley/jobson",
+    "github_url": "git@github.com:adamkewley/jobson.git",
+    "before_upgrade_commit": "4610c17d690545bee71c4e962b7eadf14770e6c4",
+    "after_upgrade_commit": "6bfb7840e2657b6936917859d827747bb6e6e5d9",
+    "incompatibility_category": "Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/adamkewley/jobson/commit/6bfb7840e2657b6936917859d827747bb6e6e5d9",
+    "fix_type": 0
+}

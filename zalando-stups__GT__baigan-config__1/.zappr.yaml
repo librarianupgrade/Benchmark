@@ -1,0 +1,6 @@
+approvals:
+  from:
+    orgs:
+      - zalando
+      - zalando-incubator
+    collaborators: true

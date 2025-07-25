@@ -1,0 +1,15 @@
+{
+    "id": "md-5__GT__SpecialSource__1",
+    "client_project_name": "md-5/SpecialSource",
+    "github_url": "git@github.com:md-5/SpecialSource.git",
+    "before_upgrade_commit": "72ae90acfe2c2e85dd7805ee09549f9b4919c511",
+    "after_upgrade_commit": "a780d724d8df77ff3c8ce805ec18a508c33600de",
+    "incompatibility_category": "Method Exception Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/md-5/SpecialSource/commit/a780d724d8df77ff3c8ce805ec18a508c33600de",
+    "fix_type": 0
+}

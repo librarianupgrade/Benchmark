@@ -1,0 +1,15 @@
+{
+    "id": "88250__GT__solo__3",
+    "client_project_name": "88250/solo",
+    "github_url": "git@github.com:88250/solo.git",
+    "before_upgrade_commit": "d95e4fa989e351903574eb44d8070fed13beacfe",
+    "after_upgrade_commit": "b92625781cb5c0095a8656b3797ff2182111dd96",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/88250/solo/commit/b92625781cb5c0095a8656b3797ff2182111dd96",
+    "fix_type": 2
+}

@@ -1,0 +1,110 @@
+/**
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2015-2021 Mickael Jeanroy
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+package com.github.mjeanroy.dbunit.json;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.mjeanroy.dbunit.core.resources.Resource;
+import com.github.mjeanroy.dbunit.exception.JsonException;
+import com.github.mjeanroy.dbunit.tests.builders.ResourceMockBuilder;
+import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.util.List;
+import java.util.Map;
+
+import static com.github.mjeanroy.dbunit.tests.utils.TestDatasets.USERS_JSON;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.data.MapEntry.entry;
+
+class Jackson2ParserTest {
+
+	@Test
+	void it_should_parse_file() {
+		final ObjectMapper mapper = new ObjectMapper();
+		final Jackson2Parser parser = new Jackson2Parser(mapper);
+		final Resource resource = new ResourceMockBuilder().fromClasspath(USERS_JSON).build();
+		final Map<String, List<Map<String, Object>>> tables = parser.parse(resource);
+
+		assertThat(tables).hasSize(1).containsKey("users");
+
+		final List<Map<String, Object>> table = tables.get("users");
+		assertThat(table).hasSize(2);
+
+		final Map<String, Object> row1 = table.get(0);
+		assertThat(row1).hasSize(2).containsExactly(entry("id", 1), entry("name", "John Doe"));
+
+		final Map<String, Object> row2 = table.get(1);
+		assertThat(row2).hasSize(2).containsExactly(entry("id", 2), entry("name", "Jane Doe"));
+	}
+
+	@Test
+	void it_should_wrap_json_parse_exception() {
+		final String malformedJson = "{test: test}";
+		final byte[] bytes = malformedJson.getBytes(Charset.defaultCharset());
+		final InputStream stream = new ByteArrayInputStream(bytes);
+		final Resource resource = new ResourceMockBuilder().withReader(stream).build();
+
+		final ObjectMapper mapper = new ObjectMapper();
+		final Jackson2Parser parser = new Jackson2Parser(mapper);
+
+		assertThatThrownBy(() -> parser.parse(resource)).isExactlyInstanceOf(JsonException.class)
+				.hasCauseExactlyInstanceOf(JsonParseException.class);
+	}
+
+	@Test
+	void it_should_wrap_json_mapping_exception() {
+		final String json = "[\"test\"]";
+		final byte[] bytes = json.getBytes(Charset.defaultCharset());
+		final InputStream stream = new ByteArrayInputStream(bytes);
+		final Resource resource = new ResourceMockBuilder().withReader(stream).build();
+
+		final ObjectMapper mapper = new ObjectMapper();
+		final Jackson2Parser parser = new Jackson2Parser(mapper);
+
+		assertThatThrownBy(() -> parser.parse(resource)).isExactlyInstanceOf(JsonException.class)
+				.hasCauseInstanceOf(JsonMappingException.class);
+	}
+
+	@Test
+	void it_should_wrap_io_exception() {
+		final String json = "";
+		final byte[] bytes = json.getBytes(Charset.defaultCharset());
+		final InputStream stream = new ByteArrayInputStream(bytes);
+
+		final Resource resource = new ResourceMockBuilder().withReader(stream).build();
+
+		final ObjectMapper mapper = new ObjectMapper();
+		final Jackson2Parser parser = new Jackson2Parser(mapper);
+
+		assertThatThrownBy(() -> parser.parse(resource)).isExactlyInstanceOf(JsonException.class)
+				.hasCauseInstanceOf(IOException.class);
+	}
+}

@@ -1,0 +1,30 @@
+= RabbitMQ PerfTest
+:revnumber: {project-version}
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../../main/java]
+:source-highlighter: prettify
+
+PerfTest is a throughput testing tool for https://www.rabbitmq.com/[RabbitMQ]
+
+== Introduction
+
+https://www.rabbitmq.com/[RabbitMQ] has a throughput testing tool,
+PerfTest, that is based on
+the Java client and can be configured to simulate basic
+workloads and <<usage-advanced.adoc#workloads-with-a-large-number-of-clients, more advanced workloads>> as well.
+PerfTest has extra tools that produce HTML graphs of the output.
+
+A RabbitMQ cluster can be limited by a number of factors,
+from infrastructure-level constraints (e.g. network bandwidth) to
+RabbitMQ configuration and topology to applications that publish
+and consume. PerfTest can demonstrate baseline performance of a
+node or a cluster of nodes.
+
+PerfTest uses the https://www.rabbitmq.com/tutorials/amqp-concepts.html[AMQP 0.9.1 protocol] to communicate with a RabbitMQ cluster.
+Use https://rabbitmq.github.io/rabbitmq-stream-java-client/stable/htmlsingle/#the-performance-tool[Stream PerfTest] if you want to test https://rabbitmq.com/streams.html[RabbitMQ Streams] with the https://github.com/rabbitmq/rabbitmq-server/blob/main/deps/rabbitmq_stream/docs/PROTOCOL.adoc[stream protocol].
+
+include::installation.adoc[]
+include::usage.adoc[]
+include::usage-advanced.adoc[]
+include::monitoring.adoc[]

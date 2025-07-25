@@ -1,0 +1,15 @@
+{
+    "id": "niefy__GT__wx-api__4",
+    "client_project_name": "niefy/wx-api",
+    "github_url": "git@github.com:niefy/wx-api.git",
+    "before_upgrade_commit": "070682a0d3ae72854e0ab62be4a2596b4ca7ddee",
+    "after_upgrade_commit": "6fd68f8c6e73776a2401c12c2ce9861fe63faf6f",
+    "incompatibility_category": "Class Removal, Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/niefy/wx-api/commit/6fd68f8c6e73776a2401c12c2ce9861fe63faf6f",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__jclouds__1",
+    "client_project_name": "apache/jclouds",
+    "github_url": "git@github.com:apache/jclouds.git",
+    "before_upgrade_commit": "15ea6929a2bbd3c199a4be9fec15713870663f7d",
+    "after_upgrade_commit": "da4614e72ce17999afbe54ae32879f27a59d8c5c",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "core",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/apache/jclouds/commit/da4614e72ce17999afbe54ae32879f27a59d8c5c",
+    "fix_type": 0
+}

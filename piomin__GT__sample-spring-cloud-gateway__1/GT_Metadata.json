@@ -1,0 +1,15 @@
+{
+    "id": "piomin__GT__sample-spring-cloud-gateway__1",
+    "client_project_name": "piomin/sample-spring-cloud-gateway",
+    "github_url": "git@github.com:piomin/sample-spring-cloud-gateway.git",
+    "before_upgrade_commit": "514ca8cc6771c9bbf7f7d00c41436bdce4e28e15",
+    "after_upgrade_commit": "d2a65a4338c55963b00aaafb75585b1bee286b85",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/piomin/sample-spring-cloud-gateway/commit/d2a65a4338c55963b00aaafb75585b1bee286b85",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "algolia__GT__elasticsearch-topk-plugin__1",
+    "client_project_name": "algolia/elasticsearch-topk-plugin",
+    "github_url": "git@github.com:algolia/elasticsearch-topk-plugin.git",
+    "before_upgrade_commit": "22d15bb5fe76888d9987d05a72624662dbf5485d",
+    "after_upgrade_commit": "9b0a76973bc5039a2157d20ecdccb5fe680bacb4",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/algolia/elasticsearch-topk-plugin/commit/9b0a76973bc5039a2157d20ecdccb5fe680bacb4",
+    "fix_type": 0
+}

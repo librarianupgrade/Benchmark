@@ -1,0 +1,39 @@
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    name: Perform a release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+        with:
+          # Fetch all commits, used to determine version on release
+          fetch-depth: 0
+      # Fetch latest tag
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      - uses: actions/setup-java@v2.3.0
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Import GPG secret
+        run: echo $PGP_SECRET | base64 --decode | gpg --batch --import
+        env:
+          PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
+          PGP_SECRET: ${{ secrets.PGP_SECRET }}
+      - name: Publish release
+      # GITHUB_REF
+        run: |
+          export REVISION="${GITHUB_REF:11}"
+          mvn --settings .github/settings.xml versions:set -DnewVersion="${REVISION}" -DgenerateBackupPoms=false -P release -B
+          mvn --settings .github/settings.xml deploy -Drevision="${REVISION}" -P release -B
+        env:
+          PGP_PASSPHRASE: ${{ secrets.PGP_PASSPHRASE }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}

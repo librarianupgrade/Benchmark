@@ -1,0 +1,590 @@
+## ---------------------------------------------------------------------------
+## Licensed to the Apache Software Foundation (ASF) under one or more
+## contributor license agreements.  See the NOTICE file distributed with
+## this work for additional information regarding copyright ownership.
+## The ASF licenses this file to You under the Apache License, Version 2.0
+## (the "License"); you may not use this file except in compliance with
+## the License.  You may obtain a copy of the License at
+##
+##      http://www.apache.org/licenses/LICENSE-2.0
+##
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License.
+## ---------------------------------------------------------------------------
+
+---
+openapi: 3.0.1
+info:
+  title: swagger definition for org.apache.servicecomb.swagger.generator.springmvc.MethodMixupAnnotations
+  version: 1.0.0
+servers:
+- url: MethodMixupAnnotations
+paths:
+  /bytes:
+    get:
+      operationId: bytes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              format: byte
+          application/protobuf:
+            schema:
+              type: string
+              format: byte
+          text/plain:
+            schema:
+              type: string
+              format: byte
+        required: true
+        x-name: value
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                type: string
+                format: byte
+            application/protobuf:
+              schema:
+                type: string
+                format: byte
+            text/plain:
+              schema:
+                type: string
+                format: byte
+  /defaultQueryParam:
+    post:
+      operationId: defaultQueryParam
+      parameters:
+      - name: prefix
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+          application/protobuf:
+            schema:
+              $ref: "#/components/schemas/User"
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+        x-name: user
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                type: string
+            application/protobuf:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+  /diffNames:
+    get:
+      summary: differentName
+      operationId: differentName
+      parameters:
+      - name: x
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: "y"
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+            application/protobuf:
+              schema:
+                type: integer
+                format: int32
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+  /upload:
+    post:
+      operationId: fileUpload
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file1:
+                  type: string
+                  format: binary
+                someFile:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: response of 200
+          content:
+            text/plain:
+              schema:
+                type: string
+  /reduce:
+    get:
+      operationId: reduce
+      parameters:
+      - name: b
+        in: cookie
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: a
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
+            application/protobuf:
+              schema:
+                type: integer
+                format: int32
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+  /testDefaultValue:
+    get:
+      operationId: testDefaultValue
+      parameters:
+      - name: e
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: a
+        in: header
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 20
+      - name: b
+        in: cookie
+        required: false
+        schema:
+          type: string
+          default: bobo
+      - name: c
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 40
+      - name: d
+        in: query
+        required: false
+        schema:
+          maximum: 30
+          minimum: 20
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                type: string
+            application/protobuf:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+  /testImplicitForm:
+    post:
+      operationId: testImplicitForm
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                form1:
+                  type: string
+                  description: a required form param
+                  nullable: false
+                  example: ""
+                form2:
+                  type: string
+                  description: an optional form param
+                  nullable: true
+                  example: ""
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                type: string
+            application/protobuf:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+  /testLocalDateTime:
+    get:
+      operationId: testLocalDateTime
+      parameters:
+      - name: date
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                type: string
+                format: date-time
+            application/protobuf:
+              schema:
+                type: string
+                format: date-time
+            text/plain:
+              schema:
+                type: string
+                format: date-time
+  /uploadFileAndAttribute:
+    post:
+      operationId: uploadFileAndAttribute
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                attribute:
+                  type: string
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                type: string
+            application/protobuf:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+  /uploadFilesAndAttribute:
+    post:
+      operationId: uploadFilesAndAttribute
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                attribute:
+                  type: string
+      responses:
+        "200":
+          description: response of 200
+          content:
+            application/json:
+              schema:
+                type: string
+            application/protobuf:
+              schema:
+                type: string
+            text/plain:
+              schema:
+                type: string
+  /usingDeleteMapping/{targetName}:
+    delete:
+      operationId: usingDeleteMapping
+      parameters:
+      - name: header
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: targetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: word
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/User"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+        x-name: srcUser
+      responses:
+        "200":
+          description: response of 200
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+  /usingGetMapping/{targetName}:
+    get:
+      operationId: usingGetMapping
+      parameters:
+      - name: header
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: targetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: word
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/User"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+        x-name: srcUser
+      responses:
+        "200":
+          description: response of 200
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+  /usingPatchMapping/{targetName}:
+    patch:
+      operationId: usingPatchMapping
+      parameters:
+      - name: header
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: targetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: word
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/User"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+        x-name: srcUser
+      responses:
+        "200":
+          description: response of 200
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+  /usingPostMapping/{targetName}:
+    post:
+      operationId: usingPostMapping
+      parameters:
+      - name: header
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: targetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: word
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/User"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+        x-name: srcUser
+      responses:
+        "200":
+          description: response of 200
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+  /usingPutMapping/{targetName}:
+    put:
+      operationId: usingPutMapping
+      parameters:
+      - name: header
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: targetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: word
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/User"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+        x-name: srcUser
+      responses:
+        "200":
+          description: response of 200
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+  /usingRequestMapping/{targetName}:
+    post:
+      operationId: usingRequestMapping
+      parameters:
+      - name: header
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: targetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: word
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              $ref: "#/components/schemas/User"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+        x-name: srcUser
+      responses:
+        "200":
+          description: response of 200
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+        friends:
+          type: array
+          items:
+            $ref: "#/components/schemas/User"
+      x-java-class: org.apache.servicecomb.foundation.test.scaffolding.model.User

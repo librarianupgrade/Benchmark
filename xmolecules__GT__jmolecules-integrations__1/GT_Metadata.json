@@ -1,0 +1,15 @@
+{
+    "id": "xmolecules__GT__jmolecules-integrations__1",
+    "client_project_name": "xmolecules/jmolecules-integrations",
+    "github_url": "git@github.com:xmolecules/jmolecules-integrations.git",
+    "before_upgrade_commit": "e495c406335df749c9cfca2b851f294bc5fd9fd6",
+    "after_upgrade_commit": "40d79ba90de4b6803730f0a8d7b216ab46a0327c",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/xmolecules/jmolecules-integrations/commit/40d79ba90de4b6803730f0a8d7b216ab46a0327c",
+    "fix_type": 0
+}

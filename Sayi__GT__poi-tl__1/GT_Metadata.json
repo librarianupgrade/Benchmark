@@ -1,0 +1,15 @@
+{
+    "id": "Sayi__GT__poi-tl__1",
+    "client_project_name": "Sayi/poi-tl",
+    "github_url": "git@github.com:Sayi/poi-tl.git",
+    "before_upgrade_commit": "1708c09460755e4a00cee90880a00994f405aecb",
+    "after_upgrade_commit": "2126ece17a0f5f274d6ce905c9a9a0f22775be44",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Sayi/poi-tl/commit/2126ece17a0f5f274d6ce905c9a9a0f22775be44",
+    "fix_type": 0
+}

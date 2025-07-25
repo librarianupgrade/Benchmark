@@ -1,0 +1,15 @@
+{
+    "id": "PinTeh__GT__Ant-Live__1",
+    "client_project_name": "PinTeh/Ant-Live",
+    "github_url": "git@github.com:PinTeh/Ant-Live.git",
+    "before_upgrade_commit": "58368e0615405d5620d3ec6a37c9b9454c92ef3f",
+    "after_upgrade_commit": "c0e99785ebe5329a730bab8bf665923d6c33a586",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/PinTeh/Ant-Live/commit/c0e99785ebe5329a730bab8bf665923d6c33a586",
+    "fix_type": 0
+}

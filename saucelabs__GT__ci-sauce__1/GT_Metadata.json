@@ -1,0 +1,15 @@
+{
+    "id": "saucelabs__GT__ci-sauce__1",
+    "client_project_name": "saucelabs/ci-sauce",
+    "github_url": "git@github.com:saucelabs/ci-sauce.git",
+    "before_upgrade_commit": "64be6485450d3a0b930faada2927c986fe405d6b",
+    "after_upgrade_commit": "6a2d939a4fd5893591a416a003f023807bd73506",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/saucelabs/ci-sauce/commit/6a2d939a4fd5893591a416a003f023807bd73506",
+    "fix_type": 0
+}

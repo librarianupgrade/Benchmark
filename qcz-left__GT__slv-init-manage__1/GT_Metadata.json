@@ -1,0 +1,15 @@
+{
+    "id": "qcz-left__GT__slv-init-manage__1",
+    "client_project_name": "qcz-left/slv-init-manage",
+    "github_url": "git@github.com:qcz-left/slv-init-manage.git",
+    "before_upgrade_commit": "9f0d11854853d3a7f2aa4cfe28cf56a162c03159",
+    "after_upgrade_commit": "17f155a4499938d272232548838313a0669e5ac8",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "11",
+    "fixed_commit_url": "https://github.com/qcz-left/slv-init-manage/commit/17f155a4499938d272232548838313a0669e5ac8",
+    "fix_type": 0
+}

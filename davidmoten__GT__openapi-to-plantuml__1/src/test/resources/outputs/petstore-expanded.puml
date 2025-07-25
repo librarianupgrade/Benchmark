@@ -1,0 +1,72 @@
+@startuml
+hide <<Path>> circle
+hide <<Response>> circle
+hide <<Parameter>> circle
+hide empty methods
+hide empty fields
+set namespaceSeparator none
+
+class "Pet" {
+}
+
+class "PetId" {
+  {field} id : integer
+}
+
+class "NewPet" {
+  {field} name : string
+  {field} tag : string {O}
+}
+
+class "Error" {
+  {field} code : integer
+  {field} message : string
+}
+
+class "GET /pets" <<Path>> {
+  {field} tags : string[] {O}
+  {field} limit : integer {O}
+}
+
+class "GET /pets 200" <<Response>> {
+}
+
+class "POST /pets" <<Path>> {
+}
+
+class "GET /pets/{id}" <<Path>> {
+  {field} id : integer
+}
+
+class "DELETE /pets/{id}" <<Path>> {
+  {field} id : integer
+}
+
+class "DELETE /pets/{id} 204" <<Response>> {
+}
+
+"Pet" --> "1" "NewPet"
+
+"Pet" --> "1" "PetId"
+
+"GET /pets 200" --> "*" "Pet"
+
+"GET /pets" ..> "1" "GET /pets 200"  :  "200"
+
+"GET /pets" ..> "1" "Error"  :  "default"
+
+"POST /pets" ..> "1" "Pet"  :  "200"
+
+"POST /pets" ..> "1" "Error"  :  "default"
+
+"POST /pets" --> "1" "NewPet"
+
+"GET /pets/{id}" ..> "1" "Pet"  :  "200"
+
+"GET /pets/{id}" ..> "1" "Error"  :  "default"
+
+"DELETE /pets/{id}" ..> "1" "DELETE /pets/{id} 204"  :  "204"
+
+"DELETE /pets/{id}" ..> "1" "Error"  :  "default"
+
+@enduml

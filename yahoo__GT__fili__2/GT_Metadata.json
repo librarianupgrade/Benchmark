@@ -1,0 +1,15 @@
+{
+    "id": "yahoo__GT__fili__2",
+    "client_project_name": "yahoo/fili",
+    "github_url": "git@github.com:yahoo/fili.git",
+    "before_upgrade_commit": "80fa276fd148342ec0850b65d007456d4dbde3ca",
+    "after_upgrade_commit": "996a3e4ab4da4c6c24a97f5888b0df316d42e3a7",
+    "incompatibility_category": "Method Return Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yahoo/fili/commit/996a3e4ab4da4c6c24a97f5888b0df316d42e3a7",
+    "fix_type": 0
+}

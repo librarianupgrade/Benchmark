@@ -1,0 +1,52 @@
+### Java ###
+*.class
+*.jar
+*.war
+hs_err_pid*
+
+delta.classpath*
+
+## Local
+/local/
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+rdf-delta-examples/Tutorial/PatchStore
+rdf-delta-examples/Tutorial/zk
+
+### Gradle ###
+.gradle
+/build/
+# Ignore Gradle GUI config
+gradle-app.setting
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+# Cache of project
+.gradletasknamecache
+
+### Intellij Idea ###
+.idea
+*.iml
+
+### Eclipse ###
+.classpath
+.project
+.settings
+.recommenders
+.metadata
+
+### Backups ###
+*.bak
+*.backup
+*~
+.#*
+\#*

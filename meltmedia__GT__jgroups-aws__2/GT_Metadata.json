@@ -1,0 +1,15 @@
+{
+    "id": "meltmedia__GT__jgroups-aws__2",
+    "client_project_name": "meltmedia/jgroups-aws",
+    "github_url": "git@github.com:meltmedia/jgroups-aws.git",
+    "before_upgrade_commit": "d9d9380e253456130fa771307aabe006e94bca07",
+    "after_upgrade_commit": "0c2c083d54540cc73dc7ca02efa655b6308e68be",
+    "incompatibility_category": "Abstracted Method Addition, Abstracted Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/meltmedia/jgroups-aws/commit/0c2c083d54540cc73dc7ca02efa655b6308e68be",
+    "fix_type": 0
+}

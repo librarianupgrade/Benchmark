@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qcz.qmplatform.module.system.mapper.UserMapper">
+
+    <sql id="userColumns">
+        ${alias}.id,
+        ${alias}.password,
+        ${alias}.username,
+        ${alias}.loginname,
+        ${alias}.user_sex,
+        ${alias}.remark,
+        ${alias}.create_time,
+        ${alias}.create_user_id,
+        ${alias}.phone,
+        ${alias}.email_addr,
+        ${alias}.locked,
+        ${alias}.photo_path
+    </sql>
+
+    <select id="queryUserByName" resultType="com.qcz.qmplatform.module.system.vo.UserVO">
+        select
+        <include refid="userColumns"><property name="alias" value="su"/></include>
+        from sys_user su
+        where su.loginname like #{loginName}
+    </select>
+
+    <select id="queryAuthoritiesByUserId" resultType="string">
+        select
+            sp.code
+        from
+            v_sys_permission sp
+            left join sys_role_permission srp on srp.permission_id = sp.permission_id
+        where
+            sp.code is not null
+            and trim(sp.code) != ''
+            and exists (
+                    select
+                        1
+                    from
+                        sys_user su
+                        left join sys_user_role sur on su.id = sur.user_id
+                    where
+                        sur.role_id = srp.role_id
+                        and su.id = #{userId}
+                  )
+    </select>
+
+    <select id="queryUserList" resultType="com.qcz.qmplatform.module.system.vo.UserVO">
+        select
+            su.*,
+            coalesce(string_agg( so.organization_name, ',' ), '') as organization_name,
+            va1.attr_name as userSexName,
+            va2.attr_name as lockedName
+        from
+            sys_user su
+        left join sys_user_organization suo on su.id = suo.user_id
+        left join sys_organization so on suo.organization_id = so.organization_id
+        left join ( select attr_value, attr_name from v_sys_dict_attr where dict_code = 'user-sex' ) va1 on va1.attr_value = su.user_sex
+        left join ( select attr_value, attr_name from v_sys_dict_attr where dict_code = 'user-status' ) va2 on va2.attr_value = cast(su.locked as varchar)
+        where 1=1
+        <if test="username != null and username != ''">
+            and su.username like concat('%', #{username}, '%')
+        </if>
+        <if test="userSex != null and userSex != ''">
+            and su.user_sex like concat('%', #{userSex}, '%')
+        </if>
+        <if test="organizationIds != null">
+            and suo.organization_id in(
+            <choose>
+                <when test="organizationExact == 0">
+                    select organization_id from casc_org(
+                    <foreach collection="organizationIds" item="organizationId" separator=",">
+                        #{organizationId}
+                    </foreach>
+                    )
+                </when>
+                <otherwise>
+                    <foreach collection="organizationIds" item="organizationId" separator=",">
+                        #{organizationId}
+                    </foreach>
+                </otherwise>
+            </choose>
+            )
+        </if>
+        group by
+            su.id,
+            usersexname,
+            lockedname
+    </select>
+
+    <select id="queryByRoleSign" resultType="com.qcz.qmplatform.module.system.vo.UserVO">
+        select
+        <include refid="userColumns"><property name="alias" value="su"/></include>
+        from
+            sys_user su
+            left join sys_user_role sur on su.id = sur.user_id
+            left join sys_role sr on sur.role_id = sr.role_id
+        where
+            sr.role_sign = #{roleSign}
+    </select>
+</mapper>

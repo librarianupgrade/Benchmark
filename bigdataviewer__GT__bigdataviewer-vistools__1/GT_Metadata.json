@@ -1,0 +1,15 @@
+{
+    "id": "bigdataviewer__GT__bigdataviewer-vistools__1",
+    "client_project_name": "bigdataviewer/bigdataviewer-vistools",
+    "github_url": "git@github.com:bigdataviewer/bigdataviewer-vistools.git",
+    "before_upgrade_commit": "dddb33ae4c1f6acb09d4f859f3c235b10920564e",
+    "after_upgrade_commit": "f1bbdc498210d46062808bf8f3e0655aa4431215",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/bigdataviewer/bigdataviewer-vistools/commit/f1bbdc498210d46062808bf8f3e0655aa4431215",
+    "fix_type": 0
+}

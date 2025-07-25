@@ -1,0 +1,15 @@
+{
+    "id": "aherbert__GT__gdsc__1",
+    "client_project_name": "aherbert/gdsc",
+    "github_url": "git@github.com:aherbert/gdsc.git",
+    "before_upgrade_commit": "9de19b15d7bd36ec8f20d2107232b171bf191981",
+    "after_upgrade_commit": "917d36a6f1a659837fdaf9dc3b68674476d262b8",
+    "incompatibility_category": "Method Removal, Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/aherbert/gdsc/commit/917d36a6f1a659837fdaf9dc3b68674476d262b8",
+    "fix_type": 0
+}

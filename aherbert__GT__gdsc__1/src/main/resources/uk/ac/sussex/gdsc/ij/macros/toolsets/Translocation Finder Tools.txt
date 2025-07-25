@@ -1,0 +1,13 @@
+// Add tools used for identifying translocations.                                                         
+// Place in the ImageJ/macros/toolsets directory.                                                                                    
+                                                                                                                                     
+macro "Unused Tool -" {}                                                                                                             
+                             
+macro 'Translocation Finder Action Tool - Cf00o4233C0f0o6933C00foa644' {
+    doCommand('Translocation Finder');
+};
+                                                                                                                                     
+macro 'Add Translocation Finder Tool Action Tool - Cf00o4233C0f0o6933C00foa644C000Ta508MC0f0L00f7Lf70fL000f' {
+    // Ensure the manual tool has been initialised 
+    call('gdsc.foci.TranslocationFinder.addPluginTool');
+};

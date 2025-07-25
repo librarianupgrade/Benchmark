@@ -1,0 +1,15 @@
+{
+    "id": "slovensko-digital__GT__autogram__1",
+    "client_project_name": "slovensko-digital/autogram",
+    "github_url": "git@github.com:slovensko-digital/autogram.git",
+    "before_upgrade_commit": "b2691bf1cc8fe915bbcf1aaa96ae28a153a2563a",
+    "after_upgrade_commit": "412b8869f0fd576fb129b75d5818fc19eda157ca",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/slovensko-digital/autogram/commit/412b8869f0fd576fb129b75d5818fc19eda157ca",
+    "fix_type": 0
+}

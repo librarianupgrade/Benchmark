@@ -1,0 +1,15 @@
+{
+    "id": "Hello-hao__GT__Tbed__1",
+    "client_project_name": "Hello-hao/Tbed",
+    "github_url": "git@github.com:Hello-hao/Tbed.git",
+    "before_upgrade_commit": "6f6166275aa03dbcd375f50116a3f2811cb6c35f",
+    "after_upgrade_commit": "393ad3138ef534c4c95dd1554614f5998f4fa466",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Hello-hao/Tbed/commit/393ad3138ef534c4c95dd1554614f5998f4fa466",
+    "fix_type": 0
+}

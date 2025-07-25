@@ -1,0 +1,10 @@
+#!/bin/bash
+## Licensed under the terms of http://www.apache.org/licenses/LICENSE-2.0
+
+## This script resets the persistent states
+
+## Delete Zookeeper databases.
+rm -rf zk?/ZkData/version-2
+
+## Delete the persistent zone information for Fuseki datasets.
+rm -rf fuseki?/Zone/*

@@ -1,0 +1,21 @@
+target
+.settings
+.classpath
+.project
+.checkstyle
+*.iml
+.idea/
+bin
+*~
+/checkstyle-tester/src/main/java/
+/checkstyle-tester/repositories
+/checkstyle-tester/target
+/checkstyle-tester/reports
+/checkstyle-tester/tmp_reports
+/qulice/src/main/java/
+.DS_Store
+
+# downloads from jsoref-spellchecker
+jsoref-spellchecker/english.words
+jsoref-spellchecker/spelling-unknown-word-splitter.pl
+jsoref-spellchecker/unknown.words

@@ -1,0 +1,15 @@
+{
+    "id": "anderswisch__GT__cron-expression__1",
+    "client_project_name": "anderswisch/cron-expression",
+    "github_url": "git@github.com:anderswisch/cron-expression.git",
+    "before_upgrade_commit": "13de2819f3ac1ef23a2eb3bbab7148c2b75404f6",
+    "after_upgrade_commit": "9c31fafbeb2f841c5266b3e7e0f377af5911d8bb",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/anderswisch/cron-expression/commit/9c31fafbeb2f841c5266b3e7e0f377af5911d8bb",
+    "fix_type": 0
+}

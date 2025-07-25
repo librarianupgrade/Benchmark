@@ -1,0 +1,15 @@
+{
+    "id": "jetlinks__GT__reactor-ql__2",
+    "client_project_name": "jetlinks/reactor-ql",
+    "github_url": "git@github.com:jetlinks/reactor-ql.git",
+    "before_upgrade_commit": "2c081a0844aca950da7aa96c3182fbf0f68f9630",
+    "after_upgrade_commit": "66fe1af23430dad0c02a8e1fa8bed495768eee3d",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/jetlinks/reactor-ql/commit/66fe1af23430dad0c02a8e1fa8bed495768eee3d",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__bookkeeper__1",
+    "client_project_name": "apache/bookkeeper",
+    "github_url": "git@github.com:apache/bookkeeper.git",
+    "before_upgrade_commit": "942fadd439e4746f99c786d97cf10dc61ec5cc80",
+    "after_upgrade_commit": "de5d45fb823dc558f15bcb9d958b9c0a5144043c",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/apache/bookkeeper/commit/de5d45fb823dc558f15bcb9d958b9c0a5144043c",
+    "fix_type": 2
+}

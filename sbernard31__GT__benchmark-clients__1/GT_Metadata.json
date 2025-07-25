@@ -1,0 +1,15 @@
+{
+    "id": "sbernard31__GT__benchmark-clients__1",
+    "client_project_name": "sbernard31/benchmark-clients",
+    "github_url": "git@github.com:sbernard31/benchmark-clients.git",
+    "before_upgrade_commit": "d8f65a1c187db02159434a45120212afc6c9af86",
+    "after_upgrade_commit": "c576f61303fad271f8c36d436390db44bd9efee4",
+    "incompatibility_category": "Method Parameter Length Change, Classpath Modification, Abstracted Method Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/sbernard31/benchmark-clients/commit/c576f61303fad271f8c36d436390db44bd9efee4",
+    "fix_type": 0
+}

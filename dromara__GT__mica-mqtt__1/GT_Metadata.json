@@ -1,0 +1,15 @@
+{
+    "id": "dromara__GT__mica-mqtt__1",
+    "client_project_name": "dromara/mica-mqtt",
+    "github_url": "git@github.com:dromara/mica-mqtt.git",
+    "before_upgrade_commit": "f34a4580a62c1a9409b04a1bdbdda65688129324",
+    "after_upgrade_commit": "d1d653b67a38d110bb2736eece51bccb3ccda5d8",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/dromara/mica-mqtt/commit/d1d653b67a38d110bb2736eece51bccb3ccda5d8",
+    "fix_type": 0
+}

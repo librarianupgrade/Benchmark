@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="properties.xml"/>
+
+    <bean id="browser" class="com.algocrafts.browsers.Browsers" factory-method="valueOf">
+        <constructor-arg value="${browser}"/>
+    </bean>
+
+    <bean id="entryUrl" class="com.algocrafts.clickables.Url">
+        <constructor-arg ref="browser"/>
+        <constructor-arg value="${entry.url}"/>
+    </bean>
+
+    <bean id="daughertyUrl" class="com.algocrafts.clickables.Url">
+        <constructor-arg ref="browser"/>
+        <constructor-arg value="${daugherty.url}"/>
+    </bean>
+
+    <bean id="homePage" class="com.orgsync.OrgSyncHomePage">
+        <constructor-arg ref="browser"/>
+        <constructor-arg ref="entryUrl"/>
+        <constructor-arg ref="allMenuLocator"/>
+    </bean>
+
+    <bean id="daughertyHomePage" class="com.daugherty.DaughertyHomePage">
+        <constructor-arg ref="browser"/>
+        <constructor-arg ref="daughertyUrl"/>
+        <constructor-arg ref="daughterMenuLocator"/>
+    </bean>
+
+    <bean id="daughterMenuLocator" class="com.daugherty.AllMenuLocatorForDaugherty"/>
+
+    <bean id="firefox" class="com.algocrafts.browsers.FirefoxDriverSupplierOnWindows"/>
+
+    <bean id="allMenuLocator" class="com.orgsync.AllMenuLocatorForOrgSync"/>
+
+    <bean id="jQueryUrl" class="com.algocrafts.clickables.Url">
+        <constructor-arg ref="browser"/>
+        <constructor-arg value="${entry.url.jquery}"/>
+    </bean>
+
+    <bean id="jQueryHomePage" class="com.jquery.JQueryHomePage">
+        <constructor-arg ref="browser"/>
+        <constructor-arg ref="jQueryUrl"/>
+        <constructor-arg ref="jQueryMenuLocator"/>
+    </bean>
+
+    <bean id="jQueryMenuLocator" class="com.jquery.menu.AllMenuLocatorForJQuery"/>
+
+    <bean id="jQueryDatePickerPage" class="com.jquery.datepicker.JQueryDatePickerPage">
+        <constructor-arg ref="browser"/>
+    </bean>
+
+    <bean id="googleUrl" class="com.algocrafts.clickables.Url">
+        <constructor-arg ref="browser"/>
+        <constructor-arg value="${google.com}"/>
+    </bean>
+
+    <bean id="googlePage" class="com.google.GooglePage">
+        <constructor-arg ref="browser"/>
+        <constructor-arg ref="googleUrl"/>
+    </bean>
+
+    <bean id="uploadUrl" class="com.algocrafts.clickables.Url">
+        <constructor-arg ref="browser"/>
+        <constructor-arg value="${upload.url}"/>
+    </bean>
+
+    <bean id="uploadFile" class="java.io.File">
+        <constructor-arg value="${upload.file}"/>
+    </bean>
+</beans>

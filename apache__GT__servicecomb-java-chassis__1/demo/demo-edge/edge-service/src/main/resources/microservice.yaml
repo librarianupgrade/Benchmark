@@ -1,0 +1,137 @@
+## ---------------------------------------------------------------------------
+## Licensed to the Apache Software Foundation (ASF) under one or more
+## contributor license agreements.  See the NOTICE file distributed with
+## this work for additional information regarding copyright ownership.
+## The ASF licenses this file to You under the Apache License, Version 2.0
+## (the "License"); you may not use this file except in compliance with
+## the License.  You may obtain a copy of the License at
+##
+##      http://www.apache.org/licenses/LICENSE-2.0
+##
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License.
+## ---------------------------------------------------------------------------
+
+servicecomb:
+  service:
+    application: edge
+    name: edge
+    version: 0.0.1
+  registry:
+    sc:
+      address: http://127.0.0.1:30100
+  edge:
+    filter:
+      addHeader:
+        enabled: true
+        allowedHeaders: xxx
+  rest:
+    address: 0.0.0.0:18090
+    server:
+      # for test case run in one core machine
+      verticle-count: 1
+    client:
+      verticle-count: 1
+      http2.useAlpnEnabled: false
+  handler:
+    chain:
+      Consumer:
+        default: auth,loadbalance,instance-isolation-consumer,instance-bulkhead-consumer
+        service:
+          auth: loadbalance,instance-isolation-consumer,instance-bulkhead-consumer
+  http:
+    dispatcher:
+      edge:
+        default:
+          enabled: true
+          prefix: rest
+          withVersion: true
+          prefixSegmentCount: 1
+        url:
+          enabled: true
+          mappings:
+            businessV1:
+              prefixSegmentCount: 1
+              path: "/url/business/v1/.*"
+              microserviceName: business
+            businessV2:
+              prefixSegmentCount: 1
+              path: "/url/business/v2/.*"
+              microserviceName: business
+        http:
+          enabled: true
+          mappings:
+            businessV2:
+              prefixSegmentCount: 1
+              path: "/http/business/v2/.*"
+              microserviceName: business
+            businessV1:
+              prefixSegmentCount: 1
+              path: "/http/business/v1/add.*"
+              microserviceName: business
+            businessV1_1:
+              prefixSegmentCount: 1
+              path: "/http/business/v1/dec.*"
+              microserviceName: business
+
+  # 服务治理配置
+  matchGroup:
+    testEdgeServiceRetry: |
+      matches:
+        - apiPath:
+            exact: "/business/v2/testEdgeServiceRetry"
+    testEdgeServiceInstanceIsolation: |
+      matches:
+        - apiPath:
+            exact: "/business/v2/testEdgeServiceInstanceIsolation"
+    testEdgeServiceInstanceBulkhead: |
+      matches:
+        - apiPath:
+            exact: "/business/v2/testEdgeServiceInstanceBulkhead"
+  # retry not supported now
+  #  retry:
+  #    testEdgeServiceRetry: |
+  #      maxAttempts: 2
+  #      retryOnSame: 0
+  instanceIsolation:
+    testEdgeServiceInstanceIsolation: |
+      minimumNumberOfCalls: 10
+      slidingWindowSize: 20
+      slidingWindowType: COUNT_BASED
+      failureRateThreshold: 50
+      slowCallRateThreshold: 100
+      slowCallDurationThreshold: 3000
+      waitDurationInOpenState: 3000
+      permittedNumberOfCallsInHalfOpenState: 10
+  instanceBulkhead:
+    testEdgeServiceInstanceBulkhead: |
+      maxConcurrentCalls: 1
+      maxWaitDuration: 1
+
+  # enable router for edge service
+  router:
+    type: router
+  routeRule:
+    business: |
+      - precedence: 2
+        match:
+          apiPath:
+            prefix: "/business/v2"
+        route:
+          - weight: 100
+            tags:
+              version: 2.0.0
+      - precedence: 1
+        match:
+          apiPath:
+            prefix: "/business/v1/dec"
+        route:
+          - weight: 50
+            tags:
+              version: 1.1.0
+          - weight: 50
+            tags:
+              version: 2.0.0

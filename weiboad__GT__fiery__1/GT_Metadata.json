@@ -1,0 +1,15 @@
+{
+    "id": "weiboad__GT__fiery__1",
+    "client_project_name": "weiboad/fiery",
+    "github_url": "git@github.com:weiboad/fiery.git",
+    "before_upgrade_commit": "d3b4edc28004d77f68898fe0cac41effad59f999",
+    "after_upgrade_commit": "95634bf2aeab349e69df47c83d375ff8b8e1b6cb",
+    "incompatibility_category": "Method Return Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/weiboad/fiery/commit/95634bf2aeab349e69df47c83d375ff8b8e1b6cb",
+    "fix_type": 0
+}

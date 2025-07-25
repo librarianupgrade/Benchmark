@@ -1,0 +1,15 @@
+{
+    "id": "binarywang__GT__weixin-java-pay-demo__1",
+    "client_project_name": "binarywang/weixin-java-pay-demo",
+    "github_url": "git@github.com:binarywang/weixin-java-pay-demo.git",
+    "before_upgrade_commit": "85c1d3e8c37e504390890d11244bcb1ebbc8e79a",
+    "after_upgrade_commit": "a51faeb85f212854d45778f37a5a364daecdae77",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/binarywang/weixin-java-pay-demo/commit/a51faeb85f212854d45778f37a5a364daecdae77",
+    "fix_type": 0
+}

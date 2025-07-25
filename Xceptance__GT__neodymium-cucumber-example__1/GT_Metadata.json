@@ -1,0 +1,15 @@
+{
+    "id": "Xceptance__GT__neodymium-cucumber-example__1",
+    "client_project_name": "Xceptance/neodymium-cucumber-example",
+    "github_url": "git@github.com:Xceptance/neodymium-cucumber-example.git",
+    "before_upgrade_commit": "49aede128687fa856aea4b860986cbc20d2152df",
+    "after_upgrade_commit": "55d1b558f819cbc3915f702a7ab6a4e073dbb3c0",
+    "incompatibility_category": "Method Parameter Length Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Xceptance/neodymium-cucumber-example/commit/55d1b558f819cbc3915f702a7ab6a4e073dbb3c0",
+    "fix_type": 0
+}

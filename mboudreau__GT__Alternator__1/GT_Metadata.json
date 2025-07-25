@@ -1,0 +1,15 @@
+{
+    "id": "mboudreau__GT__Alternator__1",
+    "client_project_name": "mboudreau/Alternator",
+    "github_url": "git@github.com:mboudreau/Alternator.git",
+    "before_upgrade_commit": "91954b46b0bb37bca9388c3812763f3d24a8aaaa",
+    "after_upgrade_commit": "14954597f62b88093aa36e3060b12901b64aecdb",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/mboudreau/Alternator/commit/14954597f62b88093aa36e3060b12901b64aecdb",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "yakaz__GT__elasticsearch-analysis-combo__1",
+    "client_project_name": "yakaz/elasticsearch-analysis-combo",
+    "github_url": "git@github.com:yakaz/elasticsearch-analysis-combo.git",
+    "before_upgrade_commit": "bd813cc3f2e12cdf296869404be5d00ae8662784",
+    "after_upgrade_commit": "c49bc7633bd8efc37f495b21c1dca8ba7f98c5f5",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yakaz/elasticsearch-analysis-combo/commit/c49bc7633bd8efc37f495b21c1dca8ba7f98c5f5",
+    "fix_type": 0
+}

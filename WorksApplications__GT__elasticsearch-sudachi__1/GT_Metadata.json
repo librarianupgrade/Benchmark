@@ -1,0 +1,15 @@
+{
+    "id": "WorksApplications__GT__elasticsearch-sudachi__1",
+    "client_project_name": "WorksApplications/elasticsearch-sudachi",
+    "github_url": "git@github.com:WorksApplications/elasticsearch-sudachi.git",
+    "before_upgrade_commit": "16c54247e005fd9fab2907d2a95411daa6d0d1cc",
+    "after_upgrade_commit": "1ea198340f1ad1e2cb60c2770193b92936b65021",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/WorksApplications/elasticsearch-sudachi/commit/1ea198340f1ad1e2cb60c2770193b92936b65021",
+    "fix_type": 0
+}

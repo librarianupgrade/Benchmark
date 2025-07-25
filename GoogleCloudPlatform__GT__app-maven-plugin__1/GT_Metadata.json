@@ -1,0 +1,15 @@
+{
+    "id": "GoogleCloudPlatform__GT__app-maven-plugin__1",
+    "client_project_name": "GoogleCloudPlatform/app-maven-plugin",
+    "github_url": "git@github.com:GoogleCloudPlatform/app-maven-plugin.git",
+    "before_upgrade_commit": "c69454c7eb0b5913715b7cd86f7b9bbfb7a61616",
+    "after_upgrade_commit": "3e1012a995cbfc615d82530ed8d5815e05de6aea",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/GoogleCloudPlatform/app-maven-plugin/commit/3e1012a995cbfc615d82530ed8d5815e05de6aea",
+    "fix_type": 0
+}

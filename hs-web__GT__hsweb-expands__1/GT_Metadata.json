@@ -1,0 +1,15 @@
+{
+    "id": "hs-web__GT__hsweb-expands__1",
+    "client_project_name": "hs-web/hsweb-expands",
+    "github_url": "git@github.com:hs-web/hsweb-expands.git",
+    "before_upgrade_commit": "7e6be4f9eda74967c1cca733d07ee7b769d66b70",
+    "after_upgrade_commit": "eed1e83681073141b652876a02cedc085717d834",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "hsweb-expands-office",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/hs-web/hsweb-expands/commit/eed1e83681073141b652876a02cedc085717d834",
+    "fix_type": 2
+}

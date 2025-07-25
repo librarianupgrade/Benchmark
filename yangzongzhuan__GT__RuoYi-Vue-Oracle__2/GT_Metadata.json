@@ -1,0 +1,15 @@
+{
+    "id": "yangzongzhuan__GT__RuoYi-Vue-Oracle__3",
+    "client_project_name": "yangzongzhuan/RuoYi-Vue-Oracle",
+    "github_url": "git@github.com:yangzongzhuan/RuoYi-Vue-Oracle.git",
+    "before_upgrade_commit": "49e17e2b4dfce8984cea5c7c73fdd216c8dfcdb9",
+    "after_upgrade_commit": "39054abc1931638adda7dbc74c7f4c90a0a8cfb4",
+    "incompatibility_category": "Method Return Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yangzongzhuan/RuoYi-Vue-Oracle/commit/39054abc1931638adda7dbc74c7f4c90a0a8cfb4",
+    "fix_type": 0
+}

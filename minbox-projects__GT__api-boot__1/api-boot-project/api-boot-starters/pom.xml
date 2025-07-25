@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>api-boot-parent</artifactId>
+        <groupId>org.minbox.framework</groupId>
+        <version>${revision}</version>
+        <relativePath>../api-boot-parent</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>api-boot-starters</artifactId>
+    <packaging>pom</packaging>
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+    </properties>
+    <modules>
+        <module>api-boot-starter</module>
+        <module>api-boot-starter-security-oauth-jwt</module>
+        <module>api-boot-starter-http-converter</module>
+        <module>api-boot-starter-swagger</module>
+        <module>api-boot-starter-alibaba-oss</module>
+        <module>api-boot-starter-alibaba-sms</module>
+        <module>api-boot-starter-quartz</module>
+        <module>api-boot-starter-datasource-switch</module>
+        <module>api-boot-starter-resource-load</module>
+        <module>api-boot-starter-message-push</module>
+        <module>api-boot-starter-mybatis-pageable</module>
+        <module>api-boot-starter-mybatis-enhance</module>
+        <module>api-boot-starter-rate-limiter</module>
+        <module>api-boot-starter-mail</module>
+        <module>api-boot-starter-logging</module>
+        <module>api-boot-starter-logging-admin</module>
+        <module>api-boot-starter-sequence</module>
+        <module>api-boot-starter-mongo-client-settings</module>
+        <module>api-boot-starter-message-pipe-client</module>
+        <module>api-boot-starter-message-pipe-server</module>
+    </modules>
+
+</project>

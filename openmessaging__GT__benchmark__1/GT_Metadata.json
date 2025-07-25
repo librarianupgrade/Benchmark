@@ -1,0 +1,15 @@
+{
+    "id": "openmessaging__GT__benchmark__1",
+    "client_project_name": "openmessaging/benchmark",
+    "github_url": "git@github.com:openmessaging/benchmark.git",
+    "before_upgrade_commit": "b3a90448c1b8b02d9baecad660118b9201d75ea7",
+    "after_upgrade_commit": "f2a4e8cae6fe294a6af7abb677c2801dc81bc73e",
+    "incompatibility_category": "Classpath  Modification",
+    "root_path": "",
+    "change_pom_path": "driver-redis",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/openmessaging/benchmark/commit/f2a4e8cae6fe294a6af7abb677c2801dc81bc73e",
+    "fix_type": 0
+}

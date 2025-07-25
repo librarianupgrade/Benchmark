@@ -1,0 +1,15 @@
+{
+    "id": "Comcast__GT__cmb__2",
+    "client_project_name": "Comcast/cmb",
+    "github_url": "git@github.com:Comcast/cmb.git",
+    "before_upgrade_commit": "2c5cac06c746fb71ac3410aa79a9cebb36094b90",
+    "after_upgrade_commit": "420ece62bc158152b745f9e0751f025ab710c117",
+    "incompatibility_category": "Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Comcast/cmb/commit/420ece62bc158152b745f9e0751f025ab710c117",
+    "fix_type": 0
+}

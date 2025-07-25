@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+## Licensed under the terms of http://www.apache.org/licenses/LICENSE-2.0
+
+## Usage: dcmd <delta_main>
+## Sets up the java enviroment to run a command from RDF Delta.
+
+CP="${CP:-}"
+
+DELTA_HOME=${DELTA_HOME:-/home/afs/ASF/rdf-delta}
+CP_DIR="$DELTA_HOME/rdf-delta-cmds"
+
+CPF="$CP_DIR/delta.classpath"
+if [ ! -e "$CPF" ]; then
+    echo "Need to create Delta classpath file"
+    echo "Ensure maven is up to date with the latest snapshots and then run"
+    echo -e "( cd $CP_DIR/ ; \n  mvn dependency:build-classpath -Dmdep.outputFile=delta.classpath )"
+    exit 1
+fi
+DELTA_CP="$(cat $CPF)"
+
+# Delta modules
+read -r -d '' MODULES << EOM
+rdf-delta-base
+rdf-delta-client
+rdf-delta-server-http
+rdf-delta-server-local
+rdf-delta-server-extra
+rdf-delta-system
+rdf-delta-test
+rdf-delta-fuseki
+rdf-patch 
+rdf-delta-cmds
+dev-rdf-delta
+EOM
+
+if true # if in development area
+then
+    for X in $MODULES
+    do
+	[[ $D = "" ]] || D="$D:"
+	D="${D}$DELTA_HOME/$X/target/classes"
+    done
+else
+    ## @@ By artifacts ...
+    echo "Not implemented: classpath by artifacts" 2>&1
+    exit 9
+fi
+
+# Prepend target/classes
+DELTA_CP="$D:$DELTA_CP"
+
+## dmcd has this built-in.
+## if [[ -e "log4j2.xml" ]]
+## then
+##     LOGGING="-Dlog4j.configurationFile=log4j2.xml -Dlog4j.configuration=delta"
+## fi
+
+function usage() {
+    echo "Commands:"
+    echo "    server, fuseki, ping, monitor" 1>&2
+    echo "    ls, mk, mv, rm, cp" 1>&2
+    echo "    get, add" 1>&2
+    echo "    parse (p), r2p, p2r, p2u" 1>&2
+    ##echo "Class path: $DELTA_CP"
+    exit
+}
+
+if [[ $# = 0 ]]
+then
+    usage
+fi
+
+if [[ $1 = path ]]
+then
+    #echo "$DELTA_CP"
+  # "uniq" because of classes and test-classes.
+    CP_DEV=$(echo "$DELTA_CP" | sed -e 's/:/\n/g' | grep target | sed -e "s!^${DELTA_HOME%/}/!dev: !" | sed -e 's!/target/.*!!' | uniq)
+    CP_JAR=$(echo "$DELTA_CP" | sed -e 's/:/\n/g' | grep "^${M2_REPO}" | sed -e "s!^${M2_REPO%/}/!jar: !")
+    echo "$CP_DEV"
+##     echo
+##     echo "$CP_JAR"
+    exit
+fi
+
+exec java $JVM_ARGS -cp "$DELTA_CP"   $LOGGING org.seaborne.delta.cmds.dcmd "$@"

@@ -1,0 +1,15 @@
+{
+    "id": "stanford-futuredata__GT__macrobase__1",
+    "client_project_name": "stanford-futuredata/macrobase",
+    "github_url": "git@github.com:stanford-futuredata/macrobase.git",
+    "before_upgrade_commit": "6ea84f43368d8c61b0055cbad6875bf68d278c31",
+    "after_upgrade_commit": "3fe51f4d53e3e6ebef4e1e288d576c5806c5ffc6",
+    "incompatibility_category": "Transform to Abstract Class",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/stanford-futuredata/macrobase/commit/3fe51f4d53e3e6ebef4e1e288d576c5806c5ffc6",
+    "fix_type": 0
+}

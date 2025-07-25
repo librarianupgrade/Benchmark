@@ -1,0 +1,15 @@
+{
+    "id": "zalando__GT__zalenium__2",
+    "client_project_name": "zalando/zalenium",
+    "github_url": "git@github.com:zalando/zalenium.git",
+    "before_upgrade_commit": "5d1158ff098bc3722b9012f98cb07ab16dbd5a33",
+    "after_upgrade_commit": "9ec85b7478e0a612657ea2d65e9963aa29440d05",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zalando/zalenium/commit/9ec85b7478e0a612657ea2d65e9963aa29440d05",
+    "fix_type": 2
+}

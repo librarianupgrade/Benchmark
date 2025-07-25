@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>api-boot-starters</artifactId>
+        <groupId>org.minbox.framework</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>api-boot-starter-swagger</artifactId>
+    <properties>
+        <main.basedir>${basedir}/../../..</main.basedir>
+    </properties>
+    <developers>
+        <developer>
+            <name>恒宇少年</name>
+            <email>jnyuqy@gmail.com</email>
+            <organization>minbox-projects</organization>
+            <organizationUrl>https://gitee.com/minbox-projects</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:https://gitee.com/minbox-projects/api-boot.git</connection>
+        <developerConnection>scm:git:https://gitee.com/minbox-projects/api-boot.git</developerConnection>
+        <url>https://gitee.com/minbox-projects/api-boot</url>
+        <tag>HEAD</tag>
+    </scm>
+    <dependencies>
+        <!--ApiBoot Starter-->
+        <dependency>
+            <groupId>org.minbox.framework</groupId>
+            <artifactId>api-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+        </dependency>
+        <!--After SpringBoot 2.3.x version, need to add this dependency-->
+        <!--Solve https://github.com/minbox-projects/api-boot/issues/20-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+    </dependencies>
+</project>

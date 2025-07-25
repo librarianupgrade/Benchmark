@@ -1,0 +1,15 @@
+{
+    "id": "zaza__GT__olx-rss__1",
+    "client_project_name": "zaza/olx-rss",
+    "github_url": "git@github.com:zaza/olx-rss.git",
+    "before_upgrade_commit": "6b21c9dc6b78337ee380977c6e9da73a53f95118",
+    "after_upgrade_commit": "fb9fb71b8650b10d29406b71febed1b943cae5fa",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zaza/olx-rss/commit/fb9fb71b8650b10d29406b71febed1b943cae5fa",
+    "fix_type": 0
+}

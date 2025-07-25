@@ -1,0 +1,15 @@
+{
+    "id": "Nepxion__GT__DiscoveryGuide__1",
+    "client_project_name": "Nepxion/DiscoveryGuide",
+    "github_url": "git@github.com:Nepxion/DiscoveryGuide.git",
+    "before_upgrade_commit": "367e35f9cfb79b8be37f78d97888c14d5b57473d",
+    "after_upgrade_commit": "6905dad162b9a060919eee999a0190c23655da46",
+    "incompatibility_category": "Abstracted Method Parameter Length Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Nepxion/DiscoveryGuide/commit/6905dad162b9a060919eee999a0190c23655da46",
+    "fix_type": 0
+}

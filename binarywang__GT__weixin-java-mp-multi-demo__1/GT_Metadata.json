@@ -1,0 +1,15 @@
+{
+    "id": "binarywang__GT__weixin-java-mp-multi-demo__1",
+    "client_project_name": "binarywang/weixin-java-mp-multi-demo",
+    "github_url": "git@github.com:binarywang/weixin-java-mp-multi-demo.git",
+    "before_upgrade_commit": "6b9f46a911c47568d89c7373ae5d8d58e96fd0e7",
+    "after_upgrade_commit": "f3ec713c3eb2ad3e1e3ee3fd412a8146f84f67ab",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/binarywang/weixin-java-mp-multi-demo/commit/f3ec713c3eb2ad3e1e3ee3fd412a8146f84f67ab",
+    "fix_type": 0
+}

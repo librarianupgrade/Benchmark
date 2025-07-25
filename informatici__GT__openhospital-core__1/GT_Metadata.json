@@ -1,0 +1,15 @@
+{
+    "id": "informatici__GT__openhospital-core__1",
+    "client_project_name": "informatici/openhospital-core",
+    "github_url": "git@github.com:informatici/openhospital-core.git",
+    "before_upgrade_commit": "76f382c167d1560b64e457e5b3c89e5cbba8b3a2",
+    "after_upgrade_commit": "a62950ac4b3ac873bf089d6a9ab0bb419e9fe841",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/informatici/openhospital-core/commit/a62950ac4b3ac873bf089d6a9ab0bb419e9fe841",
+    "fix_type": 0
+}

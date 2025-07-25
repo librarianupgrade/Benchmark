@@ -1,0 +1,15 @@
+{
+    "id": "alexvictoor__GT__pitest-cucumber-plugin__1",
+    "client_project_name": "alexvictoor/pitest-cucumber-plugin",
+    "github_url": "git@github.com:alexvictoor/pitest-cucumber-plugin.git",
+    "before_upgrade_commit": "421565fc84b102812037e63db5590de0bc5db90c",
+    "after_upgrade_commit": "9dbad22f480317d51364d2c886cc13ca44510ab2",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/alexvictoor/pitest-cucumber-plugin/commit/9dbad22f480317d51364d2c886cc13ca44510ab2",
+    "fix_type": 0
+}

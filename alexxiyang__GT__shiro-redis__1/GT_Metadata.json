@@ -1,0 +1,15 @@
+{
+    "id": "alexxiyang__GT__shiro-redis__1",
+    "client_project_name": "alexxiyang/shiro-redis",
+    "github_url": "git@github.com:alexxiyang/shiro-redis.git",
+    "before_upgrade_commit": "a9b1a4b44fcd2f2926d0e84fabeb331013825ebb",
+    "after_upgrade_commit": "d2b9eabdc6880764692d560a0694917e1daada9a",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/alexxiyang/shiro-redis/commit/d2b9eabdc6880764692d560a0694917e1daada9a",
+    "fix_type": 0
+}

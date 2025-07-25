@@ -1,0 +1,15 @@
+{
+    "id": "paritytrading__GT__parity__2",
+    "client_project_name": "paritytrading/parity",
+    "github_url": "git@github.com:paritytrading/parity.git",
+    "before_upgrade_commit": "453b10070b521402112bf39cd76ad5ccda2a4735",
+    "after_upgrade_commit": "0b2b68a73d8c9ff01447f7232d8e1a4d16654dd0",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/paritytrading/parity/commit/0b2b68a73d8c9ff01447f7232d8e1a4d16654dd0",
+    "fix_type": 0
+}

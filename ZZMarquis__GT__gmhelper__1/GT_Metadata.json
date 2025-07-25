@@ -1,0 +1,15 @@
+{
+    "id": "ZZMarquis__GT__gmhelper__1",
+    "client_project_name": "ZZMarquis/gmhelper",
+    "github_url": "git@github.com:ZZMarquis/gmhelper.git",
+    "before_upgrade_commit": "7accfe7e1e010500c768b2c9acbea7424eb83b35",
+    "after_upgrade_commit": "cf651d4a86112f94ae02e16d63d844c66370f7b8",
+    "incompatibility_category": "Method Parameter Length Change, Method Parameter Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/ZZMarquis/gmhelper/commit/cf651d4a86112f94ae02e16d63d844c66370f7b8",
+    "fix_type": 0
+}

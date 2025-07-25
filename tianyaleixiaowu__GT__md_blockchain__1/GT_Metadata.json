@@ -1,0 +1,15 @@
+{
+    "id": "tianyaleixiaowu__GT__md_blockchain__1",
+    "client_project_name": "tianyaleixiaowu/md_blockchain",
+    "github_url": "git@github.com:tianyaleixiaowu/md_blockchain.git",
+    "before_upgrade_commit": "95ce35b48a21d50bfacb364fcd8af7611d3ec9cb",
+    "after_upgrade_commit": "f4324498068ca6986b020eef5f3a516da9b9d1a0",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/tianyaleixiaowu/md_blockchain/commit/f4324498068ca6986b020eef5f3a516da9b9d1a0",
+    "fix_type": 0
+}

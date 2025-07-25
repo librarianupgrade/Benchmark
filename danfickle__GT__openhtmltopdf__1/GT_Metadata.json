@@ -1,0 +1,15 @@
+{
+    "id": "danfickle__GT__openhtmltopdf__1",
+    "client_project_name": "danfickle/openhtmltopdf",
+    "github_url": "git@github.com:danfickle/openhtmltopdf.git",
+    "before_upgrade_commit": "8767967bda964eb96ff94ca16b4f252c3e2eb7c9",
+    "after_upgrade_commit": "d9a3db68a7107d7852c6d849a38a8baea01f54a7",
+    "incompatibility_category": "Method Exception Change",
+    "root_path": "",
+    "change_pom_path": "openhtmltopdf-pdfbox",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/danfickle/openhtmltopdf/commit/d9a3db68a7107d7852c6d849a38a8baea01f54a7",
+    "fix_type": 0
+}

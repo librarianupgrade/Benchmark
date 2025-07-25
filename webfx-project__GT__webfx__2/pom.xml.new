@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.webfx</groupId>
+    <artifactId>webfx-root</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+
+        <!-- Webfx modules -->
+        <module>webfx-libs</module>
+        <module>webfx-platform</module>
+        <module>webfx-kit</module>
+        <module>webfx-extras</module>
+        <module>webfx-framework</module>
+        <module>webfx-tools</module>
+
+        <!-- Mongoose app (will move to another repo once webfx API will be stable) -->
+        <module>mongoose</module>
+
+    </modules>
+
+    <properties>
+        <!-- Webfx groupId & version -->
+        <webfx.groupId>org.webfx</webfx.groupId>
+        <webfx.version>0.1.0-SNAPSHOT</webfx.version>
+
+        <!-- java version -->
+        <java.version>11</java.version>
+        <java.level>${java.version}</java.level>
+        <gwt.sourceLevel>1.${java.version}</gwt.sourceLevel>
+
+        <!-- Applying compiler settings -->
+        <maven.compiler.source>${java.level}</maven.compiler.source>
+        <maven.compiler.target>${java.level}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- libraries versions -->
+        <lib.openjfx.version>13</lib.openjfx.version>
+        <lib.gwt.version>2.9.0</lib.gwt.version> <!-- can be switched to HEAD-SNAPSHOT on development machines to test the latest GWT version -->
+        <lib.elemental2.groupId>com.google.elemental2</lib.elemental2.groupId>
+        <lib.elemental2.version>1.0.0</lib.elemental2.version>
+        <lib.gwt-charts.version>0.9.10</lib.gwt-charts.version>
+        <lib.vertx.version>3.8.4</lib.vertx.version>
+        <lib.javawebsocket.version>1.5.1</lib.javawebsocket.version>
+
+        <!--
+       <lib.javacuprutime.version>11b</lib.javacuprutime.version>
+       <lib.rxjava.version>1.1.1</lib.rxjava.version>
+       -->
+
+        <lib.javafxsvg.version>1.2.1</lib.javafxsvg.version>
+
+        <lib.junit.version>4.12</lib.junit.version>
+
+        <!-- Maven plugins versions -->
+        <plugin.compiler.version>3.8.1</plugin.compiler.version>
+        <plugin.jar.version>3.2.0</plugin.jar.version>
+        <plugin.source.version>3.2.0</plugin.source.version>
+        <plugin.dependency.version>3.1.2</plugin.dependency.version>
+        <plugin.shade.version>3.2.3</plugin.shade.version>
+
+        <!-- Third-party plugins versions -->
+        <plugin.javacup.version>11b-20160615</plugin.javacup.version>
+        <plugin.jflex.version>1.7.0</plugin.jflex.version>
+        <plugin.proguard.version>2.0.14</plugin.proguard.version>
+        <plugin.gwt.version>1.0.0</plugin.gwt.version>
+
+        <!-- Plugin parameters with default values or set to TBD (To Be Defined) by any child module using the plugin -->
+        <plugin.compiler.param.exclude></plugin.compiler.param.exclude>
+        <plugin.jar.param.addMavenDescriptor>true</plugin.jar.param.addMavenDescriptor>
+        <plugin.dependency.param.unpack-sources.phase>validate</plugin.dependency.param.unpack-sources.phase>
+        <plugin.dependency.param.unpack-classes.phase>validate</plugin.dependency.param.unpack-classes.phase>
+        <plugin.dependency.param.unpack-classes.includes>**</plugin.dependency.param.unpack-classes.includes>
+        <plugin.dependency.param.unpack-classes.outputDirectory>${project.build.outputDirectory}</plugin.dependency.param.unpack-classes.outputDirectory>
+        <plugin.dependency.param.copy-libs.phase>validate</plugin.dependency.param.copy-libs.phase>
+        <plugin.shade.param.fat.phase>package</plugin.shade.param.fat.phase>
+        <plugin.antrun.param.j2objc.phase>compile</plugin.antrun.param.j2objc.phase>
+        <plugin.gwt.param.skipCompilation>false</plugin.gwt.param.skipCompilation>
+        <plugin.gwt.param.draftCompile>false</plugin.gwt.param.draftCompile>
+        <plugin.gwt.param.optimize>9</plugin.gwt.param.optimize>
+        <plugin.gwt.param.module>TBD</plugin.gwt.param.module>
+        <plugins.param.jre.mainClass>TBD</plugins.param.jre.mainClass>
+        <plugin.grunt.disabled>true</plugin.grunt.disabled> <!-- Grunt disabled unless grunt profile is activated -->
+
+        <application.name>${project.name}</application.name>
+        <application.version>${project.version}</application.version>
+        <!-- Build number property (should be set by Jenkins server each time a new build is started) -->
+        <!-- Will be passed to GWT compiler so that the java code can get its value using System.getProperty("build.number") -->
+        <application.build.number>0</application.build.number>
+        <application.build.tool>MAVEN</application.build.tool>
+        <!-- Build timestamp property (automatically set using maven but can be overridden using Jenkins) -->
+        <!-- Will be passed to GWT compiler so that the java code can get its value using System.getProperty("build.timestamp") -->
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'.000'X</maven.build.timestamp.format>
+        <application.build.timestamp>${maven.build.timestamp}</application.build.timestamp>
+    </properties>
+
+    <pluginRepositories>
+        <!-- Adding Snapshots repository which is required to get the GWT 2.8.1-SNAPSHOT Maven plugin -->
+        <pluginRepository>
+            <id>snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <releases><enabled>false</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <repositories>
+        <!-- Adding snapshots repository which is required to get the GWT SNAPSHOT libraries -->
+        <repository>
+            <id>snapshots-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/google-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <!-- For JFoenix -->
+        <repository>
+            <id>snapshots</id>
+            <url>https://oss.sonatype.org/content/groups/public</url>
+            <releases><enabled>false</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${lib.junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!--
+             *********************************************
+             * Libraries required for the Webfx platform *
+             *********************************************
+             Note that java-cup-runtime can't be transpiled as is, so it is replaced with forked and
+             minimized version (webfx-libs-javacupruntime) in webfx-platforms-web (see pom).
+             -->
+            <dependency>
+                <groupId>com.github.vbmacher</groupId>
+                <artifactId>java-cup-runtime</artifactId>
+                <version>${lib.javacuprutime.version}</version>
+            </dependency>
+
+            <!--
+             *******************************************************************
+             * Libraries required for the Java Platform (webfx-platforms-java) *
+             *******************************************************************
+             -->
+
+            <!-- JavaWebsocket -->
+            <dependency>
+                <groupId>org.java-websocket</groupId>
+                <artifactId>Java-WebSocket</artifactId>
+                <version>${lib.javawebsocket.version}</version>
+            </dependency>
+
+
+            <!--
+             ********************************************************************
+             * Libraries required for the Vert.x Platform (webfx-platform-vertx) *
+             ********************************************************************
+             -->
+
+            <!-- Vert.x core -->
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-core</artifactId>
+                <version>${lib.vertx.version}</version>
+            </dependency>
+
+            <!-- Vert.x web -->
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-web</artifactId>
+                <version>${lib.vertx.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-bridge-common</artifactId>
+                <version>${lib.vertx.version}</version>
+            </dependency>
+
+            <!-- Vert.x postgres and mysql really-asynchronous client -->
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-sql-common</artifactId>
+                <version>${lib.vertx.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-mysql-postgresql-client-jasync</artifactId>
+                <version>${lib.vertx.version}</version>
+            </dependency>
+
+            <!-- Vert.x jdbc pseudo-asynchronous client -->
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-jdbc-client</artifactId>
+                <version>${lib.vertx.version}</version>
+            </dependency>
+
+
+            <!--
+             ***************************************************************
+             * Libraries required for the GWT Platform (webfx-platform-gwt) *
+             ***************************************************************
+             -->
+
+            <dependency>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt</artifactId>
+                <version>${lib.gwt.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.validation</groupId>
+                        <artifactId>validation-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>${lib.elemental2.groupId}</groupId>
+                <artifactId>elemental2-core</artifactId>
+                <version>${lib.elemental2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${lib.elemental2.groupId}</groupId>
+                <artifactId>elemental2-dom</artifactId>
+                <version>${lib.elemental2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${lib.elemental2.groupId}</groupId>
+                <artifactId>elemental2-svg</artifactId>
+                <version>${lib.elemental2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.googlecode.gwt-charts</groupId>
+                <artifactId>gwt-charts</artifactId>
+                <version>${lib.gwt-charts.version}</version>
+            </dependency>
+
+            <!--
+             ***************************************************
+             * Graphical libraries for toolkit implementations *
+             ***************************************************
+             -->
+
+            <!-- JavaFx maven modules provided by OpenJFX (since Java 11) -->
+
+            <!-- javafx.base module -->
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-base</artifactId>
+                <version>${lib.openjfx.version}</version>
+            </dependency>
+
+            <!-- javafx.graphics module -->
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-graphics</artifactId>
+                <version>${lib.openjfx.version}</version>
+            </dependency>
+
+            <!-- javafx.controls module -->
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-controls</artifactId>
+                <version>${lib.openjfx.version}</version>
+            </dependency>
+
+            <!-- javafx.web module -->
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-web</artifactId>
+                <version>${lib.openjfx.version}</version>
+            </dependency>
+
+            <!-- JavaFx third-party libraries -->
+
+            <!-- Javafxsvg is a library (based on Apache Batik) for adding SVG support to JavaFX -->
+            <dependency>
+                <groupId>de.codecentric.centerdevice</groupId>
+                <artifactId>javafxsvg</artifactId>
+                <version>${lib.javafxsvg.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+
+        <pluginManagement>
+            <!-- plugins listed here are just pre-configured for a possible use in a module -->
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${plugin.compiler.version}</version>
+                    <configuration>
+                        <release>${java.version}</release>
+                    </configuration>
+                </plugin>
+
+
+                <!--
+                 **********************************
+                 * Maven jar plugin configuration *
+                 **********************************
+                 -->
+         
+
+
+                <!--
+                 **************************************
+                 * Maven sources plugin configuration *
+                 **************************************
+                 Plugin to generate the sources artifacts which will be used by GWT which is java source code transpiler (and not a bytecode transpiler like TeaVM)
+                 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${plugin.source.version}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                            <!--configuration>
+                                <excludes>
+                                    <exclude>**/module-info.java</exclude>
+                                </excludes>
+                            </configuration-->
+                        </execution>
+                    </executions>
+                </plugin>
+
+
+                <!--
+                 *****************************************
+                 * Maven dependency plugin configuration *
+                 *****************************************
+                 Plugin to unpack dependencies with their source. This is required before calling j2objc
+                 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${plugin.dependency.version}</version>
+                    <executions>
+                        <execution>
+                            <id>unpack-sources</id>
+                            <phase>${plugin.dependency.param.unpack-sources.phase}</phase>
+                            <goals>
+                                <goal>unpack-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <classifier>sources</classifier>
+                                <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+                                <outputDirectory>${project.build.directory}/sources</outputDirectory>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>unpack-classes</id>
+                            <phase>${plugin.dependency.param.unpack-classes.phase}</phase>
+                            <goals>
+                                <goal>unpack-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+                                <outputDirectory>${plugin.dependency.param.unpack-classes.outputDirectory}</outputDirectory>
+                                <overWriteReleases>true</overWriteReleases>
+                                <overWriteSnapshots>true</overWriteSnapshots>
+                                <includes>${plugin.dependency.param.unpack-classes.includes}</includes>
+                                <!-- Excluding maven dependencies metadata (can be big and is useless here) -->
+                                <excludes>META-INF/maven/**</excludes>
+                            </configuration>
+                        </execution>
+                        <!-- Also copying these libraries in a lib folder for eventual reference in the classpath -->
+                        <execution>
+                            <id>copy-libs</id>
+                            <phase>${plugin.dependency.param.copy-libs.phase}</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration >
+                                <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+                                <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                <overWriteReleases>true</overWriteReleases>
+                                <overWriteSnapshots>true</overWriteSnapshots>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!--
+                 *********************************
+                 * Java CUP plugin configuration *
+                 *********************************
+                 Java CUP is a parser generator, it produces the parser java code from a .cup grammar file
+                 -->
+                <plugin>
+                    <groupId>com.github.vbmacher</groupId>
+                    <artifactId>cup-maven-plugin</artifactId>
+                    <version>${plugin.javacup.version}</version>
+                </plugin>
+
+                <!--
+                 ******************************
+                 * JFlex plugin configuration *
+                 ******************************
+                 JFlex is a lexical analyzer generator, it produces the lexer java code from a .flex lexical file
+                 -->
+                <plugin>
+                    <groupId>de.jflex</groupId>
+                    <artifactId>jflex-maven-plugin</artifactId>
+                    <version>${plugin.jflex.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!--
+                 ******************************
+                 * Shade plugin configuration *
+                 ******************************
+                 Shade is a plugin to build fat jars (with all dependencies included in it)
+                 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>${plugin.shade.version}</version>
+                    <executions>
+                        <execution>
+                            <id>fat</id>
+                            <phase>${plugin.shade.param.fat.phase}</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                            <configuration>
+                                <!-- the output will have the classifier "-fat"  -->
+                                <shadedArtifactAttached>true</shadedArtifactAttached>
+                                <shadedClassifierName>fat</shadedClassifierName>
+                                <transformers>
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                        <manifestEntries>
+                                            <Main-Class>${plugins.param.jre.mainClass}</Main-Class>
+                                            <Class-Path></Class-Path>
+                                        </manifestEntries>
+                                    </transformer>
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                </transformers>
+                                <filters>
+                                    <filter>
+                                        <artifact>*:*</artifact>
+                                        <excludes>
+                                            <exclude>META-INF/maven/**</exclude>
+                                        </excludes>
+                                    </filter>
+                                </filters>
+                                <createDependencyReducedPom>false</createDependencyReducedPom>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+
+                <!--
+                 *********************************
+                 * Proguard plugin configuration *
+                 *********************************
+                 Proguard is a plugin to minimize the jar file by obfuscation
+                 -->
+                <plugin>
+                    <groupId>com.github.wvengen</groupId>
+                    <artifactId>proguard-maven-plugin</artifactId>
+                    <version>${plugin.proguard.version}</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals><goal>proguard</goal></goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <!-- the output will have the classifier "-min"  -->
+                        <attach>true</attach>
+                        <attachArtifactClassifier>min</attachArtifactClassifier>
+                        <options>
+                            <!-- keeping the main class and its main static method -->
+                            <option>-keep public public class ${plugins.param.jre.mainClass} { public static
+                                void
+                                main(java.lang.String[]); }</option>
+                            <!-- keeping Platform and subclasses as they are referenced in META-INF/services -->
+                            <option>-keep public public class webfx.core.spi.platform.Platform</option>
+                            <option>-keep public public class * extends webfx.core.spi.platform.Platform</option>
+                            <!-- ignoring jackson missing warnings as it is an optional library -->
+                            <option>-dontwarn com.fasterxml.jackson.**</option>
+                            <!-- ignoring hikari missing warnings as it is an optional library -->
+                            <option>-dontwarn com.zaxxer.hikari.**</option>
+                            <option>-allowaccessmodification</option>
+                            <option>-optimizationpasses 5</option>
+                            <!-- uncomment this if something goes wrong with json-smart as suggested in the warning -->
+                            <!--option>-keepattributes Signature</option-->
+                        </options>
+                        <libs>
+                            <lib>${java.home}/lib/rt.jar</lib>
+                            <lib>${java.home}/lib/ext/jfxrt.jar</lib>
+                        </libs>
+                        <includeDependency>true</includeDependency>
+                        <includeDependencyInjar>true</includeDependencyInjar>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>com.fasterxml.jackson.core</groupId>
+                                <artifactId>*</artifactId>
+                            </exclusion>
+                        </exclusions>
+                        <inFilter>!META-INF/MANIFEST.MF</inFilter>
+                        <outFilter>!META-INF/maven/**</outFilter>
+                        <archive>
+                            <manifest>
+                                <mainClass>${plugins.param.jre.mainClass}</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <!--
+                 ****************************
+                 * GWT plugin configuration *
+                 ****************************
+                 -->
+                <plugin>
+                    <groupId>net.ltgt.gwt.maven</groupId>
+                    <artifactId>gwt-maven-plugin</artifactId>
+                    <version>${plugin.gwt.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <skipCompilation>${plugin.gwt.param.skipCompilation}</skipCompilation>
+                        <moduleName>${plugin.gwt.param.module}</moduleName>
+                        <failOnError>true</failOnError>
+                        <draftCompile>${plugin.gwt.param.draftCompile}</draftCompile>
+                        <optimize>${plugin.gwt.param.optimize}</optimize>
+                        <sourceLevel>${gwt.sourceLevel}</sourceLevel>
+                        <!-- Trying to solve a java heap OutOfMemoryError on the server -->
+                        <jvmArgs>
+                            <jvmArg>-Xmx1024m</jvmArg>
+                        </jvmArgs>
+                        <!--<localWorkers>1</localWorkers>-->
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
+    <profiles>
+        <profile>
+            <id>webfx-tutorials</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <modules>
+                <module>webfx-tutorials</module>
+            </modules>
+        </profile>
+
+<!--
+        <profile>
+            <id>idea-build-fix</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.google.gwt</groupId>
+                        <artifactId>gwt-user</artifactId>
+                        <version>${lib.gwt.version}</version>
+                        <exclusions>
+                            <exclusion>
+                                <groupId>javax.validation</groupId>
+                                <artifactId>validation-api</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+        </profile>
+-->
+    </profiles>
+
+</project>

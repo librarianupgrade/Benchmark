@@ -1,0 +1,15 @@
+{
+    "id": "michael-simons__GT__wro4j-spring-boot-starter__1",
+    "client_project_name": "michael-simons/wro4j-spring-boot-starter",
+    "github_url": "git@github.com:michael-simons/wro4j-spring-boot-starter.git",
+    "before_upgrade_commit": "836c16b01e6cb465e75ed9925ac203bb8cb624b0",
+    "after_upgrade_commit": "71090856d91e600b09011c8fc9c521bd1d13a0fc",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "11",
+    "fixed_commit_url": "https://github.com/michael-simons/wro4j-spring-boot-starter/commit/71090856d91e600b09011c8fc9c521bd1d13a0fc",
+    "fix_type": 0
+}

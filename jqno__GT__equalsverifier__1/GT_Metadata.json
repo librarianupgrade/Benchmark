@@ -1,0 +1,15 @@
+{
+    "id": "jqno__GT__equalsverifier__1",
+    "client_project_name": "jqno/equalsverifier",
+    "github_url": "git@github.com:jqno/equalsverifier.git",
+    "before_upgrade_commit": "8653e3779117b87195c20bc5693db725c0888fec",
+    "after_upgrade_commit": "7b876cb84c178f882193219e80fb62d3d80d7f6a",
+    "incompatibility_category": "Field Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/jqno/equalsverifier/commit/7b876cb84c178f882193219e80fb62d3d80d7f6a",
+    "fix_type": 0
+}

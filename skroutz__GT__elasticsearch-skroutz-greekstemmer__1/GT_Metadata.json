@@ -1,0 +1,15 @@
+{
+    "id": "skroutz__GT__elasticsearch-skroutz-greekstemmer__1",
+    "client_project_name": "skroutz/elasticsearch-skroutz-greekstemmer",
+    "github_url": "git@github.com:skroutz/elasticsearch-skroutz-greekstemmer.git",
+    "before_upgrade_commit": "e066310a3550e976ad07639b1cc3c8dc2c108eb9",
+    "after_upgrade_commit": "72410f4bbf8d84659763f2e322b4234adca7a000",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/skroutz/elasticsearch-skroutz-greekstemmer/commit/72410f4bbf8d84659763f2e322b4234adca7a000",
+    "fix_type": 0
+}

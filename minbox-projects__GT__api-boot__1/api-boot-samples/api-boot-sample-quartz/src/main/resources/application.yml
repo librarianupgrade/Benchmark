@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: api-boot-sample-quartz
+  # 数据源配置
+  datasource:
+    druid:
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+
+api:
+  boot:
+    quartz:
+      # 配置使用Jdbc方式存储任务
+      job-store-type: memory
+      # 扩展properties配置列表
+      properties:
+          # key - value形式进行配置
+          org.quartz.scheduler.classLoadHelper.class: "org.quartz.simpl.CascadingClassLoadHelper"

@@ -1,0 +1,15 @@
+{
+    "id": "jiangxincode__GT__ApkToolBoxGUI__1",
+    "client_project_name": "jiangxincode/ApkToolBoxGUI",
+    "github_url": "git@github.com:jiangxincode/ApkToolBoxGUI.git",
+    "before_upgrade_commit": "8dbd8f531a8c651961266bb2096d043dbd806988",
+    "after_upgrade_commit": "15ffdb56d45d8584d88b11384c63e100935f6d59",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "11",
+    "fixed_commit_url": "https://github.com/jiangxincode/ApkToolBoxGUI/commit/15ffdb56d45d8584d88b11384c63e100935f6d59",
+    "fix_type": 0
+}

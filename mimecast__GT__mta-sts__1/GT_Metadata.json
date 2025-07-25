@@ -1,0 +1,15 @@
+{
+    "id": "mimecast__GT__mta-sts__1",
+    "client_project_name": "mimecast/mta-sts",
+    "github_url": "git@github.com:mimecast/mta-sts.git",
+    "before_upgrade_commit": "f5f894d8ea03581e64fb2dd5ef96996850520186",
+    "after_upgrade_commit": "39c48a7fbe6135724337c9feb757227090a141b4",
+    "incompatibility_category": "Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/mimecast/mta-sts/commit/39c48a7fbe6135724337c9feb757227090a141b4",
+    "fix_type": 0
+}
