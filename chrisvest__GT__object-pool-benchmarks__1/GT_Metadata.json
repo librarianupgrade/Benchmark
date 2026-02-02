@@ -1,0 +1,15 @@
+{
+    "id": "chrisvest__GT__object-pool-benchmarks__1",
+    "client_project_name": "chrisvest/object-pool-benchmarks",
+    "github_url": "git@github.com:chrisvest/object-pool-benchmarks.git",
+    "before_upgrade_commit": "29474b75b3105a75b254df532e158ef78b128780",
+    "after_upgrade_commit": "3d9869bf08af2849e2953d1fcbd1fabfed746149",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/chrisvest/object-pool-benchmarks/commit/3d9869bf08af2849e2953d1fcbd1fabfed746149",
+    "fix_type": 0
+}

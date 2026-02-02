@@ -1,0 +1,15 @@
+{
+    "id": "albfernandez__GT__itext2__2",
+    "client_project_name": "albfernandez/itext2",
+    "github_url": "git@github.com:albfernandez/itext2.git",
+    "before_upgrade_commit": "5fb8523df75c9dd5079f63d211eda61e0390c1f1",
+    "after_upgrade_commit": "301c61dd9925345c72ffecb2a78cf24cc50a8225",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/albfernandez/itext2/commit/301c61dd9925345c72ffecb2a78cf24cc50a8225",
+    "fix_type": 0
+}

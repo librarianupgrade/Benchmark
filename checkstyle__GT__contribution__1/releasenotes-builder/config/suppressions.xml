@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.2//EN"
+    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <suppress checks="UncommentedMain" files="Main.java"/>
+    <!-- this is a builder, there to much methods to get its options -->
+    <suppress checks="MethodCount" files="CliOptions.java"/>
+
+    <!-- Tone down the checking for test code -->
+    <suppress message="Missing a Javadoc comment|Missing package-info.java file|Expected @throws tag for|missing @author tag" files=".*[\\/]src[\\/]test[\\/]"/>
+    <suppress checks="MultipleStringLiterals" files=".*[\\/]src[\\/]test[\\/]"/>
+    <suppress checks="AvoidStaticImport" files=".*[\\/]src[\\/]test[\\/]"/>
+    <suppress checks="WriteTag" files=".*[\\/]src[\\/]test[\\/]"/>
+    <suppress checks="MagicNumber" files=".*[\\/]src[\\/]test[\\/]"/>
+
+    <suppress id="ImportControlMain" message=".* - java\.time\..*"/>
+
+</suppressions>

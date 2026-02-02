@@ -1,0 +1,15 @@
+{
+    "id": "yakaz__GT__elasticsearch-query-acrossvariants__1",
+    "client_project_name": "yakaz/elasticsearch-query-acrossvariants",
+    "github_url": "git@github.com:yakaz/elasticsearch-query-acrossvariants.git",
+    "before_upgrade_commit": "730b26d27388e280f0de46524101fe334d9e6121",
+    "after_upgrade_commit": "06a8a347502c17d3f95bf0c58d60f570632395ca",
+    "incompatibility_category": "Method Parameter Length Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yakaz/elasticsearch-query-acrossvariants/commit/06a8a347502c17d3f95bf0c58d60f570632395ca",
+    "fix_type": 0
+}

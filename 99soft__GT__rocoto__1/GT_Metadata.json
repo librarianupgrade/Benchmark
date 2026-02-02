@@ -1,0 +1,15 @@
+{
+    "id": "99soft__GT__rocoto__1",
+    "client_project_name": "99soft/rocoto",
+    "github_url": "git@github.com:99soft/rocoto.git",
+    "before_upgrade_commit": "aa42a5f359d93fec608760c8f4e8c0cf2adf5e37",
+    "after_upgrade_commit": "17ae11665cc4e42d9b17c33493d043c7452d69c8",
+    "incompatibility_category": "Classpath  Modification",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/99soft/rocoto/commit/17ae11665cc4e42d9b17c33493d043c7452d69c8",
+    "fix_type": 0
+}

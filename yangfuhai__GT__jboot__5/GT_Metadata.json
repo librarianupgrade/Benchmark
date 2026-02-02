@@ -1,0 +1,15 @@
+{
+    "id": "yangfuhai__GT__jboot__5",
+    "client_project_name": "yangfuhai/jboot",
+    "github_url": "git@github.com:yangfuhai/jboot.git",
+    "before_upgrade_commit": "d87c05a3edd371d1442f6fbbb07c31eb66d074f8",
+    "after_upgrade_commit": "7ed86b82f0850fc0402bedabb0644609b8a12af5",
+    "incompatibility_category": "Field Removal, Class Generic Type Change,  Method Return Type Change, Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yangfuhai/jboot/commit/7ed86b82f0850fc0402bedabb0644609b8a12af5",
+    "fix_type": 0
+}

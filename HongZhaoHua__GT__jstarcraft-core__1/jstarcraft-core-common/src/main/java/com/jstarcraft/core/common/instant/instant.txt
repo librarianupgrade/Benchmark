@@ -1,0 +1,23 @@
+Java日期时间API系列:
+https://www.cnblogs.com/xkzhangsanx/category/1448577.html
+
+ICU User Guide:
+http://userguide.icu-project.org/
+
+Joda-Time 简介:
+https://www.cnblogs.com/matd/p/10824133.html
+
+Joda-Time 学习笔记:
+https://www.cnblogs.com/wihainan/p/5999771.html
+
+Java 8新的时间日期库的20个使用示例:
+http://ifeve.com/20-examples-of-date-and-time-api-from-java8
+
+Java8中计算日期时间差:
+https://blog.csdn.net/hspingcc/article/details/73332526
+
+LocalDateTime 获取当前是第几周:
+https://blog.csdn.net/MariaOzawa/article/details/104329172
+
+How do I parse RFC 3339 datetimes with Java?:
+https://stackoverflow.com/questions/6038136/how-do-i-parse-rfc-3339-datetimes-with-java

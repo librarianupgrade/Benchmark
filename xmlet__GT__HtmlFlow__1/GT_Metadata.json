@@ -1,0 +1,15 @@
+{
+    "id": "xmlet__GT__HtmlFlow__1",
+    "client_project_name": "xmlet/HtmlFlow",
+    "github_url": "git@github.com:xmlet/HtmlFlow.git",
+    "before_upgrade_commit": "5695a32117c6056cfdda6f9120bbfb269071b689",
+    "after_upgrade_commit": "172225af7b84f8aa8988402129f7a634943e6baa",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/xmlet/HtmlFlow/commit/172225af7b84f8aa8988402129f7a634943e6baa",
+    "fix_type": 0
+}

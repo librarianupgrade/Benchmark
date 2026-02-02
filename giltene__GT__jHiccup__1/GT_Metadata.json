@@ -1,0 +1,15 @@
+{
+    "id": "giltene__GT__jHiccup__1",
+    "client_project_name": "giltene/jHiccup",
+    "github_url": "git@github.com:giltene/jHiccup.git",
+    "before_upgrade_commit": "3af84f6e68847a090856db8cda47651230478ec4",
+    "after_upgrade_commit": "a6ca320b1b76105add3dbf0fbdca7b18185ef7a8",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/giltene/jHiccup/commit/a6ca320b1b76105add3dbf0fbdca7b18185ef7a8",
+    "fix_type": 0
+}

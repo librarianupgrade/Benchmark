@@ -1,0 +1,15 @@
+{
+    "id": "zeebe-io__GT__zeebe-script-worker__1",
+    "client_project_name": "zeebe-io/zeebe-script-worker",
+    "github_url": "git@github.com:zeebe-io/zeebe-script-worker.git",
+    "before_upgrade_commit": "8be5c67cc005adc6f25c50b820149e51f7ddb74e",
+    "after_upgrade_commit": "ff014e7ca9a3c7086027672d99b2e77a09889926",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zeebe-io/zeebe-script-worker/commit/ff014e7ca9a3c7086027672d99b2e77a09889926",
+    "fix_type": 0
+}

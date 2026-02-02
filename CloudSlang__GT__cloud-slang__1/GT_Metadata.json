@@ -1,0 +1,15 @@
+{
+    "id": "CloudSlang__GT__cloud-slang__1",
+    "client_project_name": "CloudSlang/cloud-slang",
+    "github_url": "git@github.com:CloudSlang/cloud-slang.git",
+    "before_upgrade_commit": "77d8a50f4db014f1f4cef3d58834f68d9d850460",
+    "after_upgrade_commit": "cef18af3fe265afe2fe50f1cc914493e093dcdb8",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/CloudSlang/cloud-slang/commit/cef18af3fe265afe2fe50f1cc914493e093dcdb8",
+    "fix_type": 0
+}

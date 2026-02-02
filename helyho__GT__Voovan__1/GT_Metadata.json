@@ -1,0 +1,15 @@
+{
+    "id": "helyho__GT__Voovan__1",
+    "client_project_name": "helyho/Voovan",
+    "github_url": "git@github.com:helyho/Voovan.git",
+    "before_upgrade_commit": "35cc56fa5ee4d5561324cf0291c8fa64fd113f82",
+    "after_upgrade_commit": "61bc706ae7c3ae6340e33622f7151bac4b54ca66",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "Common",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/helyho/Voovan/commit/61bc706ae7c3ae6340e33622f7151bac4b54ca66",
+    "fix_type": 0
+}

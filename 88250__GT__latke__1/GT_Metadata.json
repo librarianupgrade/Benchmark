@@ -1,0 +1,15 @@
+{
+    "id": "88250__GT__latke__1",
+    "client_project_name": "88250/latke",
+    "github_url": "git@github.com:88250/latke.git",
+    "before_upgrade_commit": "44ac8d2a105a5e8b8f35c101fb54c71e4ac60e95",
+    "after_upgrade_commit": "e282cc6c0f5def1b70ab0c0990730c0ed26207b6",
+    "incompatibility_category": "Classpath  Modification, Method Removal",
+    "root_path": "latke",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/88250/latke/commit/e282cc6c0f5def1b70ab0c0990730c0ed26207b6",
+    "fix_type": 0
+}

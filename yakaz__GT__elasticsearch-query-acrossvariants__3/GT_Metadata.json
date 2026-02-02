@@ -1,0 +1,15 @@
+{
+    "id": "yakaz__GT__elasticsearch-query-acrossvariants__3",
+    "client_project_name": "yakaz/elasticsearch-query-acrossvariants",
+    "github_url": "git@github.com:yakaz/elasticsearch-query-acrossvariants.git",
+    "before_upgrade_commit": "33067ca735983098ac9baea3759903ae9725b57d",
+    "after_upgrade_commit": "02af31189348e371c2fe907e1f3fa3277ad7e4f2",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yakaz/elasticsearch-query-acrossvariants/commit/02af31189348e371c2fe907e1f3fa3277ad7e4f2",
+    "fix_type": 0
+}

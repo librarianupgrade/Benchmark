@@ -1,0 +1,298 @@
+jboot v3.3.0:
+新增：ObjectUtil 工具类，用于对 Object  进行对比等操作
+新增：JbootModel.useFirst() 方法，更加方便在读写分离的场景下进行使用
+新增：JsonTimestampPattern 配置，方便控制 json 的日期输出
+新增：JbootServiceBase.findListByIds() 方法
+新增：Columns 新增 safeCreate 方法
+优化：重构 JbootConfigChangeListener ，方便监听远程配置的每个值的变化
+优化：JbootServiceBase.syncModels 由传入 List 修改为 Collection
+优化：升级 Seata 到最新版本 1.3.0
+优化：升级远程配置 nacos、Apollo 到最新版本
+优化：删除 JbootrpcManager 里的某些无用的逻辑判断
+修复：当有多数据源时，join 会参数数据不正确的问题
+修复：当主键是 String 类型时，DAO.findListByIds() 没有返回数据的问题
+修复：CookieUtil 当设置的时间为 0 或者 -1 的时候，时间验证不正确的问题
+
+
+
+jboot v3.2.9:
+修复：Columns.in() 对传入 int[] long[]  short[] 不能正确支持的问题
+
+
+
+jboot v3.2.8:
+新增：Columns.toWherePartSql() 方便构建 sql
+新增：ObjectFunc.java 方便通过 Java8 lambda 调用
+新增：JbootServiceJoiner.joinMany 方法，方便进行一对多的查询
+新增：JbootServiceJoiner.joinManyByTable  方法，方便通过第三映射表进行多对多查询
+新增：JbootServiceJoiner.syncModels 方法，用过同步数据到数据库
+修复：Columns.likeAppendPrecent 传入空数据时结果出错的问题
+修复：Seata 对 dubbo 的 SPI 过滤器文件名错误的问题
+优化：当 jwt 解析出错时，输出错误的日志信息
+优化：重命名 joinById() 为 joinByValue()，因为传入的值不一定只是 id
+文档：新增 一多一、一对多、多对对查询的相关文档
+
+
+
+jboot v3.2.7:
+优化：修改 JbootModel.buildIdCacheKey 为 protected 修饰，方便在某些情况下进行重写。
+优化：Columns 在 safeMode 模式下，当传入 null 值时，直接抛出空指针异常，更加方便开发调试。
+
+
+
+jboot v3.2.6:
+修复：Columns 调用 unUseSafeMode 后可能存在问题的 bug
+
+
+
+jboot v3.2.5:
+新增：Columns 查询添加 safeMode ，使用 safeMode 当传入的查询值 null 值的 sql 参数时，不对齐忽略直接返回空数据。
+优化：升级 fastjson、jackson Json 等到最新版本
+修复：JbootAppListener 无法进行正确注入的问题
+
+
+
+jboot v3.2.4:
+优化：ClassScanner 和  JbootJson
+新增：为 JbootJson 新增 camelCaseToLowerCaseAnyway 配置，默认为 false
+
+
+
+jboot v3.2.3:
+优化：升级 fastsjon 到最新版本 1.2.71
+修复：Model 的 getter 方法无法输出 json 的问题
+
+
+
+jboot v3.2.2:
+优化：当项目启动的时候，优先初始化中央配置，以防止 undertow 端口等无法在中央仓库配置的问题
+优化：新增 Columns.in(list) 和  Columns.notIn(list) 方法
+优化：新增 Columns.append() 方法用于追加一个新的 columns
+优化：Json输出默认使用驼峰的字段风格
+优化：升级 Nacos、Fastjson 等到最新版本
+修复：通过 Columns 查询 count，当有 left join 时会出现数量不正确的问题
+修复：当 RPC 注解有 ${} 时，无法读取配置内容的问题
+文档：修改配置文件里的示例带有双引号的错误配置
+文档：优化 PRC 的相关文档
+
+
+
+jboot v3.2.1:
+优化：升级 JFinal-Undertow、JFinal-Weixin 到最新版本
+优化：完善支持更多关于 druid 的数据源配置
+优化：当未配置任何第三方日志组件的时候，自动使用 JDK 日志进行输出
+优化：添加 JbootRedirectRender，防止 nginx -> jboot 跳转时的错误问题
+优化：移除 @ValidatePara 注解 和 UrlParaValidate 验证拦截器
+优化：移除  Jboot 的 @EnableCORS 注解，使用 JFinal 自带的来替代
+优化：修改某些变量命名不直观的问题
+优化：默认情况下完全禁用 Fastjson 的 autoType 功能
+文档：添加 dubbo rpc 下的 restful 配置文档
+
+
+
+jboot v3.2.0:
+新增：JbootController 新增 getParaToBigInteger()、getParaToBigDecimal() 等方法
+新增：门户网关新增 hasException() 方法，用于判断目标地址是否可以正常访问
+优化：升级 JFinal、jackson、HikariCP、Dubbo 等相关依赖到最新版本
+文档：配置相关文档添加动态配置的相关描述
+文档：数据库配置相关添加多数据源的相关描述
+
+
+
+jboot v3.1.9:
+新增：Jboot.configValue(key,default) 方法
+新增：JbootAppListener.onStartFinish()方法，用于不同的 Module 在 onStart 进行操作。
+修复：当在配置文件中配置的内容为 '{' 字符开头的时候会出现 ArrayIndexOutOfBoundsException 异常的问题
+优化：升级 Seata 到 v1.2.0 最新版本
+优化：移除 rpc 服务暴露成功后的日志输出
+优化：统一 JbootCron4jPlugin.addTask() 中的 deamon 参数默认为 false
+优化：重命名 app/config/Utils 为 ConfigUtil
+优化：重构 Restructure AnnotationUtil.get()，以便支持更加灵活的参数配置
+
+
+
+jboot v3.1.8:
+新增：Gateway 新增动态注册路 和 移除由配置的功能
+新增：Gateway 被 Sentinel 拦截后自定义返回 Json 的功能
+新增：Gateway 新增对多个 host 的支持，默认走随机匹配的负载均衡机制
+新增：新增 Dubbo 下的对 consumer/provider/register/protocol 的默认配置的支持
+优化：修改 JbootServiceBase 的 DAO 属性类型为 JbootModel<M>
+优化：优化 JbootrpcBase 和 Prop 的一些输出日志
+优化：重命名 PRCUtils 为 PRCUtil，保持 Jboot 工具类统一
+优化：重命名 JbootRpcApplication 为 JbootSimpleApplication
+优化：重构 DubboUtil 代码，使之更加简洁
+优化：使用JsonKit来替换 FastJson 的直接使用，解决开发场景中使用其它json库的情况下，不会出错，感谢 @ yangyao
+优化：升级 Guava 等相关的 Maven 依赖到最新版本
+修复：修复 ClassScanner 扫描不到 Shiro 指令的问题
+修复：JbootGatewayManager 默认名字配置错误的问题
+修复：PRCUtil 无法添加某些注解注解属性导致@RPCInject某些参数无效的问题
+修复：启用分布式配置 Nacos 时，在 Nacos 配置的中文会出现乱码的问题
+修复：使用 Motan RPC 框架时，出现引用错误的问题
+修复：Dubbo 下的一些 consumer 配置失效的问题
+修复：修复 fatjar 打包的时候，需要单独配置 BaseTemplatePath，否则出错的问题
+文档：优化 gateway 的相关文档
+文档：优化 config配置 的相关文档
+文档：优化 rpc 的相关文档
+
+
+
+jboot v3.1.7:
+新增：JWT 可以通过 request para 传入数据的支持
+修复：复写 ActionHandler.getAction 可能无效的问题
+优化：排除 Jboot 内部不必要的 Class 扫描
+
+
+
+jboot v3.1.6:
+新增：JbootReturnValueRender，用于可以在 Action 里进行返回值渲染
+新增：ResponseEntity，可以直接在 Action 返回其进行渲染
+优化：对 JbootGatewayConfig 网关配置进行优化，用户配置了错误的 uri 时会给出提示
+优化：升级 Dubbo、Motan、Sentinel、Nacos 等到最新版本
+优化：ClassScanner 添加一些常用的排除 jar 和 class
+优化：更多关于 Nacos 分布式配置中心的配置支持
+修复：RPCUtils.copyFields()  无法正确复制配置内容的问题
+修复：JbootRpcApplication 无法正确启动插件和拦截器的问题
+文档：修改 AOP 文档的内容错误问题
+文档：完善分布式配置中心对 Nacos 以及 Apollo 支持的相关文档
+
+
+
+jboot v3.1.5:
+新增：新增 Motan RPC 的 export 和 host 的相关配置以及test代码
+新增：JbootJson 支持驼峰式 JsonKey 输出，感谢Gitee的 @herowjun
+新增：新增 Controller 对返回值自动渲染的功能
+新增：JbootRPCConfig 新增默认 version 和 group 配置的支持
+优化：ClassScanner 添加无需扫码的 jar 排除，速度更快
+修复：ClassScanner 在 Windows 平台下可能存在重复扫码而拖慢启动速度的问题
+修复：门户网关 GatewayHttpProxy 在 POST 时的某些情况下会出现无法正确代理的问题
+文档：完善 RPC 配置的相关文档
+文档：完善 Gateway 配置的相关文档
+文档：添加 fatjar 打包的相关文档
+文档：完善 fatjar 部署运行的相关文档
+
+
+
+jboot v3.1.4:
+优化：重构 ClassScanner ，提高在 fatjar 模式的扫描性能
+优化：重构 ConfigManager ，以便更好的支持 fatjar 模式下的配置文件读取
+优化：重构 JbootCoreConfig，方便在 fatjar 下能够准确读取 html 等资源文件
+优化：重构 JbootCoreConfig，把 JFinal-Weixin 设置非必须依赖
+
+
+
+jboot v3.1.3:
+新增：新增对 JDK11+ 的支持
+
+
+
+jboot v3.1.1:
+新增：Gateway 网关自定义拦截器的支持，方便通过网关进行鉴权等操作
+新增：Gateway 网关新增错误重试次数的配置，方便网关重试配置
+新增：jboot.properties 配置里的 value 值添加 ${para} 参数的支持
+新增：undertow 端口配置，添加 -1 的支持，通过 -1 配置可用的随机端口
+新增：JbootRpcApplication，方便用于只启动 RPC Service 服务，用于给消费者提供服务
+修复：修复 @RPCInject 在拦截器使用的时候出错的问题
+修复：RPC 工具类 Utils.appendAnnotation 无法正确给 int 、boolean 参数赋值的问题
+优化：当不对 Dubbo 的 qos 配置的时候，设置为默认关闭，方便单机情况下进行开发调试
+文档：更新 Gateway 网关的相关文档
+
+
+
+jboot v3.1.0:
+新增：新增网关的支持，路由规则支持 host、path、query等 三种模式，同时支持基于 Sentinel 的限流配置
+新增：新增对 Dubbo 多协议、多注册中心等的支持
+新增：新增对注解 @Configuration 的支持，可以通过其构建 name 实例
+新增：JbootAopInterceptor 可以动态的添加或者移除拦截器
+新增：配置文件可以配置 Map、Set、List 和 数组的支持
+新增：JbootCache 新增可以获取素有 Names 的功能，方便对缓存进行运维
+新增：JbootCache 新增可以对分布式缓存进行刷新，方便对缓存进行运维
+新增：jboot-system.properties 的支持，用于替代启动参数的 -D，使用第三方组件的时候更加方便
+修复：修复 JbootHttpImpl 无法上传文件的bug
+修复：修复 JbootHttpImpl 无法正确获取 gzip 压缩内容的问题
+优化：重构 RPC 的模块，使之更加简单清晰
+优化：升级 fastsjon 等相关依赖到最新版本，修改某些错误单词拼写的方法名等
+文档：完善 AOP 的相关文档
+文档：完善 Sentinel 限流的文档
+文档：完善 RPC 的相关文档
+文档：新增 网关配置使用的相关文档
+
+
+
+jboot v3.0.5:
+修复：SqlBuilder 在某些极端情况下生成 SQL 的一些问题
+优化：移除 Jboot 的一些过时的方法
+
+
+
+jboot v3.0.4:
+新增：Jboot MQ 新增 Local 类型
+新增：sqlPart 支持参数设置
+优化：修改 Columns.string() 为 Columns.sqlPart()
+优化：JbootModelConfig 的 primarykeyValueGenerator 和 Filter 支持通过 api 动态配置
+优化：StrUtil.isNumeric、isDecimal、isEmail 等方法
+优化：完善 JbootCounter 功能
+修复：当 Columns.group() 内容为空的时候，构建了错误Sql的问题
+修复：Columns.isNullIf 条件判断错误的问题
+
+
+
+jboot v3.0.3:
+新增：Cache 模块新增 refresh() 的方法，在分布式缓存在某些极端情况下出现不同步的时候进行刷新。
+新增：对 Columns 优化，新增 gourpIf()/stringIf()/isNullIf() 等方法
+新增：新增 PrimaryKeyValueGenerator 对 Model 的主键值生成策略配置
+新增：新增 JbootModelFilter 对 Model 的过滤器策略配置，可以用于在 save 或者 update 的时候防止 Model 存在 xss 等问题
+优化：对 MQ 进行优化，当不配置的时候可能返回一个错误的 MQ 对象的问题
+优化：升级 JFinal-Wexin、Fastjson、Fastxml 等依赖到最新版本
+优化：JbootDirectiveBase 当传入空值的时候明确返回 null
+修复：当 Columns 查询的时候，使用 group 会出现 value 内容缺失的问题
+
+
+
+jboot v3.0.2:
+新增：StrUtil 新增 splitToSetByComma() 方法
+新增：StrUtil 新增 escapeModel() 和 escapeMap() 方法
+优化：StrUti.isDecimal() 方法，防止在某些极端情况下出现判断不正确的问题
+优化：对 pom.xml 进行优化，排除非必要的依赖
+优化：重构 Sentinel 模块，修改为非必须依赖
+
+
+
+jboot v3.0.1:
+修复：紧急修复 v3.0.0 必须依赖 nacos-client 的问题
+
+
+
+jboot v3.0.0:
+新增：对分布式配置中心 apollo 的支持
+新增：对分布式配置中心 nacos 的支持
+新增：JbootController 新增 getTrimPara() 和 getCurrentUrl() 方法
+新增：Sql Join 系列支持 AS 的写法
+新增：ClassUtil 工具类新增 getGenericClass() 方法获取泛型类型
+优化：ClassScanner 对扫描模块的准确排除
+修复：ModelCopier 在 Copy 的时候返回旧的 List 或者 Set 的问题
+
+
+
+jboot v3.0.0-rc.2:
+新增：添加 Join 的 sql 查询操作
+新增：新增 Columns 的 string() 方法，方便自由添加相应的 sql
+优化：完善对 Sentinel 的相关测试
+优化：重命名 IJbootModelDialect 为 JbootDialect
+优化：重命名 Columns 的相关方法：not_in() 为 notIn() 、 is_null() 为 isNull() 、 is_not_null() 为 isNotNull()
+优化：重命名 DialectKit 为 SqlBuilder
+优化：升级Jboot的相关依赖
+    - sharding-jdbc:4.0.0
+    - metrics:4.1.2
+    - guava:28.2
+    - HikariCP:3.4.2
+
+
+
+jboot v3.0.0-rc.1:
+新增：Columns 查询新增 group 以及 notBetween 的功能
+新增：新增对 sentinel 分布式限流、降级的初步支持
+升级：升级 alibaba Dubbo 到 Apache Dubbo
+升级：升级 Sharding-JDBC 到 Apache ShardingsSphere 4.0 最新版
+升级：升级 Seata 分布式事务到 1.0 正式版
+优化：优化通过 Columns 查询时对 SQL 生成的性能
+移除：移除对 Zbus MQ 以及 Zbus RPC 的支持

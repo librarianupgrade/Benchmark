@@ -1,0 +1,15 @@
+{
+    "id": "1and1__GT__snmpman__1",
+    "client_project_name": "1and1/snmpman",
+    "github_url": "git@github.com:1and1/snmpman.git",
+    "before_upgrade_commit": "0ec6ae3f72d8bad63d1fc06e4c6faf9b01d85044",
+    "after_upgrade_commit": "ae835fa97c095c6cbb871d9cf20582d4d8d18321",
+    "incompatibility_category": "Class Removal, Method Return Type Change",
+    "root_path": "",
+    "change_pom_path": "snmpman",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/1and1/snmpman/commit/ae835fa97c095c6cbb871d9cf20582d4d8d18321",
+    "fix_type": 0
+}

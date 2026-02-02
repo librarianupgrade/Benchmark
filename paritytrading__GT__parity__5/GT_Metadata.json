@@ -1,0 +1,15 @@
+{
+    "id": "paritytrading__GT__parity__5",
+    "client_project_name": "paritytrading/parity",
+    "github_url": "git@github.com:paritytrading/parity.git",
+    "before_upgrade_commit": "3826665fa6fa232efb5a2f93ed278279637cf9cd",
+    "after_upgrade_commit": "d6ecb9bb72648134710c70fb8b54befa1ea7c185",
+    "incompatibility_category": "Class Accessibility Change, Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/paritytrading/parity/commit/d6ecb9bb72648134710c70fb8b54befa1ea7c185",
+    "fix_type": 0
+}

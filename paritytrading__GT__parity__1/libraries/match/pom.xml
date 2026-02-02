@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.paritytrading.parity</groupId>
+    <artifactId>parity-parent</artifactId>
+    <version>0.7.1-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>parity-match</artifactId>
+
+  <name>Parity Matching Algorithm</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>it.unimi.dsi</groupId>
+      <artifactId>fastutil</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jvirtanen.value</groupId>
+      <artifactId>value</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>

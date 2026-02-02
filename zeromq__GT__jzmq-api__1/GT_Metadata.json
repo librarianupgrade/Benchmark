@@ -1,0 +1,15 @@
+{
+    "id": "zeromq__GT__jzmq-api__1",
+    "client_project_name": "zeromq/jzmq-api",
+    "github_url": "git@github.com:zeromq/jzmq-api.git",
+    "before_upgrade_commit": "5dcd0135dd72b61ebf8d31a32cf630b0b6bc2ab8",
+    "after_upgrade_commit": "6595a4197e4bed1489ee911d219f0a313ca4481e",
+    "incompatibility_category": "Method Accessibility Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zeromq/jzmq-api/commit/6595a4197e4bed1489ee911d219f0a313ca4481e",
+    "fix_type": 0
+}

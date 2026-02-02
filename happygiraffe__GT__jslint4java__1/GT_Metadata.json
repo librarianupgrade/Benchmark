@@ -1,0 +1,15 @@
+{
+    "id": "happygiraffe__GT__jslint4java__1",
+    "client_project_name": "happygiraffe/jslint4java",
+    "github_url": "git@github.com:happygiraffe/jslint4java.git",
+    "before_upgrade_commit": "091611cce07cbf88682835a1fe55141e069c0fe0",
+    "after_upgrade_commit": "35b7f33c0ae2066cbada1cafe64f2888fba5282b",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/happygiraffe/jslint4java/commit/35b7f33c0ae2066cbada1cafe64f2888fba5282b",
+    "fix_type": 0
+}

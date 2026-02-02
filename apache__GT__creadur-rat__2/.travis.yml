@@ -1,0 +1,13 @@
+language: java
+dist: trusty
+sudo: required
+
+jobs:
+    include:
+        - name: "Java 8"
+          jdk: openjdk8
+          script: mvn -e -B -V clean package site
+
+        - name: "Java 14"
+          jdk: openjdk14
+          script: mvn -e -B -V clean package site

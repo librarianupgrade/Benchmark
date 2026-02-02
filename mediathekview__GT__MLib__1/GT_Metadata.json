@@ -1,0 +1,15 @@
+{
+    "id": "mediathekview__GT__MLib__1",
+    "client_project_name": "mediathekview/MLib",
+    "github_url": "git@github.com:mediathekview/MLib.git",
+    "before_upgrade_commit": "915f4bd80e12ee0055669786b728db5982fc0377",
+    "after_upgrade_commit": "fefbf286906e9915be33100a1039f6919b4ac370",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/mediathekview/MLib/commit/fefbf286906e9915be33100a1039f6919b4ac370",
+    "fix_type": 0
+}

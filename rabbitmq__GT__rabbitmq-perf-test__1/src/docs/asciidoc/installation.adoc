@@ -1,0 +1,42 @@
+== Installation
+
+=== From Binary
+
+PerfTest is distributed as an uber JAR from https://github.com/rabbitmq/rabbitmq-perf-test/releases[GitHub releases].
+
+WARNING: The `tar.gz` and `zip` archives are deprecated and will be removed in PerfTest 3.0.
+Use the uber JAR file instead.
+
+It is also available on https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.rabbitmq%22%20AND%20a%3A%22perf-test%22[Maven Central] if one needs to use it as library.
+
+Milestone releases or release candidates are available from https://github.com/rabbitmq/rabbitmq-perf-test/releases[GitHub releases].
+
+https://github.com/rabbitmq/rabbitmq-java-tools-binaries-dev/releases?q=rabbitmq-perf-test[Snapshots] are also available.
+The https://github.com/rabbitmq/rabbitmq-java-tools-binaries-dev/releases/download/v-rabbitmq-perf-test-latest/perf-test-latest.jar[latest snapshot] is available at a stable URL (useful for automation).
+
+To verify a PerfTest installation, use:
+
+ java -jar perf-test.jar --help
+
+=== From Docker Image
+
+PerfTest has a https://hub.docker.com/r/pivotalrabbitmq/perf-test/[Docker image] as well.
+To use it:
+
+ docker run -it --rm pivotalrabbitmq/perf-test:latest --help
+
+Note that the Docker container needs to be able to connect to the host where
+the RabbitMQ broker runs.  Find out more at
+https://docs.docker.com/network/[Docker network documentation].  Once the
+Docker container where PerfTest runs can connect to the RabbitMQ broker,
+PerfTest can be run with the regular options, e.g.:
+
+ docker run -it --rm pivotalrabbitmq/perf-test:latest -x 1 -y 2 -u "throughput-test-1" -a --id "test 1"
+
+To run the RabbitMQ broker within Docker, and run PerfTest against it, run the
+following commands:
+
+ docker network create perf-test
+ docker run -it --rm --network perf-test --name rabbitmq -p 15672:15672 rabbitmq:3.12-management
+ docker run -it --rm --network perf-test pivotalrabbitmq/perf-test:latest --uri amqp://rabbitmq
+

@@ -1,0 +1,15 @@
+{
+    "id": "zzzzbw__GT__Fame__1",
+    "client_project_name": "zzzzbw/Fame",
+    "github_url": "git@github.com:zzzzbw/Fame.git",
+    "before_upgrade_commit": "f81069516cdf2230a4b974ece2d2981703156385",
+    "after_upgrade_commit": "0272487f5fefb1438bd7c14935f33cf020a083f3",
+    "incompatibility_category": "Method Return Type Change",
+    "root_path": "fame-server",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zzzzbw/Fame/commit/0272487f5fefb1438bd7c14935f33cf020a083f3",
+    "fix_type": 0
+}

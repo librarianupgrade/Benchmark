@@ -1,0 +1,15 @@
+{
+    "id": "mooso__GT__azure-tables-hadoop__1",
+    "client_project_name": "mooso/azure-tables-hadoop",
+    "github_url": "git@github.com:mooso/azure-tables-hadoop.git",
+    "before_upgrade_commit": "f5ae55a8d5024fba05bd9a188ae18116b624a69d",
+    "after_upgrade_commit": "e0ad04fcdfef484a820b77587a782f933f7a76e7",
+    "incompatibility_category": "Abstracted Method Return Type Change, Method Parameter Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/mooso/azure-tables-hadoop/commit/e0ad04fcdfef484a820b77587a782f933f7a76e7",
+    "fix_type": 0
+}

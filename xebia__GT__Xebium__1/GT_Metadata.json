@@ -1,0 +1,15 @@
+{
+    "id": "xebia__GT__Xebium__1",
+    "client_project_name": "xebia/Xebium",
+    "github_url": "git@github.com:xebia/Xebium.git",
+    "before_upgrade_commit": "1b50b17f1cb4710a8b417484c8a199a10710d0b5",
+    "after_upgrade_commit": "a69daad0b50eaef8d5e0681a8fcac629662f6409",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/xebia/Xebium/commit/a69daad0b50eaef8d5e0681a8fcac629662f6409",
+    "fix_type": 0
+}

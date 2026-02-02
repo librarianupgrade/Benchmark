@@ -1,0 +1,15 @@
+{
+    "id": "davidmoten__GT__openapi-to-plantuml__1",
+    "client_project_name": "davidmoten/openapi-to-plantuml",
+    "github_url": "git@github.com:davidmoten/openapi-to-plantuml.git",
+    "before_upgrade_commit": "fab072c9b5faf75dfd68cfdad7b2afb4aa0deaea",
+    "after_upgrade_commit": "e080fb5024c25f76b43743ae8df93e3b24272133",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/davidmoten/openapi-to-plantuml/commit/e080fb5024c25f76b43743ae8df93e3b24272133",
+    "fix_type": 0
+}

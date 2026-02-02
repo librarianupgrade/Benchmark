@@ -1,0 +1,15 @@
+{
+    "id": "rabbitmq__GT__rabbitmq-perf-test__1",
+    "client_project_name": "rabbitmq/rabbitmq-perf-test",
+    "github_url": "git@github.com:rabbitmq/rabbitmq-perf-test.git",
+    "before_upgrade_commit": "c42ffba8a5e1e2685b6590ef8dfb16c13191558c",
+    "after_upgrade_commit": "56d400290e239bcc83ec6503c3036e6bf26b2fb7",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/rabbitmq/rabbitmq-perf-test/commit/56d400290e239bcc83ec6503c3036e6bf26b2fb7",
+    "fix_type": 0
+}

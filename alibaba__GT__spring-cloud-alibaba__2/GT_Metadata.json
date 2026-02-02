@@ -1,0 +1,15 @@
+{
+    "id": "alibaba__GT__spring-cloud-alibaba__2",
+    "client_project_name": "alibaba/spring-cloud-alibaba",
+    "github_url": "git@github.com:alibaba/spring-cloud-alibaba.git",
+    "before_upgrade_commit": "884399d73babfd27aaec7d2fe025e53ae1160cca",
+    "after_upgrade_commit": "51a8b32ff39e6cac29ba80db36cbed5f31683a9e",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "spring-cloud-alibaba-dependencies",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/alibaba/spring-cloud-alibaba/commit/51a8b32ff39e6cac29ba80db36cbed5f31683a9e",
+    "fix_type": 0
+}

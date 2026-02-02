@@ -1,0 +1,175 @@
+= jMolecules ByteBuddy plugin
+
+This module contains a ByteBuddy plugin implementation that will generate technology specific boilerplate code based on concepts expressed via jMolecules DDD building block interfaces.
+
+* It will transparently add `Persistable` implementations for `AggregateRoot` types for JPA, JDBC and MongoDB.
+* It automatically adds default mapping annotations to make aggregates work with persistence implementations out of the box.
+
+[[quickstart]]
+== Quickstart
+
+All you need to do to get the technology derivation started is adding the ByteBuddy build plugin to your project and let it work with the `org.jmolecules.integrations:jmolecules-bytebuddy` dependency.
+It will automatically detect which transformations to apply based on your classpath arrangement.
+
+[[quickstart.maven]]
+=== Maven
+
+In the `build/plugins` section of your Maven POM add:
+
+[source, xml]
+----
+<plugin>
+  <groupId>net.bytebuddy</groupId>
+  <artifactId>byte-buddy-maven-plugin</artifactId>
+  <version>${bytebuddy.version}</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>transform</goal> <!-- Enable the source code transformation -->
+      </goals>
+    </execution>
+  </executions>
+  <dependencies>
+    <dependency> <!-- Apply jMolecules transformations -->
+      <groupId>org.jmolecules.integrations</groupId>
+      <artifactId>jmolecules-bytebuddy</artifactId>
+      <version>${jmolecules-integrations.version}</version>
+    </dependency>
+  </dependencies>
+</plugin>
+----
+
+=== Gradle
+
+[source, groovy]
+----
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath platform('org.jmolecules:jmolecules-bom:2021.0.2')
+    classpath 'org.jmolecules.integrations:jmolecules-bytebuddy'
+  }
+}
+
+plugins {
+  id "java"
+  id "net.bytebuddy.byte-buddy-gradle-plugin" version "$byteBuddyVersion"
+}
+
+dependencies {
+  // Depending on which technologies you integrate with
+}
+
+byteBuddy {
+  transformation{
+    // Needs to be declared explicitly
+    plugin = org.jmolecules.bytebuddy.JMoleculesPlugin
+  }
+}
+----
+
+[[annotation-translation]]
+== Technology annotation translation
+
+The plugin will translate jMolecules architectural annotations into framework specific ones and vice versa.
+This allows user code to use jMolecules annotations like `@Service` and they're still fully functional e.g. Spring beans as they get Spring's `@Service` annotation added at compile time but at the same time avoids having to double annotate types.
+At the same time, code that uses Spring specific annotations is still able to use tools that expect to find jMolecules annotations for e.g. documentation purposes.
+
+* `o.j.d.a.Repository` <-> `o.s.s.Repository`
+* `o.j.d.a.Service` <-> `o.s.s.Service`
+* `o.j.d.a.Factory` <-> `o.s.s.Component`
+* `o.j.e.a.DomainEventHandler` <-> `o.s.c.e.EventListener`
+
+NOTE: A repository _interface_ annotated with `o.j.d.a.Repository` will not cause it to be supported by Spring Data out of the box as the jMolecules annotation currently lacks the generics information for the corresponding aggregate root and identifier type that's needed for Spring Data to work properly.
+
+[[interface-translation]]
+== Repository interface translation
+
+Similarly to the <<annotation-translation, annotation translation>>, the build plugin will translate jMolecules DDD `Repository` interface into the Spring Data equivalent if Spring Data is on the classpath.
+
+[source, java]
+----
+interface Orders implements o.j.ddd.types.Repository<Order, OderId> {}
+----
+
+The transformation also carries over the declared generics so that the application repository interface will become a fully-working Spring Data repository instance.
+
+== Reduce boilerplate for `AggregateRoot` implementations
+
+[[jpa-aggregates]]
+=== JPA-backed aggregates
+
+* Annotates `AggregateRoot` and `Entity` types with `@Entity` and adds a default constructor if missing.
+* Annotates fields implementing `Identifier` with `@EmbeddedId`.
+* Annotates types implementing `Identifier` with `@Embeddable`, implements `Serializable` (required by Hibernate) and declares a default constructor if missing.
+* Annotates fields of type `Entity` with `@OneToOne`, collections of `Entity` with `@OneToMany` defaulting to cascade all persistence operations (i.e. applying composition semantics to the aggregate: the lifecycle of the related entities is tied to the one of the aggregate).
+* Registers a dedicated `AttributeConverter` implementation for the identifier types defined in `Association` fields so that they're automatically persisted as the target identifier.
+The base implementation for that can be found in the `jmolecules-spring` module.
+
+Annotations are only added unless the relevant annotations are already present.
+
+That means, the following code is a model that can be persisted using JPA as is:
+
+[source, java]
+----
+import org.jmolecules.ddd.types.*;
+
+class Order implements AggregateRoot<Order, OrderId> { // <1>
+
+  private final OrderId id; // <2>
+  private List<LineItem> lineItems; // <3>
+  private Association<Customer, CustomerId> customer; // <4>
+
+  Order(Customer customer) {
+    this.id = OrderId.of(UUID.randomUUID());
+    this.customer = Association.forAggregate(customer);
+  }
+
+  /* … */
+}
+
+@Value(staticConstructor = "of")
+class OrderId implements Identifier { // <2>
+  UUID id;
+}
+
+class LineItem implements Entity<Order, LineItemId> { // <5>
+  private final LineItemId id; // <2>
+  /* … */
+}
+
+@Value(staticConstructor = "of")
+class LineItemId implements Identifier {
+  UUID id;
+}
+
+class Customer implements AggregateRoot<Customer, CustomerId> { // <1>
+  private final CustomerId id; // <2>
+  /* … */
+}
+
+@Value(staticConstructor = "of")
+class CustomerId implements Identifier {
+  UUID id;
+}
+----
+<1> `AggregateRoot` implementations will automatically implement Spring Data's `Persistable` and get annotated with `@Entity`.
+They will also get a default constructor added.
+<2> The field will get annotated with `@EmbeddedId` as its type implements `Identifier`.
+The type itself will be annotated with `@Embeddable` and additionally implement `Serializable` (required by Hibernate).
+It will also get a default constructor added.
+<3> `lineItems` will be mapped to `@OneToMany` cascading all persistence operation as we assume a composition arrangement for entities contained in the aggregate.
+<4> The `Association` will get a dedicated `AttributeConverter` implementation generated and that in turn registered for the field via `@Convert(converter = …)`.
+See link:../jmolecules-spring#association-jpa-attribute-converter[the jMolecules Spring integration] module for details.
+<5> An `Entity` will be annotated with JPA's `@Entity` annotation and get a default constructor added.
+In contrast to the aggregate root, it will not implement `Persistable`.
+
+[[persistable-implementation]]
+=== `Persistable` implementations for JPA, JDBC and MongoDB
+
+The plugin automatically makes all `AggregateRoot` implementations implement Spring Data's `Persistable` so that they work properly with manually assigned identifier types (usually based on ``UUID``s).
+The implementation is based on `MutablePersistable` defined in the `jmolecules-spring` module and the store specific `NotNewCallback` implementations that interact with the callback APIs of the dedicated stores.
+It also generates a transient `boolean` flag to keep the new state around and properly set that to `false` upon instance load.
+Also, `Entity` implementations are annotated with the store-specific marker like `@Document` for MongoDB and `@Table` for JDBC.

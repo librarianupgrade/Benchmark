@@ -1,0 +1,15 @@
+{
+    "id": "jqno__GT__equalsverifier__2",
+    "client_project_name": "jqno/equalsverifier",
+    "github_url": "git@github.com:jqno/equalsverifier.git",
+    "before_upgrade_commit": "545e975214b35ef4cd28f8ec4f02ea770281240b",
+    "after_upgrade_commit": "13a94272e171b66cb857a6695e5bbddbbd38c6c1",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/jqno/equalsverifier/commit/13a94272e171b66cb857a6695e5bbddbbd38c6c1",
+    "fix_type": 0
+}

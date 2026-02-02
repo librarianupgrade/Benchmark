@@ -1,0 +1,15 @@
+
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+    <properties>
+        <title>Schemacrawler Neo4j Plugin Changes</title>
+        <author email="Adrien.Sales@gmail.com">Adrien SALES</author>
+    </properties>
+    <body>
+        <release version="1.0" date="2015.07.11"
+               description="Initial version">
+            <action dev="adriens" type="add">First graph with tables and columns</action>
+        </release>    
+    </body>
+</document>

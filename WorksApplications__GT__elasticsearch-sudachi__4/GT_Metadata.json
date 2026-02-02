@@ -1,0 +1,15 @@
+{
+    "id": "WorksApplications__GT__elasticsearch-sudachi__4",
+    "client_project_name": "WorksApplications/elasticsearch-sudachi",
+    "github_url": "git@github.com:WorksApplications/elasticsearch-sudachi.git",
+    "before_upgrade_commit": "8876f257501085f2e70286e12a704ca91206b443",
+    "after_upgrade_commit": "5e39b61b876e041e1ad632716791435513e1e99e",
+    "incompatibility_category": "Method Parameter Length Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/WorksApplications/elasticsearch-sudachi/commit/5e39b61b876e041e1ad632716791435513e1e99e",
+    "fix_type": 0
+}

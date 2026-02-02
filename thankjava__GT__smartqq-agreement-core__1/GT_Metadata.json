@@ -1,0 +1,15 @@
+{
+    "id": "thankjava__GT__smartqq-agreement-core__1",
+    "client_project_name": "thankjava/smartqq-agreement-core",
+    "github_url": "git@github.com:thankjava/smartqq-agreement-core.git",
+    "before_upgrade_commit": "188b14a70992eeb50e4f0774a93faa118f0dcf3c",
+    "after_upgrade_commit": "b558204c508f27eb47dfade6eed6ec2280877fda",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/thankjava/smartqq-agreement-core/commit/b558204c508f27eb47dfade6eed6ec2280877fda",
+    "fix_type": 0
+}

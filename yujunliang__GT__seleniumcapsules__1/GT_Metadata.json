@@ -1,0 +1,15 @@
+{
+    "id": "yujunliang__GT__seleniumcapsules__1",
+    "client_project_name": "yujunliang/seleniumcapsules",
+    "github_url": "git@github.com:yujunliang/seleniumcapsules.git",
+    "before_upgrade_commit": "1cdea2bac607aeccc2aec0b184d74ff1da2e0559",
+    "after_upgrade_commit": "1dda7f00da249c46a208e228cfa07542771b1ed2",
+    "incompatibility_category": "Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yujunliang/seleniumcapsules/commit/1dda7f00da249c46a208e228cfa07542771b1ed2",
+    "fix_type": 0
+}

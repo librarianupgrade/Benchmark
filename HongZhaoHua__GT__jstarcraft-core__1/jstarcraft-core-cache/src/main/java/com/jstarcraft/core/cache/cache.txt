@@ -1,0 +1,48 @@
+缓存更新的套路:
+https://coolshell.cn/articles/17416.html
+
+缓存穿透，缓存击穿，缓存雪崩解决方案分析:
+https://blog.csdn.net/zeb_perfect/article/details/54135506
+
+缓存穿透、缓存击穿和缓存雪崩实践:
+https://www.jianshu.com/p/d00348a9eb3b
+
+为监控而生的多级缓存框架 layering-cache:
+https://www.jianshu.com/p/c5b2617b83e2
+
+Java Caching(缓存)-策略和JCache API:
+https://blog.csdn.net/boonya/article/details/54632129
+
+JSR107中文版（非官方）:
+https://github.com/c-rainstorm/blog/blob/master/java/cache
+
+《剖析缓存系列》—— 缓存介绍:
+https://www.jianshu.com/p/a6f8fd5c0af1
+《剖析缓存系列》—— 熟悉JSR-107 JAVA缓存规范:
+https://www.jianshu.com/p/f6a1eae03efb
+《剖析缓存系列》—— 剖析JCache:
+https://www.jianshu.com/p/6a3514801ca6
+
+JCache (JSR107) Examples:
+https://github.com/dbrimley/jcache-examples
+
+AutoLoadCache 是基于AOP+Annotation等技术实现的高效的缓存管理解决方案，实现缓存与业务逻辑的解耦，并增加异步刷新及“拿来主义机制”，以适应高并发环境下的使用:
+https://github.com/qiujiayu/AutoLoadCache
+
+目前PersistenceStrategy思路的基本假设是在异步持久化过程中不存在缓存击穿,所以只检查删除.
+从完备性角度,存在一定问题.如果万一在异步持久化过程存在缓存击穿,则存在脏数据.
+
+重构目标:
+锁粒度应该遵循从小到大的原则.
+业务层使用排序锁(可以考虑通过锁管理器与缓存层共享锁)
+缓存层使用实例锁与索引锁(CacheIndex)
+持久层使用读写锁(保证PersistenceStrategy的完备性)
+
+使框架能更有效适应实际分布式需要.
+索引与标识一样不可变;索引不必保证唯一;
+作为标识/索引的字段必须为Comparable;
+
+实体以标识为主,索引为辅,索引数量不受限,提供索引->标识的查询
+区域以索引为主,标识为辅,索引有且只有一个,提供索引->对象的查询
+
+cache模块实现了Cache-As-SoR模式

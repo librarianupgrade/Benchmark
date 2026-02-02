@@ -1,0 +1,15 @@
+{
+    "id": "YahooArchive__GT__artifactory_ssh_proxy__1",
+    "client_project_name": "YahooArchive/artifactory_ssh_proxy",
+    "github_url": "git@github.com:YahooArchive/artifactory_ssh_proxy.git",
+    "before_upgrade_commit": "6a5ff93141441f72750cb76b0d3f35a0385d954f",
+    "after_upgrade_commit": "e2049f0d47e115bce8ab6be02cd1dcb7cdecb9a2",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/YahooArchive/artifactory_ssh_proxy/commit/e2049f0d47e115bce8ab6be02cd1dcb7cdecb9a2",
+    "fix_type": 0
+}

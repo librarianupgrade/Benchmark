@@ -1,0 +1,15 @@
+{
+    "id": "oschina__GT__J2Cache__2",
+    "client_project_name": "oschina/J2Cache",
+    "github_url": "git@github.com:oschina/J2Cache.git",
+    "before_upgrade_commit": "79067014b550ff1cdbf45cbd0603355206ce1624",
+    "after_upgrade_commit": "fa4aa91e2d38b24b0de8cd86563f85c1cd51aadb",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/oschina/J2Cache/commit/fa4aa91e2d38b24b0de8cd86563f85c1cd51aadb",
+    "fix_type": 0
+}

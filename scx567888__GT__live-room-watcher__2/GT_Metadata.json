@@ -1,0 +1,15 @@
+{
+    "id": "scx567888__GT__live-room-watcher__2",
+    "client_project_name": "scx567888/live-room-watcher",
+    "github_url": "git@github.com:scx567888/live-room-watcher.git",
+    "before_upgrade_commit": "541d2764c86f4ab1a42d5b66e3465ab63d897930",
+    "after_upgrade_commit": "2192505a2e20ff42b464f2385090f215c9e93181",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "23",
+    "fixed_commit_url": "https://github.com/scx567888/live-room-watcher/commit/2192505a2e20ff42b464f2385090f215c9e93181",
+    "fix_type": 0
+}

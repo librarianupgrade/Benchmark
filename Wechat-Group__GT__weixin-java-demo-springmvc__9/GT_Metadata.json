@@ -1,0 +1,15 @@
+{
+    "id": "Wechat-Group__GT__weixin-java-demo-springmvc__9",
+    "client_project_name": "Wechat-Group/weixin-java-demo-springmvc",
+    "github_url": "git@github.com:Wechat-Group/weixin-java-demo-springmvc.git",
+    "before_upgrade_commit": "56f7c90b46cf833a518fbbd40536db7bea5d4cc7",
+    "after_upgrade_commit": "42166004198e168bad87a96140b9849042e273ca",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Wechat-Group/weixin-java-demo-springmvc/commit/42166004198e168bad87a96140b9849042e273ca",
+    "fix_type": 0
+}

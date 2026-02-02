@@ -1,0 +1,15 @@
+{
+    "id": "x2on__GT__xcode-maven-plugin__1",
+    "client_project_name": "x2on/xcode-maven-plugin",
+    "github_url": "git@github.com:x2on/xcode-maven-plugin.git",
+    "before_upgrade_commit": "620c5b296df08f334b5d56680285339b8d452e6b",
+    "after_upgrade_commit": "41eb9527e1533eda70c794c35016a131f6172620",
+    "incompatibility_category": "Method Exception Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/x2on/xcode-maven-plugin/commit/41eb9527e1533eda70c794c35016a131f6172620",
+    "fix_type": 0
+}

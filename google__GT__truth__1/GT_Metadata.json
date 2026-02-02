@@ -1,0 +1,16 @@
+{
+    "id": "google__GT__truth__1",
+    "client_project_name": "google/truth",
+    "github_url": "git@github.com:google/truth.git",
+    "before_upgrade_commit": "09b9f9f5f5a894d50f3ad85d8db0cdf6d8c8e898",
+    "after_upgrade_commit": "e6963aac9f1f91ce43003b17e52ce476bdf61dd6",
+    "incompatibility_category": "Method Accessibility Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/google/truth/commit/e6963aac9f1f91ce43003b17e52ce476bdf61dd6",
+    "note": "need to operate in Linux",
+    "fix_type": 0
+}

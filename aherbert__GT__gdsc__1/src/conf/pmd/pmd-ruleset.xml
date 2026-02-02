@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!-- #%L
+  Genome Damage and Stability Centre ImageJ Plugins
+
+  Software for microscopy image analysis
+  %%
+  Copyright (C) 2011 - 2022 Alex Herbert
+  %%
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public
+  License along with this program.  If not, see
+  <http://www.gnu.org/licenses/gpl-3.0.html>.
+  #L% -->
+
+<ruleset name="customized"
+  xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+  <description>
+    This ruleset checks the code for discouraged programming
+    constructs.
+  </description>
+
+  <!-- This needs some updating to a set of rules that is OK for each build -->
+
+  <rule ref="category/java/bestpractices.xml">
+    <exclude name="UseVarargs" />
+    <!--  Allow builders to construct classes using private constructors -->
+    <exclude name="AccessorClassGeneration" />
+  </rule>
+  <rule ref="category/java/codestyle.xml">
+    <exclude name="MethodArgumentCouldBeFinal" />
+    <exclude name="ShortVariable" />
+    <exclude name="LongVariable" />
+    <exclude name="CommentDefaultAccessModifier" />
+    <exclude name="DefaultPackage" />
+    <exclude name="CallSuperInConstructor" />
+    <exclude name="AbstractNaming" />
+    <exclude name="UselessParentheses" />
+    <exclude name="AtLeastOneConstructor" />
+    <!-- <exclude name="GenericsNaming" /> -->
+    <exclude name="OnlyOneReturn" />
+    <!--  Allow builders to have setters that return something -->
+    <exclude name="LinguisticNaming" />
+  </rule>
+  <rule ref="category/java/design.xml">
+    <exclude name="TooManyMethods" />
+    <exclude name="LawOfDemeter" />
+    <exclude name="LoosePackageCoupling" />
+    <!-- Allow builders to be big -->
+    <exclude name="ExcessiveClassLength" />
+    <exclude name="ExcessivePublicCount" />
+    <exclude name="GodClass" />
+  </rule>
+  <rule ref="category/java/documentation.xml">
+    <exclude name="CommentSize" />
+  </rule>
+  <rule ref="category/java/errorprone.xml">
+    <exclude name="BeanMembersShouldSerialize" />
+  </rule>
+  <rule ref="category/java/multithreading.xml">
+    <exclude name="DoNotUseThreads" />
+    <exclude name="AvoidUsingVolatile" />
+  </rule>
+  <rule ref="category/java/performance.xml">
+    <!-- <exclude name="..." /> -->
+  </rule>
+
+</ruleset>

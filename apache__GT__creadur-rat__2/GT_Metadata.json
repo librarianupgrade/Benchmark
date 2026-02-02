@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__creadur-rat__3",
+    "client_project_name": "apache/creadur-rat",
+    "github_url": "git@github.com:apache/creadur-rat.git",
+    "before_upgrade_commit": "037bf35c310d7a5cf0a8f6c5fb5f8af89f1f8ba2",
+    "after_upgrade_commit": "b79282cb9741dbd8cf15878f57718a08de8c32bb",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "apache-rat-plugin",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/apache/creadur-rat/commit/b79282cb9741dbd8cf15878f57718a08de8c32bb",
+    "fix_type": 0
+}

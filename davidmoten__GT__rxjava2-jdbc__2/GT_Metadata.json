@@ -1,0 +1,15 @@
+{
+    "id": "davidmoten__GT__rxjava2-jdbc__2",
+    "client_project_name": "davidmoten/rxjava2-jdbc",
+    "github_url": "git@github.com:davidmoten/rxjava2-jdbc.git",
+    "before_upgrade_commit": "3eb327f9b79b2aa51730b8cbd423d6be9115fe00",
+    "after_upgrade_commit": "2c0dd71ee222c609d21bc4ea202787e8a4aea131",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/davidmoten/rxjava2-jdbc/commit/2c0dd71ee222c609d21bc4ea202787e8a4aea131",
+    "fix_type": 0
+}

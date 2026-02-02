@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__struts__1",
+    "client_project_name": "apache/struts",
+    "github_url": "git@github.com:apache/struts.git",
+    "before_upgrade_commit": "2cbe47297e30a69de211994e7be34fdb27ea2c7f",
+    "after_upgrade_commit": "07b88fcc3581247e397e5b82004cd91d26906a1e",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "apps/showcase",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/apache/struts/commit/07b88fcc3581247e397e5b82004cd91d26906a1e",
+    "fix_type": 0
+}

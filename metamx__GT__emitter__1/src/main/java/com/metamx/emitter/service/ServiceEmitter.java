@@ -1,0 +1,66 @@
+/*
+ * Copyright 2012 Metamarkets Group Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.metamx.emitter.service;
+
+import com.metamx.common.lifecycle.LifecycleStart;
+import com.metamx.common.lifecycle.LifecycleStop;
+import com.metamx.emitter.core.Emitter;
+import com.metamx.emitter.core.Event;
+
+import java.io.IOException;
+
+public class ServiceEmitter implements Emitter {
+	private final String service;
+	private final String host;
+	private final Emitter emitter;
+
+	public ServiceEmitter(String service, String host, Emitter emitter) {
+		this.service = service;
+		this.host = host;
+		this.emitter = emitter;
+	}
+
+	public String getService() {
+		return service;
+	}
+
+	public String getHost() {
+		return host;
+	}
+
+	@LifecycleStart
+	public void start() {
+		emitter.start();
+	}
+
+	public void emit(Event event) {
+		emitter.emit(event);
+	}
+
+	public void emit(ServiceEventBuilder builder) {
+		emit(builder.build(service, host));
+	}
+
+	public void flush() throws IOException {
+		emitter.flush();
+	}
+
+	@LifecycleStop
+	public void close() throws IOException {
+		emitter.close();
+	}
+}

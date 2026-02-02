@@ -1,0 +1,15 @@
+{
+    "id": "minbox-projects__GT__api-boot__1",
+    "client_project_name": "minbox-projects/api-boot",
+    "github_url": "git@github.com:minbox-projects/api-boot.git",
+    "before_upgrade_commit": "c32ef06c8ab2f1dfd5a78bb06c2728ffa57ef3f7",
+    "after_upgrade_commit": "f3ddfd600ab1587a8ee0d7f6bb26cbbf1ce917cc",
+    "incompatibility_category": "Abstracted Method Parameter Addition",
+    "root_path": "",
+    "change_pom_path": "api-boot-project/api-boot-dependencies",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/minbox-projects/api-boot/commit/f3ddfd600ab1587a8ee0d7f6bb26cbbf1ce917cc",
+    "fix_type": 0
+}

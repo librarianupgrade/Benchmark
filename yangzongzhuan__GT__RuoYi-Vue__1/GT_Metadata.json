@@ -1,0 +1,15 @@
+{
+    "id": "yangzongzhuan__GT__RuoYi-Vue__1",
+    "client_project_name": "yangzongzhuan/RuoYi-Vue",
+    "github_url": "git@github.com:yangzongzhuan/RuoYi-Vue.git",
+    "before_upgrade_commit": "fd33fe869dfad2364503f13bc90a239fccba5dc3",
+    "after_upgrade_commit": "c16ee7fc2c6cbda1cc8e87f21f1c29b2cb5948cd",
+    "incompatibility_category": "Method Parameter Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/yangzongzhuan/RuoYi-Vue/commit/c16ee7fc2c6cbda1cc8e87f21f1c29b2cb5948cd",
+    "fix_type": 0
+}

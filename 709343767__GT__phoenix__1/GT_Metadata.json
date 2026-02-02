@@ -1,0 +1,15 @@
+{
+    "id": "709343767__GT__phoenix__1",
+    "client_project_name": "709343767/phoenix",
+    "github_url": "git@github.com:709343767/phoenix.git",
+    "before_upgrade_commit": "f2013a301e89854f20af3cd0c149f9e85f12199e",
+    "after_upgrade_commit": "f5fab1050296d9bc36c8e0205416894a6c71b721",
+    "incompatibility_category": "Method Parameter Length Change, Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/709343767/phoenix/commit/f5fab1050296d9bc36c8e0205416894a6c71b721",
+    "fix_type": 0
+}

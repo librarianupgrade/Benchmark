@@ -1,0 +1,49 @@
+Java Type详解:
+http://loveshisong.cn/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/2016-02-16-Type%E8%AF%A6%E8%A7%A3.html
+
+Type体系和AnnotatedType体系:
+https://www.zyc.red/categories/Java/Reflect
+
+你真的了解Java泛型参数？Spring ResolvableType更好的处理泛型:
+https://blog.csdn.net/u012881904/article/details/80813294
+
+Java:Annotation(注解)--原理到案例:
+https://www.jianshu.com/p/28edf5352b63
+
+Java-JSR-269-插入式注解处理器:
+https://liuyehcf.github.io/2018/02/02/Java-JSR-269-%E6%8F%92%E5%85%A5%E5%BC%8F%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8/
+
+Spring(https://spring.io/) 系列目录:
+https://www.cnblogs.com/binarylei/p/10198698.html
+
+How To Do In Java:
+https://howtodoinjava.com
+
+Modern Java: From Java 8 to Java 13. 现代Java案例大全:
+https://github.com/waylau/modern-java-demos
+
+Java 9 揭秘:
+https://www.cnblogs.com/IcanFixIt/p/7278696.html
+
+JVM从基础到实战系列:
+透彻理解Java并发编程系列:
+分布式系统从理论到实战系列:
+https://www.tpvlog.com
+https://www.jianshu.com/u/ab8ce2ed45a1
+
+Java8新的异步编程方式 CompletableFuture:
+https://www.jianshu.com/p/dff9063e1ab6
+https://www.jianshu.com/p/d81cf0beb858
+https://www.jianshu.com/p/807e6822292a
+
+很隐蔽的一个线程池死锁问题 CompletableFuture + ThreadPoolExecutor:
+https://blog.csdn.net/Siiiirius/article/details/107102724
+
+高级开发必须理解的Java中SPI机制:
+https://www.jianshu.com/p/46b42f7f593c
+
+SLF4J - SLF4J与Java SPI:
+https://www.jianshu.com/p/6634999fb7fa
+
+解决Java中 while(Scanner.hasNext())一直为死循环的问题:
+https://blog.csdn.net/Rex_WUST/article/details/88424076

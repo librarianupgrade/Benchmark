@@ -1,0 +1,15 @@
+{
+    "id": "Xceptance__GT__neodymium-example__1",
+    "client_project_name": "Xceptance/neodymium-example",
+    "github_url": "git@github.com:Xceptance/neodymium-example.git",
+    "before_upgrade_commit": "b880c36576ba2511df31b5bb3eebc268ad1c9e3b",
+    "after_upgrade_commit": "86b2261e0efa092f3db4d3fbb999538045ffaee6",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Xceptance/neodymium-example/commit/86b2261e0efa092f3db4d3fbb999538045ffaee6",
+    "fix_type": 0
+}

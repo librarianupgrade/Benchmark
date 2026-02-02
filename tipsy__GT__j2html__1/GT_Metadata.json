@@ -1,0 +1,15 @@
+{
+    "id": "tipsy__GT__j2html__1",
+    "client_project_name": "tipsy/j2html",
+    "github_url": "git@github.com:tipsy/j2html.git",
+    "before_upgrade_commit": "09e08f3465ade21437c16b75414d6b204c1187f0",
+    "after_upgrade_commit": "5135cffc3fd02f139b1a050eb851de32fcd98042",
+    "incompatibility_category": "Method Addition",
+    "root_path": "website",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/tipsy/j2html/commit/5135cffc3fd02f139b1a050eb851de32fcd98042",
+    "fix_type": 0
+}

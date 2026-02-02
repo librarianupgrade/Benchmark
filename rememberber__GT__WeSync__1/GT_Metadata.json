@@ -1,0 +1,15 @@
+{
+    "id": "rememberber__GT__WeSync__1",
+    "client_project_name": "rememberber/WeSync",
+    "github_url": "git@github.com:rememberber/WeSync.git",
+    "before_upgrade_commit": "1ba93f2626e774f873e2c8259901652b16f96236",
+    "after_upgrade_commit": "c7b43961e07ef125340aa35a4f2545cce6192e2a",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/rememberber/WeSync/commit/c7b43961e07ef125340aa35a4f2545cce6192e2a",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__maven-help-plugin__2",
+    "client_project_name": "apache/maven-help-plugin",
+    "github_url": "git@github.com:apache/maven-help-plugin.git",
+    "before_upgrade_commit": "8bfd2739a5ec9bbd6b10c99b3f1e574ab4846f00",
+    "after_upgrade_commit": "cdf80d28daee1362f1f5e3891833698a65b27919",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/apache/maven-help-plugin/commit/cdf80d28daee1362f1f5e3891833698a65b27919",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "molindo__GT__esi4j__1",
+    "client_project_name": "molindo/esi4j",
+    "github_url": "git@github.com:molindo/esi4j.git",
+    "before_upgrade_commit": "0c256c1c95bc69be089d021d41f6899142894568",
+    "after_upgrade_commit": "caf15c803fdee9ae38e99c0750305e5bd4a8fb7e",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/molindo/esi4j/commit/caf15c803fdee9ae38e99c0750305e5bd4a8fb7e",
+    "fix_type": 0
+}

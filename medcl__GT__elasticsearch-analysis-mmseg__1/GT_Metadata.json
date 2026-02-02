@@ -1,0 +1,15 @@
+{
+    "id": "medcl__GT__elasticsearch-analysis-mmseg__2",
+    "client_project_name": "medcl/elasticsearch-analysis-mmseg",
+    "github_url": "git@github.com:medcl/elasticsearch-analysis-mmseg.git",
+    "before_upgrade_commit": "4c76da32a8b02f708bd82fb4cb116aba9551b26d",
+    "after_upgrade_commit": "4d12e29d6f05c7fac25802b3ffa8e49b3f8cd47f",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/medcl/elasticsearch-analysis-mmseg/commit/4d12e29d6f05c7fac25802b3ffa8e49b3f8cd47f",
+    "fix_type": 0
+}

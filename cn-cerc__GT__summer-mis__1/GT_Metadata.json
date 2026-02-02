@@ -1,0 +1,15 @@
+{
+    "id": "cn-cerc__GT__summer-mis__1",
+    "client_project_name": "cn-cerc/summer-mis",
+    "github_url": "git@github.com:cn-cerc/summer-mis.git",
+    "before_upgrade_commit": "e00e95ba238a1d4685987e2f89381a1c6a1928a7",
+    "after_upgrade_commit": "4c48317adbf15aac964ab22f96627fb21ba95ba8",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/cn-cerc/summer-mis/commit/4c48317adbf15aac964ab22f96627fb21ba95ba8",
+    "fix_type": 0
+}

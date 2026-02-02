@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__commons-vfs__1",
+    "client_project_name": "apache/commons-vfs",
+    "github_url": "git@github.com:apache/commons-vfs.git",
+    "before_upgrade_commit": "432aeb6f84c56d229667f3453f40337756f1ddb5",
+    "after_upgrade_commit": "239742176cd99e41568fd31e5813c53243f2404e",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/apache/commons-vfs/commit/239742176cd99e41568fd31e5813c53243f2404e",
+    "fix_type": 0
+}

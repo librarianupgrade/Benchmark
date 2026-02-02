@@ -1,0 +1,15 @@
+{
+    "id": "tripluo__GT__jrouter-servlet__1",
+    "client_project_name": "tripluo/jrouter-servlet",
+    "github_url": "git@github.com:tripluo/jrouter-servlet.git",
+    "before_upgrade_commit": "e276f3825357b03a5463b6ef6350f21e97ac952d",
+    "after_upgrade_commit": "597c6ea947e8d07f6a5047964ec3c8ccb547fede",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/tripluo/jrouter-servlet/commit/597c6ea947e8d07f6a5047964ec3c8ccb547fede",
+    "fix_type": 0
+}

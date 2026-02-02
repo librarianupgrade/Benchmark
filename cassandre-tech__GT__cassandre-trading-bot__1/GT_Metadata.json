@@ -1,0 +1,15 @@
+{
+    "id": "cassandre-tech__GT__cassandre-trading-bot__1",
+    "client_project_name": "cassandre-tech/cassandre-trading-bot",
+    "github_url": "git@github.com:cassandre-tech/cassandre-trading-bot.git",
+    "before_upgrade_commit": "c4f6a4f2fc3decbf892a6f06d9e2568cbf70076b",
+    "after_upgrade_commit": "b2e77924deae33b308a2e9ffb0a5399a8600d669",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "11",
+    "fixed_commit_url": "https://github.com/cassandre-tech/cassandre-trading-bot/commit/b2e77924deae33b308a2e9ffb0a5399a8600d669",
+    "fix_type": 0
+}

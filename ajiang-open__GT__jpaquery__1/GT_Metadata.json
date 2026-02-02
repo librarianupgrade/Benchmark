@@ -1,0 +1,15 @@
+{
+    "id": "ajiang-open__GT__jpaquery__1",
+    "client_project_name": "ajiang-open/jpaquery",
+    "github_url": "git@github.com:ajiang-open/jpaquery.git",
+    "before_upgrade_commit": "144c455b6630769390d62f3418599bf45bcea6fe",
+    "after_upgrade_commit": "a39bc732f35e2ff5f131d442a05d3a98d1eadce4",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/ajiang-open/jpaquery/commit/a39bc732f35e2ff5f131d442a05d3a98d1eadce4",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "qinming99__GT__dst-admin__1",
+    "client_project_name": "qinming99/dst-admin",
+    "github_url": "git@github.com:qinming99/dst-admin.git",
+    "before_upgrade_commit": "1055513de3f5ffed42024d1254afb73a43f83139",
+    "after_upgrade_commit": "80d0aa4b2fef86938b8247356a617eedd80137f2",
+    "incompatibility_category": "Method Return Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/qinming99/dst-admin/commit/80d0aa4b2fef86938b8247356a617eedd80137f2",
+    "fix_type": 0
+}

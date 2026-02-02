@@ -1,0 +1,15 @@
+{
+    "id": "davidmoten__GT__rxjava-jdbc__1",
+    "client_project_name": "davidmoten/rxjava-jdbc",
+    "github_url": "git@github.com:davidmoten/rxjava-jdbc.git",
+    "before_upgrade_commit": "0836fffe294484e457f1bdb183d663b50cdf2a33",
+    "after_upgrade_commit": "c87ec76ae5d0b2924524198c7a8bdfe2543a59b9",
+    "incompatibility_category": "Method Removal, Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/davidmoten/rxjava-jdbc/commit/c87ec76ae5d0b2924524198c7a8bdfe2543a59b9",
+    "fix_type": 0
+}

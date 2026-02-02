@@ -1,0 +1,15 @@
+{
+    "id": "immutables__GT__immutables__3",
+    "client_project_name": "immutables/immutables",
+    "github_url": "git@github.com:immutables/immutables.git",
+    "before_upgrade_commit": "9ec86cbadae330157967bf5f5b5b50c76cb99fd4",
+    "after_upgrade_commit": "965884cca98accc37c0e80bcee4c9de07592fd81",
+    "incompatibility_category": "Method Parameter Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/immutables/immutables/commit/965884cca98accc37c0e80bcee4c9de07592fd81",
+    "fix_type": 0
+}

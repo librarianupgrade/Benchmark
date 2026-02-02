@@ -1,0 +1,15 @@
+{
+    "id": "jenkinsci__GT__acceptance-test-harness__1",
+    "client_project_name": "jenkinsci/acceptance-test-harness",
+    "github_url": "git@github.com:jenkinsci/acceptance-test-harness.git",
+    "before_upgrade_commit": "a1442b6f1b9cd4e59090637b14e71c519b37e81d",
+    "after_upgrade_commit": "07855a003fc174fff36f08647580dabfe346495a",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "11",
+    "fixed_commit_url": "https://github.com/jenkinsci/acceptance-test-harness/commit/07855a003fc174fff36f08647580dabfe346495a",
+    "fix_type": 0
+}

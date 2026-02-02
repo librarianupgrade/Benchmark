@@ -1,0 +1,15 @@
+{
+    "id": "spotify__GT__dockerfile-maven__1",
+    "client_project_name": "spotify/dockerfile-maven",
+    "github_url": "git@github.com:spotify/dockerfile-maven.git",
+    "before_upgrade_commit": "430cdaeb31f748bb003825a2d56e496446c981b9",
+    "after_upgrade_commit": "ca0f7d7dd1ffd08716fd8d5555f16d6e6570e093",
+    "incompatibility_category": "Classpath  Modification",
+    "root_path": "",
+    "change_pom_path": "plugin",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "11",
+    "fixed_commit_url": "https://github.com/spotify/dockerfile-maven/commit/ca0f7d7dd1ffd08716fd8d5555f16d6e6570e093",
+    "fix_type": 0
+}

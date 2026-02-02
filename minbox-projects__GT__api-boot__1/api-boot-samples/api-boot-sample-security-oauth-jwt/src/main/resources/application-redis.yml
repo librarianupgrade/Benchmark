@@ -1,0 +1,25 @@
+spring:
+  redis:
+    password: 123456
+    host: 127.0.0.1
+api:
+  boot:
+    security:
+      away: memory
+      users:
+        - username: hengboy
+          password: 123456
+    oauth:
+      # 开启使用redis存储token
+      away: redis
+      # 启用jwt
+      jwt:
+        enable: true
+      # 配置oauth2客户端列表
+      clients:
+        - client-id: admin
+          client-secret: admin_secret
+          # 自定义客户端获取refresh token的有效期，默认为30天
+          refresh-token-validity-seconds: 60 * 60 * 24
+        - client-id: platform
+          client-secret: platform_secret

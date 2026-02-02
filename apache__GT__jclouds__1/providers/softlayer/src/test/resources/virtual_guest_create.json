@@ -1,0 +1,1 @@
+{"parameters":[{"hostname":"host1","domain":"example.com","startCpus":1,"maxMemory":1024,"hourlyBillingFlag":false,"localDiskFlag":true,"dedicatedAccountHostOnlyFlag":false,"privateNetworkOnlyFlag":false,"operatingSystemReferenceCode":"UBUNTU_LATEST","datacenter":{"name":"test"}}]}

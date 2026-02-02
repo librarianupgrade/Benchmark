@@ -1,0 +1,15 @@
+{
+    "id": "sivasamyk__GT__graylog2-plugin-input-httpmonitor__1",
+    "client_project_name": "sivasamyk/graylog2-plugin-input-httpmonitor",
+    "github_url": "git@github.com:sivasamyk/graylog2-plugin-input-httpmonitor.git",
+    "before_upgrade_commit": "d167d9f2f7176ad7370680585eacc73896154945",
+    "after_upgrade_commit": "f62b7cc39c2f6734761eddb372a00188fb2613aa",
+    "incompatibility_category": "Class Removal, Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/sivasamyk/graylog2-plugin-input-httpmonitor/commit/f62b7cc39c2f6734761eddb372a00188fb2613aa",
+    "fix_type": 0
+}

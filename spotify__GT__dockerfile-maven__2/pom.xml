@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.spotify</groupId>
+  <artifactId>dockerfile-maven</artifactId>
+  <version>1.1.2-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Dockerfile Maven Support</name>
+
+  <modules>
+    <module>extension</module>
+    <module>plugin</module>
+  </modules>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <scm>
+    <connection>scm:git:ssh://git@github.com:spotify/dockerfile-maven.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:spotify/dockerfile-maven.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/spotify/dockerfile-maven</url>
+  </scm>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+          <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.9</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+</project>

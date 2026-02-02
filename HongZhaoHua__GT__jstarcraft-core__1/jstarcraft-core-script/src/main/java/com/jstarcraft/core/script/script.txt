@@ -1,0 +1,17 @@
+JSR 223 在各种语言的实现(JSR 223 compliant scripting languages):
+https://www.oschina.net/question/101596_83486
+
+List of JVM languages:
+https://en.wikipedia.org/wiki/List_of_JVM_languages
+
+Open Source Scripting Languages in Java:
+https://java-source.net/open-source/scripting-languages
+
+JSR 223: Scripting for the Java Platform:
+https://www.drdobbs.com/jvm/jsr-223-scripting-for-the-java-platform/215801163
+
+Clojure 教程:
+https://www.w3cschool.cn/clojure
+
+Clojure入门教程:
+https://wizardforcel.gitbooks.io/clojure-fpftj/content/index.html

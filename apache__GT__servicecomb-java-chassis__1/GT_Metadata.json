@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__servicecomb-java-chassis__1",
+    "client_project_name": "apache/servicecomb-java-chassis",
+    "github_url": "git@github.com:apache/servicecomb-java-chassis.git",
+    "before_upgrade_commit": "c2cfcbfeaa9448bc332f5082846556e9dee5f0ea",
+    "after_upgrade_commit": "fc7c01668fbb992e015458a86bc4366a00dc5878",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "dependencies/default",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/apache/servicecomb-java-chassis/commit/fc7c01668fbb992e015458a86bc4366a00dc5878",
+    "fix_type": 0
+}

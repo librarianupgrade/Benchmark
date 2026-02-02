@@ -1,0 +1,42 @@
+/*
+ * Copyright 2019 the original author or authors.
+ *
+ * Licensed under the LGPL, Version 3.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at  http://www.gnu.org/licenses/lgpl-3.0.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.jn.sqlhelper.dialect.likeescaper;
+
+/**
+ * the escape char is : '\'
+ */
+public class BackslashStyleEscaper extends BaseLikeEscaper {
+	public static final BackslashStyleEscaper INSTANCE = new BackslashStyleEscaper();
+	public static final BackslashStyleEscaper NON_DEFAULT_INSTANCE = new BackslashStyleEscaper(false);
+	private boolean isDefault = true;
+
+	public BackslashStyleEscaper() {
+		this(true);
+	}
+
+	public BackslashStyleEscaper(boolean isDefault) {
+		this.escapeChar = '\\';
+		this.keyChars.add('\\');
+		this.isDefault = isDefault;
+	}
+
+	@Override
+	public String appendmentAfterLikeClause() {
+		if (!isDefault) {
+			return super.appendmentAfterLikeClause();
+		}
+		return "";
+	}
+}

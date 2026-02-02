@@ -1,0 +1,15 @@
+{
+    "id": "mybatis__GT__mybatis-3__1",
+    "client_project_name": "mybatis/mybatis-3",
+    "github_url": "git@github.com:mybatis/mybatis-3.git",
+    "before_upgrade_commit": "52d4c9bcc00c2ae200bb0dc66b18c762e0e49089",
+    "after_upgrade_commit": "0b1a6a9f7f837b7aacf764455b6461e85dee313e",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/mybatis/mybatis-3/commit/0b1a6a9f7f837b7aacf764455b6461e85dee313e",
+    "fix_type": 0
+}

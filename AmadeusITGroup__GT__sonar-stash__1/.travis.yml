@@ -1,0 +1,47 @@
+language: java
+
+matrix:
+  fast_finish: true
+  include:
+    # The basic unit-tests environments
+    - jdk: oraclejdk8
+      env:
+        - TEST_SUITE=unit
+        - SQ_RUN=yes
+        # It is necessary only to run the analysis once ;)
+
+    # The integration tests environments
+    - jdk: openjdk8
+      env:
+        - TEST_SUITE=integration
+        - SONARQUBE_VERSION=7.3
+
+    - jdk: openjdk8
+      env:
+        - TEST_SUITE=integration
+        - SONARQUBE_VERSION=6.7
+
+    - jdk: openjdk8
+      env:
+        - TEST_SUITE=dependency-check
+
+addons:
+  sonarcloud:
+    organization: "default"
+
+
+install:
+  - mvn dependency:go-offline
+
+script:
+  - ./.travis/script.sh
+  - ./.travis/runSonarQubeAnalysis.sh
+
+sudo: false
+dist: trusty
+git:
+  depth: false
+
+notifications:
+  email: false
+

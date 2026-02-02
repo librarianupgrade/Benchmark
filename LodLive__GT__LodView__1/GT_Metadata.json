@@ -1,0 +1,15 @@
+{
+    "id": "LodLive__GT__LodView__1",
+    "client_project_name": "LodLive/LodView",
+    "github_url": "git@github.com:LodLive/LodView.git",
+    "before_upgrade_commit": "5653f4411e60ad50fedf5d565cb485f71758f2a6",
+    "after_upgrade_commit": "39f794baac72a3024ff3ca69a0b0fd9c1e830ad0",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/LodLive/LodView/commit/39f794baac72a3024ff3ca69a0b0fd9c1e830ad0",
+    "fix_type": 0
+}

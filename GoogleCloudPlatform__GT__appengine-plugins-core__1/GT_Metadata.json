@@ -1,0 +1,15 @@
+{
+    "id": "GoogleCloudPlatform__GT__appengine-plugins-core__1",
+    "client_project_name": "GoogleCloudPlatform/appengine-plugins-core",
+    "github_url": "git@github.com:GoogleCloudPlatform/appengine-plugins-core.git",
+    "before_upgrade_commit": "db2dd68d96da6838ed172558607069748343e451",
+    "after_upgrade_commit": "17a333c7d605f6faa125fcc0bed60878d80f17b5",
+    "incompatibility_category": "",
+    "root_path": "app-maven-plugin",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/GoogleCloudPlatform/appengine-plugins-core/commit/17a333c7d605f6faa125fcc0bed60878d80f17b5",
+    "fix_type": 0
+}

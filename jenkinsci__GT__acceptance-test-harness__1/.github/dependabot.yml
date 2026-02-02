@@ -1,0 +1,97 @@
+---
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 20
+    ignore:
+      # Selenium requires co-ordinated changes in consuming projects also due to the use of containers for webdriver
+      - dependency-name: "org.seleniumhq.selenium:*"
+      # Kept in sync with the version mockito-core uses
+      - dependency-name: "net.bytebuddy:byte-buddy"
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/ath-container"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "ubuntu"
+        versions: [">=22.04"]
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/ArtifactoryContainer"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/DockerAgentContainer"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/FtpdContainer"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "ubuntu"
+        versions: [">=22.04"]
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/GitContainer"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "ubuntu"
+        versions: [">=22.04"]
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/JabberContainer"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "ubuntu"
+        versions: [">=22.04"]
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/JavaGitContainer"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "ubuntu"
+        versions: [">=22.04"]
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/JiraContainer"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "ubuntu"
+        versions: [">=22.04"]
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/LdapContainer"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/MailhogContainer"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/SMBContainer"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "ubuntu"
+        versions: [">=22.04"]
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/SshAgentContainer"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/SvnContainer"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "src/main/resources/org/jenkinsci/test/acceptance/docker/fixtures/Tomcat7Container"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "ubuntu"
+        versions: [">=22.04"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"

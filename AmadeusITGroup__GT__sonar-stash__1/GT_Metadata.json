@@ -1,0 +1,15 @@
+{
+    "id": "AmadeusITGroup__GT__sonar-stash__1",
+    "client_project_name": "AmadeusITGroup/sonar-stash",
+    "github_url": "git@github.com:AmadeusITGroup/sonar-stash.git",
+    "before_upgrade_commit": "be34cda512a489d45cb41c99542bad709b6ebf22",
+    "after_upgrade_commit": "203acfec87a55c56dc9ee799024d8d52b9b72468",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/AmadeusITGroup/sonar-stash/commit/203acfec87a55c56dc9ee799024d8d52b9b72468",
+    "fix_type": 0
+}

@@ -1,0 +1,9 @@
+before_install:
+ - sudo apt-get update -y
+
+language: java
+
+script: mvn test
+
+jdk:
+ - oraclejdk8

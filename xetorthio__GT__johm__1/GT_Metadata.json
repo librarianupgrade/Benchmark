@@ -1,0 +1,15 @@
+{
+    "id": "xetorthio__GT__johm__1",
+    "client_project_name": "xetorthio/johm",
+    "github_url": "git@github.com:xetorthio/johm.git",
+    "before_upgrade_commit": "9898e9fe046a827a27894a0333f871356acc918d",
+    "after_upgrade_commit": "7ac333c39fbaf10bb52f3328e688084099f530c8",
+    "incompatibility_category": "Method Return Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/xetorthio/johm/commit/7ac333c39fbaf10bb52f3328e688084099f530c8",
+    "fix_type": 0
+}

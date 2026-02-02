@@ -1,0 +1,298 @@
+## ---------------------------------------------------------------------------
+## Licensed to the Apache Software Foundation (ASF) under one or more
+## contributor license agreements.  See the NOTICE file distributed with
+## this work for additional information regarding copyright ownership.
+## The ASF licenses this file to You under the Apache License, Version 2.0
+## (the "License"); you may not use this file except in compliance with
+## the License.  You may obtain a copy of the License at
+##
+##      http://www.apache.org/licenses/LICENSE-2.0
+##
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License.
+## ---------------------------------------------------------------------------
+
+servicecomb:
+  matchGroup:
+    demo-timeLimiter: |
+      matches:
+        - apiPath:
+            prefix: "/timeLimiter"
+    demo-governanceCache: |
+      matches:
+        - apiPath:
+            prefix: "/governanceCache"
+    demo-loadbalance-random: |
+      matches:
+        - serviceName: "loadrandom"
+    demo-loadbalance-roundRobin: |
+      matches:
+        - serviceName: "loadroundRobin"
+    demo-fallback-returnNull: |
+      matches:
+        - serviceName: "returnNull"
+    demo-fallback-ThrowException: |
+      matches:
+        - serviceName: "ThrowException"
+    demo-faultInject-forceClosed: |
+      matches:
+        - serviceName: "forceClosed"
+    demo-allOperation: |
+      matches:
+        - apiPath:
+            prefix: "/"
+    demo-rateLimiting: |
+      matches:
+        - apiPath:
+            exact: "/hello"
+    demo-rateLimiting-servicename: |
+      matches:
+        - apiPath:
+            exact: "/helloServiceName"
+          serviceName: "srcService"
+    wrong-name-inogred: |
+      wrong: some
+    demo-retry: |
+      matches:
+        - apiPath:
+            exact: "/retry"
+    demo-circuitBreaker: |
+      matches:
+        - apiPath:
+            exact: "/circuitBreaker"
+    demo-bulkhead: |
+      matches:
+        - name: matchPath
+          apiPath:
+            exact: "/bulkhead"
+        - name: matchHeader
+          headers:
+            x-token:
+              exact: token
+    demo-bulkhead-priority: |
+      matches:
+        - apiPath:
+          exact: "/bulkhead"
+    demo-bulkhead-other: |
+      matches:
+        - apiPath:
+          exact: "/bulkhead"
+      services: other:1.0
+    demo-faultInjectDelay: |
+      matches:
+        - apiPath:
+            contains: "/faultInjectDelay"
+    demo-faultInjectAbort: |
+      matches:
+        - apiPath:
+            contains: "/faultInjectAbort"
+    demo-mapper: |
+      matches:
+        - apiPath:
+            prefix: "/mapper"
+    demo-mapper-query: |
+      matches:
+        - queries:
+            name:
+              exact: "bob"
+  rateLimiting:
+    demo-rateLimiting: |
+      rate: 1
+    demo-rateLimiting-servicename: |
+      rate: 1
+    wrongIgnored: |
+      rate: 0
+  identifierRateLimiting:
+    demo-rateLimiting: |
+      rate: 1
+      identifier: test
+    demo-rateLimiting-servicename: |
+      rate: 1
+      identifier: test
+  timeLimiter:
+    demo-timeLimiter: |
+      timeoutDuration: 2000
+      cancelRunningFuture: true
+    demo-timeLimiter-other: |
+      timeoutDuration: 2000
+      cancelRunningFuture: false
+  cache:
+    demo-governanceCache: |
+      ttl: 36000000
+      maximumSize: 50000
+      concurrencyLevel: 10
+    demo-governanceCache-other: |
+      ttl: 666666
+      maximumSize: 50000
+      concurrencyLevel: 15
+  retry:
+    demo-retry: |
+      maxAttempts: 3
+    wrongIgnored: |
+      maxAttempts: -1
+  circuitBreaker:
+    demo-circuitBreaker: |
+      minimumNumberOfCalls: 2
+      slidingWindowSize: 2
+      slidingWindowType: COUNT_BASED
+      services: myself:1.0,other
+    wrongIgnored: |
+      rules:
+        match: demo-circuitBreaker.xx
+      minimumNumberOfCalls: -1
+  bulkhead:
+    demo-bulkhead: |
+      order: 1
+      maxConcurrentCalls: 1
+      maxWaitDuration: 3000
+      services: myself:1.0
+    demo-bulkhead-priority: |
+      order: 0
+      maxConcurrentCalls: 1
+      maxWaitDuration: 3000
+      services: myself:1.0
+    demo-bulkhead-other: |
+      maxConcurrentCalls: 1
+      maxWaitDuration: 3000
+      services: other:1.0
+    wrongIgnored: |
+      rules:
+        match: demo-bulkhead.xx
+      maxWaitDuration: -1
+  instanceIsolation:
+    demo-allOperation: |
+      minimumNumberOfCalls: 2
+      slidingWindowSize: 2
+      slidingWindowType: COUNT_BASED
+      waitDurationInOpenState: 1000
+  instanceBulkhead:
+    demo-allOperation: |
+      maxConcurrentCalls: 2
+      maxWaitDuration: 10
+  faultInjection:
+    demo-fallback-ThrowException: |
+      type: abort
+      percentage: 100
+    demo-fallback-returnNull: |
+      fallbackType: ReturnNull
+      type: abort
+      percentage: 100
+    demo-faultInject-forceClosed: |
+      forceClosed: true
+      fallbackType: ReturnNull
+    demo-faultInjectDelay: |
+      delayTime: 2S
+      type: delay
+      percentage: 100
+    demo-faultInjectAbort: |
+      type: abort
+      percentage: 50
+      errorCode: 500
+    wrongIgnored: |
+      delayTime: -1
+      type: ERROR
+  faultInjection2:
+    demo-fallback-ThrowException: |
+      type: abort
+      percentage: 100
+  loadbalance:
+    demo-loadbalance-random: |
+      rule: Random
+    demo-loadbalance-roundRobin: |
+      rule: RoundRobin
+  mapper:
+    demo-mapper: |
+      target:
+        host: 127.0.0.1
+        port: 8080
+    demo-mapper-query: |
+      target:
+        user-id: $Q{name}
+  mapper2:
+    demo-mapper: |
+      target:
+        host: 127.0.0.1
+        port: 9090
+  routeRule:
+    test_server1: |                              # 服务名
+      - precedence: 1                        # 优先级，数字越大，优先级越高。
+        match:                               # 请求匹配规则。0..N个，不配置表示匹配。
+          headers:                           # header 匹配
+            region:                          # 如果配置了多个 header，那么所有的 header 规则都必须和请求匹配
+              exact: 'providerRegion'
+            type:
+              regex: gray_[a-z]+             # java 正则表达式匹配
+        route:                               # 路由规则
+          - weight: 20                       # 权重值
+            tags:
+              version: 1.0.0                 # 实例标记。满足标记条件的实例放到这一组。
+          - weight: 80                       # 权重值
+            tags:
+              version: 2.0.0                 # 实例标记。满足标记条件的实例放到这一组。
+
+      - precedence: 2
+        route:
+          - weight: 20
+            tags:
+              x-group: red
+          - weight: 80
+            tags:
+              x-group: green
+
+    test_server2: |                              # 服务名
+      - precedence: 1
+        route:
+          - weight: 20
+            tags:
+              x-group: red
+
+    test_server3: |                              # 服务名
+      - precedence: 2
+        match:
+          headers:
+            canary:
+              exact: 'canary'
+        route:
+          - weight: 20
+            tags:
+              version: 1.0.0
+          - weight: 80
+            tags:
+              version: 2.0.0
+    test_server4: |                              # 服务名
+      - precedence: 2
+        match:
+          headers:
+            canary:
+              exact: 'canary'
+        route:
+          - weight: 20
+            tags:
+              version: 1.0.0
+          - weight: 80
+            tags:
+              version: 2.0.0
+        fallback:
+          - weight: 100
+            tags:
+              x-group: red
+    test_server5: |                              # 服务名
+      - precedence: 2
+        match:
+          headers:
+            canary:
+              exact: 'canary'
+        route:
+          - weight: 50
+            tags:
+              x-group: red
+        fallback:
+          - weight: 50
+            tags:
+              x-group: red
+          - weight: 50
+            tags:
+              x-group: green

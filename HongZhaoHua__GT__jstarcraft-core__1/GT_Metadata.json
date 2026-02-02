@@ -1,0 +1,15 @@
+{
+    "id": "HongZhaoHua__GT__jstarcraft-core__1",
+    "client_project_name": "HongZhaoHua/jstarcraft-core",
+    "github_url": "git@github.com:HongZhaoHua/jstarcraft-core.git",
+    "before_upgrade_commit": "3a2948594dabc57cd1bfa4798fecd64cfec8a970",
+    "after_upgrade_commit": "0fcbf1b7b2410910d1b461722447cd0daa03196f",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/HongZhaoHua/jstarcraft-core/commit/0fcbf1b7b2410910d1b461722447cd0daa03196f",
+    "fix_type": 0
+}

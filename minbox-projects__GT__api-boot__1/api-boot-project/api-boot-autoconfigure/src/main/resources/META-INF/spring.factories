@@ -1,0 +1,27 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.minbox.framework.api.boot.autoconfigure.security.ApiBootWebSecurityMemoryAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.security.ApiBootWebSecurityJdbcAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.oauth.ApiBootResourceServerAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.oauth.ApiBootAuthorizationMemoryServerAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.oauth.ApiBootAuthorizationServerJdbcAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.oauth.ApiBootAuthorizationServerRedisAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.converter.HttpMessageConverterAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.oss.ApiBootOssAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.sms.ApiBootSmsAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.quartz.ApiBootQuartzAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.datasource.ApiBootDataSourceSwitchAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.resource.ApiBootResourceLoadAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.push.ApiBootMessagePushAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.pageable.ApiBootMybatisPageableAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.enhance.ApiBootMyBatisEnhanceAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.ratelimiter.ApiBootRateLimiterAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.mail.ApiBootMailAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.logging.ApiBootLoggingAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.logging.admin.ApiBootLoggingAdminAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.logging.admin.ApiBootLoggingAdminSecurityAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.sequence.ApiBootSequenceAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.mongo.ApiBootMongoClientSettingsAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.tools.ApiBootToolsAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.message.pipe.client.MessagePipeClientAutoConfiguration,\
+  org.minbox.framework.api.boot.autoconfigure.message.pipe.server.MessagePipeServerAutoConfiguration

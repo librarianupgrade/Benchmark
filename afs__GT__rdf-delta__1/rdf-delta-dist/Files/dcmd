@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+## Licensed under the terms of http://www.apache.org/licenses/LICENSE-2.0
+
+## Sets up the java enviroment to run a command from RDF Delta.
+
+# Location of the delta-server.jar, which also contains the commands.
+DELTA_HOME="${DELTA_HOME:-$PWD}"
+CP=''
+if [[ -e "$DELTA_HOME/delta-patch-server.jar" ]] ; then
+    CP="$DELTA_HOME/delta-patch-server.jar"
+elif [[ -e "$DELTA_HOME/delta-server.jar" ]] ; then
+    CP="$DELTA_HOME/delta-server.jar" 
+else
+    echo "Can't find the jar containing the RDF Delta cmds (delta-patch-server.jar)" 1>&2
+    exit 1
+fi
+
+if [[ -e "log4j2.xml" ]]
+then
+    LOGGING="-Dlog4j.configurationFile=log4j2.xml -Dlog4j.configuration=delta"
+fi
+
+function usage() {
+    echo "Commands: server, ls, mk, rm, list, get, add, parse, path, r2p, p2r, fuseki" 1>&2
+    ##echo "Class path: $DELTA_CP:${JENA_CP}"
+    exit
+}
+
+if [[ $# = 0 ]]
+then
+    usage
+    exit
+fi
+
+exec java $JVM_ARGS $LOGGING -cp "$CP" dcmd "$@"

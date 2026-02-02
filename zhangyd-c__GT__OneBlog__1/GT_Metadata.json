@@ -1,0 +1,15 @@
+{
+    "id": "zhangyd-c__GT__OneBlog__1",
+    "client_project_name": "zhangyd-c/OneBlog",
+    "github_url": "git@github.com:zhangyd-c/OneBlog.git",
+    "before_upgrade_commit": "6e054bd21f3f88c9b8ff8006ac4e09d583d24c08",
+    "after_upgrade_commit": "6541f854a50adbf665a125b89f2b63288a953de7",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zhangyd-c/OneBlog/commit/6541f854a50adbf665a125b89f2b63288a953de7",
+    "fix_type": 0
+}

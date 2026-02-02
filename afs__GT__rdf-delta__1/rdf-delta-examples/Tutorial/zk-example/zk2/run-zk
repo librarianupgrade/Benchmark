@@ -1,0 +1,12 @@
+#!/bin/bash
+## Licensed under the terms of http://www.apache.org/licenses/LICENSE-2.0
+
+export JMXDISABLE=true
+
+ARGS="$@"
+if [[ $# == 0 ]]
+then
+    ARGS=start-foreground
+fi
+
+~/Projects/zookeeper/bin/zkServer.sh --config . $ARGS

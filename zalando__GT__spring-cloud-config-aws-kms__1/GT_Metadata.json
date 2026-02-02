@@ -1,0 +1,15 @@
+{
+    "id": "zalando__GT__spring-cloud-config-aws-kms__1",
+    "client_project_name": "zalando/spring-cloud-config-aws-kms",
+    "github_url": "git@github.com:zalando/spring-cloud-config-aws-kms.git",
+    "before_upgrade_commit": "a27a5283f310f44ca633616eafbeea4c6b5b5fbc",
+    "after_upgrade_commit": "59c52941971985d3e11a54e8a21169442169c73e",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zalando/spring-cloud-config-aws-kms/commit/59c52941971985d3e11a54e8a21169442169c73e",
+    "fix_type": 0
+}

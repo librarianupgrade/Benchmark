@@ -1,0 +1,15 @@
+{
+    "id": "bbossgroups__GT__springboot-elasticsearch-webservice__2",
+    "client_project_name": "bbossgroups/springboot-elasticsearch-webservice",
+    "github_url": "git@github.com:bbossgroups/springboot-elasticsearch-webservice.git",
+    "before_upgrade_commit": "a0219074a69fc6bef5a10b60a850c0f4e64c3338",
+    "after_upgrade_commit": "65c2bc8ca489977ad46718d768876a02b1cc1068",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/bbossgroups/springboot-elasticsearch-webservice/commit/65c2bc8ca489977ad46718d768876a02b1cc1068",
+    "fix_type": 0
+}

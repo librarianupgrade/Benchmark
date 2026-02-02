@@ -1,0 +1,15 @@
+{
+    "id": "adriens__GT__schemacrawler-plugin-neo4j__1",
+    "client_project_name": "adriens/schemacrawler-plugin-neo4j",
+    "github_url": "git@github.com:adriens/schemacrawler-plugin-neo4j.git",
+    "before_upgrade_commit": "8227ab0ca349ef477dd337759fce6eb73074a78b",
+    "after_upgrade_commit": "35b79d05c49b34e3d2f2b231024f72f73fa98df8",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/adriens/schemacrawler-plugin-neo4j/commit/35b79d05c49b34e3d2f2b231024f72f73fa98df8",
+    "fix_type": 0
+}

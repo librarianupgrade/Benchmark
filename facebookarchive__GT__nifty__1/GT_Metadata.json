@@ -1,0 +1,15 @@
+{
+    "id": "facebookarchive__GT__nifty__1",
+    "client_project_name": "facebookarchive/nifty",
+    "github_url": "git@github.com:facebookarchive/nifty.git",
+    "before_upgrade_commit": "0561b5ffca84d823024b3e347ed556b2a70594b0",
+    "after_upgrade_commit": "01108daa3f554e25e85e4c30cd657e7c1caf8dc4",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/facebookarchive/nifty/commit/01108daa3f554e25e85e4c30cd657e7c1caf8dc4",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "VisualDataWeb__GT__OWL2VOWL__1",
+    "client_project_name": "VisualDataWeb/OWL2VOWL",
+    "github_url": "git@github.com:VisualDataWeb/OWL2VOWL.git",
+    "before_upgrade_commit": "4e70377950f4342932b071b3fbafc5333732060a",
+    "after_upgrade_commit": "65ceea940e6322f7dbf274dc549786964ee7ebd4",
+    "incompatibility_category": "Class Removal, Method Removal, Method Return Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/VisualDataWeb/OWL2VOWL/commit/65ceea940e6322f7dbf274dc549786964ee7ebd4",
+    "fix_type": 0
+}

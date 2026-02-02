@@ -1,0 +1,25 @@
+@startuml
+hide <<Path>> circle
+hide <<Response>> circle
+hide <<Parameter>> circle
+hide empty methods
+hide empty fields
+set namespaceSeparator none
+
+class "CustomerType" {
+  {field} value : string
+}
+
+class "Customer" {
+  {field} firstName : string
+  {field} lastName : string
+  {field} heightMetres : decimal {O}
+}
+
+"Customer" --> "1" "CustomerType"  :  "type"
+
+"Customer" --> "*" "Customer"  :  "friends"
+
+"Customer" --> "0..1" "Customer"  :  "favouritePartner"
+
+@enduml

@@ -1,0 +1,15 @@
+{
+    "id": "aliyun__GT__aliyun-log-logback-appender__1",
+    "client_project_name": "aliyun/aliyun-log-logback-appender",
+    "github_url": "git@github.com:aliyun/aliyun-log-logback-appender.git",
+    "before_upgrade_commit": "7294f79caab3d776a54601ecf55a152d323ebfe0",
+    "after_upgrade_commit": "8e5b7ba2dd499af48c4b28816f3bbf2d26c3ff6d",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/aliyun/aliyun-log-logback-appender/commit/8e5b7ba2dd499af48c4b28816f3bbf2d26c3ff6d",
+    "fix_type": 0
+}

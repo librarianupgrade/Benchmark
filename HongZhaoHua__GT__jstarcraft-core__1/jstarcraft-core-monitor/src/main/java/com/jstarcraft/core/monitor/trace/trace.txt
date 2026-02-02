@@ -1,0 +1,30 @@
+***** Transmittable ThreadLocal *****
+
+ThreadLocal系列:
+https://www.cnblogs.com/hama1993/tag/ThreadLocal
+
+Transmittable ThreadLocal(TTL):
+https://github.com/alibaba/transmittable-thread-local
+
+***** Brave *****
+
+SpringBoot下Brave方式集成Zipkin实现分布式全链路监控:
+https://www.cnblogs.com/haixiang/p/11498439.html
+
+Java分布式跟踪系统Zipkin:
+https://blog.csdn.net/apei830/category_7328281.html
+http://www.iocoder.cn/categories/Zipkin
+
+***** MDC *****
+
+基于SLF4J MDC机制实现日志的链路追踪:
+https://www.jianshu.com/p/3dca4aeb6edd
+
+MDC日志跟踪:
+https://www.jianshu.com/p/8f6c74381dc3
+
+关于Java如何获取当前类名以及方法名的实例:
+https://www.php.cn/java-article-375199.html
+
+如何知道方法的调用者:
+http://hellboys.bokee.com/1904804.html

@@ -1,0 +1,15 @@
+{
+    "id": "bes2008__GT__sqlhelper__2",
+    "client_project_name": "bes2008/sqlhelper",
+    "github_url": "git@github.com:bes2008/sqlhelper.git",
+    "before_upgrade_commit": "5bc71b77dded9d5256ee4d422114b9a45582be85",
+    "after_upgrade_commit": "d48b5b71a5e21a2d3bfd9e853e75cbaf66fb41ee",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/bes2008/sqlhelper/commit/d48b5b71a5e21a2d3bfd9e853e75cbaf66fb41ee",
+    "fix_type": 0
+}

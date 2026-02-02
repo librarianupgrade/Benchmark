@@ -1,0 +1,15 @@
+{
+    "id": "miltonio__GT__milton2__1",
+    "client_project_name": "miltonio/milton2",
+    "github_url": "git@github.com:miltonio/milton2.git",
+    "before_upgrade_commit": "5adc3665cb4cb713a0f37665feb1a851d57cfefe",
+    "after_upgrade_commit": "ddd943c30dabe40bb98a2f6a36d50fabb9a52979",
+    "incompatibility_category": "Method Parameter Length Change, Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "milton-server-ce",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/miltonio/milton2/commit/ddd943c30dabe40bb98a2f6a36d50fabb9a52979",
+    "fix_type": 0
+}

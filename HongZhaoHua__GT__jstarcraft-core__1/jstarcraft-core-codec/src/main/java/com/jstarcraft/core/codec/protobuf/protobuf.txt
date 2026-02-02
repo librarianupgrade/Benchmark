@@ -1,0 +1,31 @@
+深入Protobuf源码:
+http://www.blogjava.net/DLevin/category/54894.html
+
+Protobuf基础(Java使用,Windows代码生成):
+https://www.cnblogs.com/ziyue7575/p/11593374.html
+
+Protobuf语法指南（proto2）:
+https://blog.csdn.net/qq_22660775/article/details/89044538
+Protobuf语法指南（proto3）:
+https://blog.csdn.net/qq_22660775/article/details/89163881
+
+Protobuf3 系列:
+https://blog.csdn.net/hry2015/category_6885899.html
+
+Protobuf原理分析小结:
+https://www.jianshu.com/p/522f13206ba1
+
+理解Protobuf数据格式解析:
+https://www.cnblogs.com/ypppt/p/13356785.html
+
+Project contains Jackson extension component for reading and writing Protobuf encoded data:
+https://github.com/FasterXML/jackson-dataformats-binary/tree/master/protobuf
+
+JProtobuf - jprotobuf是针对Java程序开发一套简易类库，目的是简化java语言对protobuf类库的使用:
+https://github.com/jhunters/jprotobuf
+
+A java serialization library with built-in support for forward-backward compatibility (schema evolution) and validation:
+https://github.com/protostuff/protostuff
+
+Protostuff自定义序列化（Delegate）解析:
+https://www.cnblogs.com/uwannerme/p/5692861.html

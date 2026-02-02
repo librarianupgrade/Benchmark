@@ -1,0 +1,15 @@
+{
+    "id": "zapodot__GT__embedded-ldap-junit__1",
+    "client_project_name": "zapodot/embedded-ldap-junit",
+    "github_url": "git@github.com:zapodot/embedded-ldap-junit.git",
+    "before_upgrade_commit": "c9b41f38ab291fd57aeda2e546e3d1053f36c44b",
+    "after_upgrade_commit": "f10de50be604654baab8b92476ff2f6abca0fb75",
+    "incompatibility_category": "Classpath  Modification",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zapodot/embedded-ldap-junit/commit/f10de50be604654baab8b92476ff2f6abca0fb75",
+    "fix_type": 0
+}

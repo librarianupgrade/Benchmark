@@ -1,0 +1,15 @@
+{
+    "id": "binarywang__GT__weixin-java-miniapp-demo__3",
+    "client_project_name": "binarywang/weixin-java-miniapp-demo",
+    "github_url": "git@github.com:binarywang/weixin-java-miniapp-demo.git",
+    "before_upgrade_commit": "067786d3ad3bfc3df22be356dc9e2c5b1fc55771",
+    "after_upgrade_commit": "163bb1af2e738acec088d57822276fc060bf99c7",
+    "incompatibility_category": "Class Removal, Abstracted Method Return Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/binarywang/weixin-java-miniapp-demo/commit/163bb1af2e738acec088d57822276fc060bf99c7",
+    "fix_type": 0
+}

@@ -1,0 +1,12 @@
+{
+  "ElasticsearchTransactionDefinition": {
+    "properties": {
+      "most": {
+        "type": "date"
+      },
+      "name": {
+        "type": "keyword"
+      }
+    }
+  }
+}

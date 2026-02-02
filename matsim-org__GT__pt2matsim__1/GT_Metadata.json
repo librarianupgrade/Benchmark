@@ -1,0 +1,15 @@
+{
+    "id": "matsim-org__GT__pt2matsim__1",
+    "client_project_name": "matsim-org/pt2matsim",
+    "github_url": "git@github.com:matsim-org/pt2matsim.git",
+    "before_upgrade_commit": "fdfe40a0d5adb4ed98dff4de13662c60cd74dcbb",
+    "after_upgrade_commit": "fdc1bcd7e1a0f826e56da9b5ebeeae6d13130c4b",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/matsim-org/pt2matsim/commit/fdc1bcd7e1a0f826e56da9b5ebeeae6d13130c4b",
+    "fix_type": 0
+}

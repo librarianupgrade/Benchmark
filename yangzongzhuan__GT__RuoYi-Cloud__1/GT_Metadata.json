@@ -1,0 +1,15 @@
+{
+    "id": "yangzongzhuan__GT__RuoYi-Cloud__1",
+    "client_project_name": "yangzongzhuan/RuoYi-Cloud",
+    "github_url": "git@github.com:yangzongzhuan/RuoYi-Cloud.git",
+    "before_upgrade_commit": "819ad04e3e6c4730701a616567ad34dff50a9565",
+    "after_upgrade_commit": "8722e184d6d7219645310804624aa14543615604",
+    "incompatibility_category": "Class Removal, Method Parameter Type Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/yangzongzhuan/RuoYi-Cloud/commit/8722e184d6d7219645310804624aa14543615604",
+    "fix_type": 0
+}

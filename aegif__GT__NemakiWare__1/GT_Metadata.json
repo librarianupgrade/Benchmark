@@ -1,0 +1,15 @@
+{
+    "id": "aegif__GT__NemakiWare__1",
+    "client_project_name": "aegif/NemakiWare",
+    "github_url": "git@github.com:aegif/NemakiWare.git",
+    "before_upgrade_commit": "4015f170beecaa50024a5d2ee24d97cf0f785ec2",
+    "after_upgrade_commit": "b899e4fa4e3e35634772897f2d70308532ab2083",
+    "incompatibility_category": "Abstracted Method Return Type Change",
+    "root_path": "solr",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/aegif/NemakiWare/commit/b899e4fa4e3e35634772897f2d70308532ab2083",
+    "fix_type": 0
+}

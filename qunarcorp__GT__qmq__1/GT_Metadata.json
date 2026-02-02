@@ -1,0 +1,15 @@
+{
+    "id": "qunarcorp__GT__qmq__1",
+    "client_project_name": "qunarcorp/qmq",
+    "github_url": "git@github.com:qunarcorp/qmq.git",
+    "before_upgrade_commit": "825a160e4136a4cc3146e394ccfceb217b08d5d0",
+    "after_upgrade_commit": "00f91c5f4d7e87ce115356ca379df0cfeba1b586",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/qunarcorp/qmq/commit/00f91c5f4d7e87ce115356ca379df0cfeba1b586",
+    "fix_type": 0
+}

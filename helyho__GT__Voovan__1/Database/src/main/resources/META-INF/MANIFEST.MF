@@ -1,0 +1,7 @@
+Manifest-Version: 3.0.0
+Implementation-Vendor: Voovan open source
+Implementation-Version: 1.0
+Implementation-Vendor-Id: org.voovan
+Archiver-Version: Plexus Archiver
+Implementation-URL: http://www.voovan.org
+Add-Exports: java.base/jdk.internal.ref

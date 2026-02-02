@@ -1,0 +1,15 @@
+{
+    "id": "aclement__GT__spring-boot-graal-feature__1",
+    "client_project_name": "aclement/spring-boot-graal-feature",
+    "github_url": "git@github.com:aclement/spring-boot-graal-feature.git",
+    "before_upgrade_commit": "94cbc5fe6451cbd460146ef9d99273f999270a17",
+    "after_upgrade_commit": "ca7f0abc975b548297b61f725a6dd0caa9458e34",
+    "incompatibility_category": "Classpath  Modification",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/aclement/spring-boot-graal-feature/commit/ca7f0abc975b548297b61f725a6dd0caa9458e34",
+    "fix_type": 0
+}

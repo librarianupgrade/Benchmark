@@ -1,0 +1,24 @@
+@startuml
+hide <<Path>> circle
+hide <<Response>> circle
+hide <<Parameter>> circle
+hide empty methods
+hide empty fields
+set namespaceSeparator none
+
+class "employee" {
+}
+
+class "nurse" {
+  {field} level : integer
+}
+
+class "doctor" {
+  {field} income : decimal
+}
+
+"employee" --> "1" "doctor"  :  "role"
+
+"employee" --> "1" "nurse"  :  "role"
+
+@enduml

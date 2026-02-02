@@ -1,0 +1,15 @@
+{
+    "id": "yangfuhai__GT__jboot__2",
+    "client_project_name": "yangfuhai/jboot",
+    "github_url": "git@github.com:yangfuhai/jboot.git",
+    "before_upgrade_commit": "8237a789e011f201001bb6f7bbdb48bb00d40954",
+    "after_upgrade_commit": "39833a468ad2a85edbb93bd4794f8df13f73680e",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yangfuhai/jboot/commit/39833a468ad2a85edbb93bd4794f8df13f73680e",
+    "fix_type": 0
+}

@@ -1,0 +1,122 @@
+分布式定时任务调度系统技术选型:
+http://www.expectfly.com/2017/08/15/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E6%96%B9%E6%A1%88%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B
+
+史上最全的延迟任务实现方式汇总！附代码（强烈推荐）:
+https://www.cnblogs.com/vipstone/p/12696465.html
+
+一口气说出 6种 延时队列的实现方案，面试稳稳的:
+https://juejin.im/post/6844904150703013901
+
+schedule-test:
+https://github.com/xuda27/schedule-test
+
+几种任务调度的 Java 实现方法与比较:
+https://www.cnblogs.com/shenliang123/p/3231312.html
+
+Java定时任务:
+https://www.cnblogs.com/zhangbin1989/p/9294114.html
+
+Java定时任务的几种实现方式:
+https://blog.csdn.net/kegumingxin2626/article/details/72854823
+
+基于内存的时间轮算法、redis的zset、redis的key过期订阅事件三方式实现的延时任务调度:
+https://github.com/nameof/delay-task
+
+***** ActiveMQ *****
+
+ActiveMQ 延迟消息与定时消息传递:
+https://blog.csdn.net/relax_hb/article/details/84974120
+
+Delay and Schedule Message Delivery:
+http://activemq.apache.org/delay-and-schedule-message-delivery.html
+
+***** JMS *****
+
+What's New in JMS 2.0, Part Two—New Messaging Features:
+https://www.oracle.com/technical-resources/articles/java/jms2messaging.html
+
+***** Kafka *****
+
+How I Resolved Delays in Kafka Messages by Prioritizing Kafka Topics:
+https://engineering.taboola.com/resolved-delays-kafka-messages-prioritizing-kafka-topics
+
+***** NSQ *****
+
+带你入门Go的消息队列NSQ:
+https://www.cnblogs.com/smartrui/p/12549562.html
+
+NSQ中的优先级队列:
+https://www.dazhuanlan.com/2019/12/20/5dfc1f05607d6
+
+***** QMQ *****
+
+延时/定时消息:
+https://github.com/qunarcorp/qmq/blob/master/docs/cn/delay.md
+
+***** RabbitMQ *****
+
+RabbitMQ延迟消息示例:
+https://segmentfault.com/a/1190000013311069
+
+【RabbitMQ】一文带你搞定RabbitMQ延迟队列:
+https://www.cnblogs.com/mfrank/p/11260355.html
+
+***** RocketMQ *****
+
+定时和延时消息:
+https://help.aliyun.com/document_detail/43349.html
+
+***** Redis *****
+
+Java实现Redis超时失效key的监听触发:
+https://www.cnblogs.com/vianzhang/p/7756159.html
+
+***** Antares *****
+
+Antares 分布式任务调度平台(Distributed Job Schedule Platform):
+https://github.com/ihaolin/antares
+
+***** Elastic Job *****
+
+ElasticJob 是一个分布式调度解决方案:
+https://shardingsphere.apache.org/elasticjob/current/cn/overview
+
+Elastic Job 入门教程系列:
+https://blog.csdn.net/kangkanglou/article/details/82881725
+
+***** LTS *****
+
+LTS(light-task-scheduler)主要用于解决分布式任务调度问题，支持实时任务，定时任务和Cron任务:
+https://github.com/ltsopensource/light-task-scheduler
+
+***** PowerJob *****
+
+PowerJob（原OhMyScheduler）是全新一代分布式调度与计算框架，能让您轻松完成作业的调度与繁杂任务的分布式计算:
+https://github.com/KFCFans/PowerJob
+
+***** Quartz *****
+
+一文揭秘定时任务调度框架Quartz:
+https://www.cnblogs.com/davidwang456/p/10329616.html
+
+Quartz集群原理及配置应用:
+https://www.cnblogs.com/zhenyuyaodidiao/p/4755649.html
+
+Quartz的分布式任务调度应用:
+https://blog.csdn.net/zhongwumao/article/details/81077503
+
+***** Saturn *****
+
+Saturn 一个分布式作业调度平台:
+https://vipshop.github.io/Saturn
+
+***** XXL-JOB *****
+
+分布式任务调度平台XXL-JOB:
+https://www.xuxueli.com/xxl-job
+
+***** Spring Task *****
+
+Spring的任务执行器（TaskExecutor）和任务调度器（TaskScheduler）:
+https://blog.csdn.net/sinat_37807255/article/details/89635793
+

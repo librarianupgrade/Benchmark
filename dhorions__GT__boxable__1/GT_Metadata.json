@@ -1,0 +1,15 @@
+{
+    "id": "dhorions__GT__boxable__1",
+    "client_project_name": "dhorions/boxable",
+    "github_url": "git@github.com:dhorions/boxable.git",
+    "before_upgrade_commit": "91b0004e597161ed1be051a81c9d7ef229567910",
+    "after_upgrade_commit": "3e25966689b90407c1a9849131c334883afdb308",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/dhorions/boxable/commit/3e25966689b90407c1a9849131c334883afdb308",
+    "fix_type": 0
+}

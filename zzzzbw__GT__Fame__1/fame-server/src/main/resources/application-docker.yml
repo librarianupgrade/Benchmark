@@ -1,0 +1,19 @@
+#datasource
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://fame-mysql:3306/fame?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+    schema: classpath:db/mysql/schema/*.sql
+    # 第三方连接池需要设置为 always
+    initialization-mode: always
+#log
+logging:
+  level:
+    root: INFO
+    com:
+      zbw: INFO
+  file:
+    name: log/fame.log

@@ -1,0 +1,1 @@
+java -Djava.ext.dirs=lib -cp target/classes net.oschina.j2cache.CacheTester

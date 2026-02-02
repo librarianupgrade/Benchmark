@@ -1,0 +1,15 @@
+{
+    "id": "blinkfox__GT__fenix__1",
+    "client_project_name": "blinkfox/fenix",
+    "github_url": "git@github.com:blinkfox/fenix.git",
+    "before_upgrade_commit": "34e0ebff38a8a2f46288e94a9418244a28f2afb1",
+    "after_upgrade_commit": "b469df66a1b0a169ba0fa208a29bbdbe5158aa62",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "17",
+    "fixed_commit_url": "https://github.com/blinkfox/fenix/commit/b469df66a1b0a169ba0fa208a29bbdbe5158aa62",
+    "fix_type": 0
+}

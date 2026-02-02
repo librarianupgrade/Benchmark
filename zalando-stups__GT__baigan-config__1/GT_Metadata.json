@@ -1,0 +1,15 @@
+{
+    "id": "zalando-stups__GT__baigan-config__1",
+    "client_project_name": "zalando-stups/baigan-config",
+    "github_url": "git@github.com:zalando-stups/baigan-config.git",
+    "before_upgrade_commit": "6cb2d91e90e225f0c987d7f2996f0e8f2f603ff8",
+    "after_upgrade_commit": "78c77030c3620feb6ee1aa2e059415dd211bd464",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/zalando-stups/baigan-config/commit/78c77030c3620feb6ee1aa2e059415dd211bd464",
+    "fix_type": 0
+}

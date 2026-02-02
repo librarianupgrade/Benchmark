@@ -1,0 +1,15 @@
+{
+    "id": "couchbase__GT__kafka-connect-couchbase__1",
+    "client_project_name": "couchbase/kafka-connect-couchbase",
+    "github_url": "git@github.com:couchbase/kafka-connect-couchbase.git",
+    "before_upgrade_commit": "b2442aad3a0dba3bef03f9041f118cd2780ee00d",
+    "after_upgrade_commit": "5d9ab484b3c0ac0ec729b032c3bd1218b9b59201",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/couchbase/kafka-connect-couchbase/commit/5d9ab484b3c0ac0ec729b032c3bd1218b9b59201",
+    "fix_type": 0
+}

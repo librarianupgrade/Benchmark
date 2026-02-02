@@ -1,0 +1,15 @@
+{
+    "id": "adangel__GT__liquibase-percona__1",
+    "client_project_name": "adangel/liquibase-percona",
+    "github_url": "git@github.com:adangel/liquibase-percona.git",
+    "before_upgrade_commit": "c1073cf781968221fb928960c1499889debc37f0",
+    "after_upgrade_commit": "3f4ef80aaf3217b052c905b3f463ae96d5e00aa3",
+    "incompatibility_category": "Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/adangel/liquibase-percona/commit/3f4ef80aaf3217b052c905b3f463ae96d5e00aa3",
+    "fix_type": 0
+}

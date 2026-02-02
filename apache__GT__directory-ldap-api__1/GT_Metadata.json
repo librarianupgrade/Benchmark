@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__directory-ldap-api__1",
+    "client_project_name": "apache/directory-ldap-api",
+    "github_url": "git@github.com:apache/directory-ldap-api.git",
+    "before_upgrade_commit": "31c6564c283244af1ba1c1154b6503e369bf09a7",
+    "after_upgrade_commit": "5ea00ae1a7dd22c3e08483dd9034affbb5cb3e7a",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "ldap/client/api",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/apache/directory-ldap-api/commit/5ea00ae1a7dd22c3e08483dd9034affbb5cb3e7a",
+    "fix_type": 0
+}

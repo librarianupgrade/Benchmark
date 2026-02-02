@@ -1,0 +1,15 @@
+{
+    "id": "apache__GT__jspwiki__1",
+    "client_project_name": "apache/jspwiki",
+    "github_url": "git@github.com:apache/jspwiki.git",
+    "before_upgrade_commit": "f384a29715c916efbc5ced80e5ec882ddec7c0fc",
+    "after_upgrade_commit": "ab304124c2f6a06dd24cb1a124ba1731ec5e0102",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/apache/jspwiki/commit/ab304124c2f6a06dd24cb1a124ba1731ec5e0102",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "yangfuhai__GT__jboot__10",
+    "client_project_name": "yangfuhai/jboot",
+    "github_url": "git@github.com:yangfuhai/jboot.git",
+    "before_upgrade_commit": "46196d4d8e03a0e61b9b93ed1816ef000968c6bf",
+    "after_upgrade_commit": "dff5c0b693a190207b572193fbf062d7e53a59b9",
+    "incompatibility_category": "Abstracted Method Parameter Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yangfuhai/jboot/commit/dff5c0b693a190207b572193fbf062d7e53a59b9",
+    "fix_type": 0
+}

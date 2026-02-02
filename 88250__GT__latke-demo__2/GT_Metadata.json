@@ -1,0 +1,15 @@
+{
+    "id": "88250__GT__latke-demo__2",
+    "client_project_name": "88250/latke-demo",
+    "github_url": "git@github.com:88250/latke-demo.git",
+    "before_upgrade_commit": "627b211771050b838a53987f4a7881d3e0972569",
+    "after_upgrade_commit": "d6c061f28392f27bb43e3b63436c98dbc95305f9",
+    "incompatibility_category": "Class Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/88250/latke-demo/commit/d6c061f28392f27bb43e3b63436c98dbc95305f9",
+    "fix_type": 0
+}

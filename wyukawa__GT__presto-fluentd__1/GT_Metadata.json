@@ -1,0 +1,15 @@
+{
+    "id": "wyukawa__GT__presto-fluentd__1",
+    "client_project_name": "wyukawa/presto-fluentd",
+    "github_url": "git@github.com:wyukawa/presto-fluentd.git",
+    "before_upgrade_commit": "885affa479dc8319f8956630b5307abcc7f48b62",
+    "after_upgrade_commit": "001502c038c279524ec57539a8100a887406991e",
+    "incompatibility_category": "Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/wyukawa/presto-fluentd/commit/001502c038c279524ec57539a8100a887406991e",
+    "fix_type": 0
+}

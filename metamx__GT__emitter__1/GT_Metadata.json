@@ -1,0 +1,15 @@
+{
+    "id": "metamx__GT__emitter__1",
+    "client_project_name": "metamx/emitter",
+    "github_url": "git@github.com:metamx/emitter.git",
+    "before_upgrade_commit": "96d45f75ec5c67ee2a12384e6a7c735e5c0f8c90",
+    "after_upgrade_commit": "c6c0cf35a82f371041a76b68206d98e6993297ba",
+    "incompatibility_category": "Abstracted Method Parameter Length Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/metamx/emitter/commit/c6c0cf35a82f371041a76b68206d98e6993297ba",
+    "fix_type": 0
+}

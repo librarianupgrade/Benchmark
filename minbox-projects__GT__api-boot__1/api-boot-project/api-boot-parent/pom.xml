@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>api-boot-dependencies</artifactId>
+        <groupId>org.minbox.framework</groupId>
+        <version>${revision}</version>
+        <relativePath>../api-boot-dependencies</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <artifactId>api-boot-parent</artifactId>
+    <description>
+        ApiBoot Starter / Plugin Parent
+    </description>
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+        <api.boot.version>${project.version}</api.boot.version>
+    </properties>
+    <build>
+        <plugins>
+            <!--Maven Jar Plugin-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Implementation-Title>${project.name}</Implementation-Title>
+                            <Implementation-Version>${api.boot.version}</Implementation-Version>
+                            <Built-By>ApiBoot</Built-By>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

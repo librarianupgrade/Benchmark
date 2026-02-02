@@ -1,0 +1,15 @@
+{
+    "id": "yangfuhai__GT__jboot__3",
+    "client_project_name": "yangfuhai/jboot",
+    "github_url": "git@github.com:yangfuhai/jboot.git",
+    "before_upgrade_commit": "12aaaca5b70b49154ecd55918b15a89fa7d49a58",
+    "after_upgrade_commit": "015df628ef66cd7ecada2492a790bc388c7474dc",
+    "incompatibility_category": "Field Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/yangfuhai/jboot/commit/015df628ef66cd7ecada2492a790bc388c7474dc",
+    "fix_type": 0
+}

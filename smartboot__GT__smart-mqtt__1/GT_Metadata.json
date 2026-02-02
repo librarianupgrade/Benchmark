@@ -1,0 +1,15 @@
+{
+    "id": "smartboot__GT__smart-mqtt__1",
+    "client_project_name": "smartboot/smart-mqtt",
+    "github_url": "git@github.com:smartboot/smart-mqtt.git",
+    "before_upgrade_commit": "efdf12f001b8cfe86455af447df5483ceb1e3747",
+    "after_upgrade_commit": "fd6b428c86c6bdff81faf62eb8ff5349c57e92be",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/smartboot/smart-mqtt/commit/fd6b428c86c6bdff81faf62eb8ff5349c57e92be",
+    "fix_type": 0
+}

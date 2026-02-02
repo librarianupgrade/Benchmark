@@ -1,0 +1,155 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.servicecomb.foundation.vertx.http;
+
+import java.io.IOException;
+import java.util.Collection;
+import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
+
+import org.apache.servicecomb.foundation.common.http.HttpStatus;
+import org.apache.servicecomb.foundation.vertx.stream.PumpFromPart;
+
+import io.vertx.core.Context;
+import io.vertx.core.Vertx;
+import io.vertx.core.buffer.Buffer;
+import io.vertx.core.http.HttpServerResponse;
+import jakarta.servlet.http.Part;
+import jakarta.ws.rs.core.HttpHeaders;
+import jakarta.ws.rs.core.Response.StatusType;
+
+public class VertxServerResponseToHttpServletResponse extends AbstractHttpServletResponse {
+	private final Context context;
+
+	private final HttpServerResponse serverResponse;
+
+	private StatusType statusType;
+
+	public VertxServerResponseToHttpServletResponse(HttpServerResponse serverResponse) {
+		this.context = Vertx.currentContext();
+		this.serverResponse = serverResponse;
+
+		Objects.requireNonNull(context, "must run in vertx context.");
+	}
+
+	@Override
+	public void setContentType(String type) {
+		serverResponse.headers().set(HttpHeaders.CONTENT_TYPE, type);
+	}
+
+	@Override
+	public void setContentLength(int len) {
+		serverResponse.headers().set(HttpHeaders.CONTENT_LENGTH, String.valueOf(len));
+	}
+
+	@Override
+	public void setStatus(int sc) {
+		serverResponse.setStatusCode(sc);
+	}
+
+	@Override
+	public StatusType getStatusType() {
+		if (statusType == null) {
+			statusType = new HttpStatus(serverResponse.getStatusCode(), serverResponse.getStatusMessage());
+		}
+		return statusType;
+	}
+
+	@Override
+	public void addHeader(String name, String value) {
+		serverResponse.headers().add(name, value);
+	}
+
+	@Override
+	public void setHeader(String name, String value) {
+		serverResponse.headers().set(name, value);
+	}
+
+	@Override
+	public int getStatus() {
+		return serverResponse.getStatusCode();
+	}
+
+	@Override
+	public String getContentType() {
+		return serverResponse.headers().get(HttpHeaders.CONTENT_TYPE);
+	}
+
+	@Override
+	public String getHeader(String name) {
+		return serverResponse.headers().get(name);
+	}
+
+	@Override
+	public Collection<String> getHeaders(String name) {
+		return serverResponse.headers().getAll(name);
+	}
+
+	@Override
+	public Collection<String> getHeaderNames() {
+		return serverResponse.headers().names();
+	}
+
+	@Override
+	public void endResponse() {
+		if (context == Vertx.currentContext()) {
+			internalFlushBuffer();
+			return;
+		}
+
+		context.runOnContext(V -> internalFlushBuffer());
+	}
+
+	public void internalFlushBuffer() {
+		if (serverResponse.closed()) {
+			return;
+		}
+		serverResponse.end();
+	}
+
+	@Override
+	public CompletableFuture<Void> sendPart(Part part) {
+		DownloadUtils.prepareDownloadHeader(this, part);
+		if (part == null) {
+			return CompletableFuture.completedFuture(null);
+		}
+		return new PumpFromPart(context, part).toWriteStream(serverResponse, null);
+	}
+
+	@Override
+	public CompletableFuture<Void> sendBuffer(Buffer buffer) {
+		if (serverResponse.closed()) {
+			return CompletableFuture.failedFuture(new IOException("Response is closed before sending any data. "
+					+ "Maybe client is timeout or check idle connection timeout for provider is properly configured."));
+		}
+		CompletableFuture<Void> future = new CompletableFuture<>();
+		serverResponse.write(buffer).onComplete(result -> {
+			if (result.failed()) {
+				future.completeExceptionally(result.cause());
+			} else {
+				future.complete(null);
+			}
+		});
+		return future;
+	}
+
+	@Override
+	public void setChunked(boolean chunked) {
+		serverResponse.setChunked(chunked);
+	}
+}

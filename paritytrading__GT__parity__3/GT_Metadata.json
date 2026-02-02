@@ -1,0 +1,15 @@
+{
+    "id": "paritytrading__GT__parity__3",
+    "client_project_name": "paritytrading/parity",
+    "github_url": "git@github.com:paritytrading/parity.git",
+    "before_upgrade_commit": "a6fd39216915d2c63c2819b8535764f3801dae88",
+    "after_upgrade_commit": "891416ea17dc8866b786d5e08f2c03ac98621f6b",
+    "incompatibility_category": "Abstracted Method Parameter Length Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/paritytrading/parity/commit/891416ea17dc8866b786d5e08f2c03ac98621f6b",
+    "fix_type": 0
+}

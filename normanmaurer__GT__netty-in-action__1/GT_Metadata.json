@@ -1,0 +1,15 @@
+{
+    "id": "normanmaurer__GT__netty-in-action__1",
+    "client_project_name": "normanmaurer/netty-in-action",
+    "github_url": "git@github.com:normanmaurer/netty-in-action.git",
+    "before_upgrade_commit": "5ec1658fda8283d660cc0f74462a6872ea52a6f6",
+    "after_upgrade_commit": "5c5d983554912a5feb1c54397ba5bcf893cb1326",
+    "incompatibility_category": "Method Accessibility Change",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/normanmaurer/netty-in-action/commit/5c5d983554912a5feb1c54397ba5bcf893cb1326",
+    "fix_type": 0
+}

@@ -1,0 +1,15 @@
+{
+    "id": "Aegeaner__GT__kafka-connector-redis__1",
+    "client_project_name": "Aegeaner/kafka-connector-redis",
+    "github_url": "git@github.com:Aegeaner/kafka-connector-redis.git",
+    "before_upgrade_commit": "47fdd2fefc6763b2da187a04a0676842b47387b8",
+    "after_upgrade_commit": "2afb3aef8065318fa39ce729bc34c8a1643f6a32",
+    "incompatibility_category": "Class Removal, Method Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Aegeaner/kafka-connector-redis/commit/2afb3aef8065318fa39ce729bc34c8a1643f6a32",
+    "fix_type": 0
+}

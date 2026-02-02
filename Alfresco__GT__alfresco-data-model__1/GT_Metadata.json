@@ -1,0 +1,15 @@
+{
+    "id": "Alfresco__GT__alfresco-data-model__1",
+    "client_project_name": "Alfresco/alfresco-data-model",
+    "github_url": "git@github.com:Alfresco/alfresco-data-model.git",
+    "before_upgrade_commit": "468eb4ed61dcbe9adbf0da8216015a573b70bc04",
+    "after_upgrade_commit": "8a8fbf309f316ab56b9ba2dcf2d4068be28f4d87",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Alfresco/alfresco-data-model/commit/8a8fbf309f316ab56b9ba2dcf2d4068be28f4d87",
+    "fix_type": 0
+}

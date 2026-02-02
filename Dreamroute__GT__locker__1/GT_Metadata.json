@@ -1,0 +1,15 @@
+{
+    "id": "Dreamroute__GT__locker__1",
+    "client_project_name": "Dreamroute/locker",
+    "github_url": "git@github.com:Dreamroute/locker.git",
+    "before_upgrade_commit": "8bfe136f8565d4e9aa7a6bd4c7bbd5e378ff3883",
+    "after_upgrade_commit": "e6632eb25fc13abd1c4899e1cc83bf3c6cd82a02",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "locker-sample",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Dreamroute/locker/commit/e6632eb25fc13abd1c4899e1cc83bf3c6cd82a02",
+    "fix_type": 0
+}

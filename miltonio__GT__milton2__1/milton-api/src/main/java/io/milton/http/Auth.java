@@ -1,0 +1,256 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package io.milton.http;
+
+import io.milton.common.StringSplitUtils;
+import org.apache.commons.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
+
+/**
+ * Holds authentication information for a request
+ * <p>
+ * There are two sets of information: - that which is present in the request -
+ * that which is determined as part of performing authentication
+ * <p>
+ * Note that even if authentication fails, this object will still be available
+ * in the request - DO NOT USE THE PRESENCE OF THIS OBJECT TO CHECK FOR A VALID
+ * LOGIN!!!
+ * <p>
+ * Instead use the tag property. This will ONLY be not null after a successful
+ * authentication
+ *
+ * @author brad
+ */
+public class Auth {
+
+	private static final Logger log = LoggerFactory.getLogger(Auth.class);
+
+	private static Charset basicParserCharset;
+
+	// use 8859-1 as required by spec - https://github.com/miltonio/milton2/issues/19
+	static {
+		try {
+			basicParserCharset = StandardCharsets.ISO_8859_1;
+		} catch (Exception e) {
+			// fall
+			basicParserCharset = StandardCharsets.UTF_8;
+		}
+	}
+
+	public static Charset getBasicParCharset() {
+		return basicParserCharset;
+	}
+
+	/**
+	 * Holds application specific user data, as returned from the authenticate
+	 * method on Resource
+	 * <p>
+	 * This should be used to test for a valid login.
+	 */
+	private Object tag;
+
+	/**
+	 * Common HTTP authentication schemes, and some non-http specified but
+	 * common ones
+	 */
+	public enum Scheme {
+
+		BASIC, DIGEST, NEGOTIATE, FORM, SESSION, NTLM, OAUTH, BEARER
+	}
+
+	private final Scheme scheme;
+	private String user;
+	private String password;
+
+	private String realm;
+	private String nonce;
+	private String uri;
+	private String responseDigest;
+	private String qop;
+	private String nc;
+	private String cnonce;
+	private boolean nonceStale; // set by digest auth handler
+
+	public Auth(String sAuth) {
+		//        log.debug( "parse: " + sAuth);
+		int pos = sAuth.indexOf(" ");
+		String schemeCode;
+		String enc;
+		if (pos >= 0) {
+			schemeCode = sAuth.substring(0, pos);
+			scheme = Scheme.valueOf(schemeCode.toUpperCase());
+			enc = sAuth.substring(pos + 1);
+		} else {
+			//scheme = Scheme.BASIC;
+			//enc = sAuth;
+
+			schemeCode = sAuth;
+			scheme = Scheme.valueOf(schemeCode.toUpperCase());
+			enc = null;
+		}
+		if (enc != null) {
+			if (scheme.equals(Scheme.BASIC)) {
+				parseBasic(enc);
+			} else if (scheme.equals(Scheme.DIGEST)) {
+				parseDigest(enc);
+			} else if (scheme.equals(Scheme.BEARER)) {
+				parseBearer(enc);
+			}
+		}
+	}
+
+	public Auth(String user, Object userTag) {
+		this.scheme = Scheme.BASIC;
+		this.user = user;
+		this.password = null;
+		this.tag = userTag;
+	}
+
+	public Auth(Scheme scheme, String user, Object userTag) {
+		this.scheme = scheme;
+		this.user = user;
+		this.password = null;
+		this.tag = userTag;
+	}
+
+	/**
+	 * @return - the user property in the request. This MIGHT NOT be an actual
+	 * user
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * Set after a successful authenticate method with a not-null value
+	 * <p>
+	 * The actual value will be application dependent
+	 *
+	 * @param authTag
+	 */
+	public void setTag(Object authTag) {
+		tag = authTag;
+	}
+
+	/**
+	 * Holds application specific user data, as returned from the authenticate
+	 * method on Resource
+	 * <p>
+	 * This should be used to test for a valid login.
+	 *
+	 * @return some object identifying the user, normally returned from
+	 * Resource.authenticate
+	 */
+	public Object getTag() {
+		return tag;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public Scheme getScheme() {
+		return scheme;
+	}
+
+	public String getCnonce() {
+		return cnonce;
+	}
+
+	public String getNc() {
+		return nc;
+	}
+
+	public String getNonce() {
+		return nonce;
+	}
+
+	public String getQop() {
+		return qop;
+	}
+
+	public String getRealm() {
+		return realm;
+	}
+
+	public String getResponseDigest() {
+		return responseDigest;
+	}
+
+	public String getUri() {
+		return uri;
+	}
+
+	public boolean isNonceStale() {
+		return nonceStale;
+	}
+
+	/**
+	 * set by digest auth processing. Used to add stale nonce flag to challenge
+	 *
+	 * @param nonceStale
+	 */
+	public void setNonceStale(boolean nonceStale) {
+		this.nonceStale = nonceStale;
+	}
+
+	private void parseBasic(String enc) {
+		byte[] bytes = Base64.decodeBase64(enc.getBytes(basicParserCharset));
+		String s = new String(bytes);
+		int pos = s.indexOf(":");
+		if (pos >= 0) {
+			user = s.substring(0, pos);
+			password = s.substring(pos + 1);
+		} else {
+			user = s;
+			password = null;
+		}
+
+	}
+
+	private void parseDigest(String s) {
+		String[] headerEntries = StringSplitUtils.splitIgnoringQuotes(s, ',');
+		Map<String, String> headerMap = StringSplitUtils.splitEachArrayElementAndCreateMap(headerEntries, "=", "\"");
+
+		//        log.debug( "headerMap: " + headerMap);
+		user = headerMap.get("username");
+		realm = headerMap.get("realm");
+		nonce = headerMap.get("nonce");
+		uri = headerMap.get("uri");
+		responseDigest = headerMap.get("response");
+		qop = headerMap.get("qop"); // RFC 2617 extension
+		nc = headerMap.get("nc"); // RFC 2617 extension
+		cnonce = headerMap.get("cnonce"); // RFC 2617 extension
+	}
+
+	private void parseBearer(String enc) {
+		user = enc;
+	}
+
+	@Override
+	public String toString() {
+		return "scheme: " + scheme + " user:" + user + " tag:" + tag;
+	}
+
+}

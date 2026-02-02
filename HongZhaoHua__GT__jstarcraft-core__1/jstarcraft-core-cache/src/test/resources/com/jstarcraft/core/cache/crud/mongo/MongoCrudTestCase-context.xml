@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.jstarcraft.com/core/cache" xmlns:mongo="http://www.jstarcraft.com/core/storage/mongo"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.jstarcraft.com/core/cache
+http://www.jstarcraft.com/core/cache/cache.xsd
+http://www.jstarcraft.com/core/storage/mongo
+http://www.jstarcraft.com/core/storage/mongo/mongo.xsd">
+
+    <!-- 注解配置 -->
+    <context:annotation-config />
+
+    <!-- 自动包扫描配置 -->
+    <context:component-scan base-package="com.jstarcraft.core.cache.crud.mongo" />
+
+    <mongo:configuration id="accessor" template="template">
+        <mongo:scan>
+            <mongo:package name="com.jstarcraft.core.cache.crud.mongo" />
+        </mongo:scan>
+    </mongo:configuration>
+
+    <!-- 缓存配置 -->
+    <bean id="lruMemoryStrategy" class="com.jstarcraft.core.cache.transience.LeastRecentlyUsedTransienceStrategy">
+        <constructor-arg value="lruMemoryStrategy" />
+        <constructor-arg>
+            <map>
+                <entry key="minimunSize" value-type="java.lang.Integer" value="16"></entry>
+                <entry key="maximunSize" value-type="java.lang.Integer" value="100"></entry>
+                <entry key="concurrencyLevel" value-type="java.lang.Integer" value="10"></entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="promptPersistenceStrategy" class="com.jstarcraft.core.cache.persistence.PromptPersistenceStrategy">
+        <constructor-arg value="promptPersistenceStrategy" />
+        <constructor-arg>
+            <map>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <cache:configuration id="cacheService">
+        <cache:accessor reference="accessor" />
+        <cache:transienceStrategy reference="lruMemoryStrategy" />
+        <cache:persistenceStrategy reference="promptPersistenceStrategy" />
+        <cache:scan>
+            <cache:package name="com.jstarcraft.core.cache.crud.mongo" />
+        </cache:scan>
+    </cache:configuration>
+
+</beans>

@@ -1,0 +1,15 @@
+{
+    "id": "DiUS__GT__java-faker__1",
+    "client_project_name": "DiUS/java-faker",
+    "github_url": "git@github.com:DiUS/java-faker.git",
+    "before_upgrade_commit": "f6a233913164338b4320e82315322bcdc66c3ac2",
+    "after_upgrade_commit": "2f0e6d0e75e957b2ba2297796a80b12c0a034a59",
+    "incompatibility_category": "Transitive Dependency Removal",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/DiUS/java-faker/commit/2f0e6d0e75e957b2ba2297796a80b12c0a034a59",
+    "fix_type": 0
+}

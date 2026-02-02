@@ -1,0 +1,15 @@
+{
+    "id": "ttddyy__GT__datasource-assert__1",
+    "client_project_name": "ttddyy/datasource-assert",
+    "github_url": "git@github.com:ttddyy/datasource-assert.git",
+    "before_upgrade_commit": "83a2c6cc7615f7d3b733ed9aa6d41483f7e780a4",
+    "after_upgrade_commit": "80d28fb3fa96ebcb98b7d20e11c015733b8cdf41",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/ttddyy/datasource-assert/commit/80d28fb3fa96ebcb98b7d20e11c015733b8cdf41",
+    "fix_type": 0
+}

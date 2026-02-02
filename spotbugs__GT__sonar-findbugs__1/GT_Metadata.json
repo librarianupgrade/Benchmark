@@ -1,0 +1,15 @@
+{
+    "id": "spotbugs__GT__sonar-findbugs__1",
+    "client_project_name": "spotbugs/sonar-findbugs",
+    "github_url": "git@github.com:spotbugs/sonar-findbugs.git",
+    "before_upgrade_commit": "6b0d08a0d544489dc873a5f0cece8e755144c6f4",
+    "after_upgrade_commit": "63e9bf3f8676e3fc5418c5fadd6dd244240111d2",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/spotbugs/sonar-findbugs/commit/63e9bf3f8676e3fc5418c5fadd6dd244240111d2",
+    "fix_type": 0
+}

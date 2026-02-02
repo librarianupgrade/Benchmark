@@ -1,0 +1,15 @@
+{
+    "id": "davidmoten__GT__rxjava-jdbc__2",
+    "client_project_name": "davidmoten/rxjava-jdbc",
+    "github_url": "git@github.com:davidmoten/rxjava-jdbc.git",
+    "before_upgrade_commit": "805729fe2eaa60c4b84ad633345d2cee6017ea07",
+    "after_upgrade_commit": "382f0769abeadb90a9a2f4bfeb12a4fd3e8705d9",
+    "incompatibility_category": "Method Parameter Type Change, Abstracted Method Addition",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/davidmoten/rxjava-jdbc/commit/382f0769abeadb90a9a2f4bfeb12a4fd3e8705d9",
+    "fix_type": 0
+}

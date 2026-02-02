@@ -1,0 +1,15 @@
+{
+    "id": "Contargo__GT__pdf-builder__1",
+    "client_project_name": "Contargo/pdf-builder",
+    "github_url": "git@github.com:Contargo/pdf-builder.git",
+    "before_upgrade_commit": "e71e1df0ed80c5fe8dd2965d48a119c34819f139",
+    "after_upgrade_commit": "84bcf41aa364e011abc38611a8d631620847a5c8",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Contargo/pdf-builder/commit/84bcf41aa364e011abc38611a8d631620847a5c8",
+    "fix_type": 0
+}

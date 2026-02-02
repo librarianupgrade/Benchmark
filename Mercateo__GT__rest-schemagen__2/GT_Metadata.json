@@ -1,0 +1,15 @@
+{
+    "id": "Mercateo__GT__rest-schemagen__2",
+    "client_project_name": "Mercateo/rest-schemagen",
+    "github_url": "git@github.com:Mercateo/rest-schemagen.git",
+    "before_upgrade_commit": "8d5fad7a1f00b7978d3524738aac5b8151a67136",
+    "after_upgrade_commit": "078163606edeac5a9248cbeed2448b6e322407f0",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/Mercateo/rest-schemagen/commit/078163606edeac5a9248cbeed2448b6e322407f0",
+    "fix_type": 0
+}

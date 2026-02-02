@@ -1,0 +1,15 @@
+{
+    "id": "binarywang__GT__weixin-java-cp-demo__2",
+    "client_project_name": "binarywang/weixin-java-cp-demo",
+    "github_url": "git@github.com:binarywang/weixin-java-cp-demo.git",
+    "before_upgrade_commit": "553cec3c01c910044edbc40c5fee81cf0273a66b",
+    "after_upgrade_commit": "5b8c0ba0d9f3d28bf638e640ad00421bc13530d9",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/binarywang/weixin-java-cp-demo/commit/5b8c0ba0d9f3d28bf638e640ad00421bc13530d9",
+    "fix_type": 0
+}

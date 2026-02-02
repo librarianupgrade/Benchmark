@@ -1,0 +1,15 @@
+{
+    "id": "mkr__GT__archivefs__2",
+    "client_project_name": "mkr/archivefs",
+    "github_url": "git@github.com:mkr/archivefs.git",
+    "before_upgrade_commit": "d9fa8cd7ed0d384bc2f8a4ee8606ab3da05168c2",
+    "after_upgrade_commit": "a24e756f8fa762d38a8886a034f1dd149dbe2c2f",
+    "incompatibility_category": "",
+    "root_path": "",
+    "change_pom_path": "",
+    "old_version": "pom.xml.old",
+    "new_version": "pom.xml.new",
+    "jdk_version": "1.8",
+    "fixed_commit_url": "https://github.com/mkr/archivefs/commit/a24e756f8fa762d38a8886a034f1dd149dbe2c2f",
+    "fix_type": 0
+}
